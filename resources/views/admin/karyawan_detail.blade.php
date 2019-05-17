@@ -28,17 +28,9 @@
                                 <i class="icofont icofont-ui-delete c-pointer"></i>
                             </div>
                         </div>
-                        <div class="card-block">
-                            <h4 class="f-18 f-normal m-b-10 txt-primary">Josephin Villa</h4>
-                            <h5 class="f-14">Software Engineer</h5>
-                            <p class="m-b-15">Lorem ipsum dolor sit amet, consectet
-                                ur adipisicing elit, sed do eiusmod temp or incidi dunt ut labore et.Lorem ipsum dolor sit amet, consecte</p>
-
-                            <div class="faq-profile-btn">
-                                <button type="button" class="btn btn-primary waves-effect waves-light">Follows
-                                </button>
-                            </div>
-
+                        <div class="card-block text-center">
+                            <h4 class="f-18 f-normal m-b-10 txt-primary">Tri Angga Tegar Utama</h4>
+                            <h5 class="f-14">Supervisor</h5>
                         </div>
                     </div>
                     <!-- end of card-block -->
@@ -59,7 +51,7 @@
                                 <div class="slide"></div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#questions" role="tab">Info Pekerjaan</a>
+                                <a class="nav-link" data-toggle="tab" href="#infokerja" role="tab">Info Pekerjaan</a>
                                 <div class="slide"></div>
                             </li>
                             <li class="nav-item">
@@ -73,7 +65,7 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="personal" role="tabpanel">
                             <div class="card">
-                                <div class="card-header"><h5 class="card-header-text">About Me</h5>
+                                <div class="card-header"><h5 class="card-header-text">Biodata</h5>
                                     <button id="edit-btn" type="button" class="btn btn-primary waves-effect waves-light f-right" >
                                         <i  class="icofont icofont-edit"></i>
                                     </button>
@@ -88,25 +80,22 @@
                                                             <table class="table m-0">
                                                                 <tbody>
                                                                 <tr>
-                                                                    <th scope="row">Full Name</th>
-                                                                    <td>Josephine Villa</td>
+                                                                    <th scope="row">Nama Lengkap</th>
+                                                                    <td>Tri Angga Tegar Utama</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th scope="row">Gender</th>
-                                                                    <td>Female</td>
+                                                                    <th scope="row">Jenis Kelamin</th>
+                                                                    <td>Laki-laki</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th scope="row">Birth Date</th>
-                                                                    <td>October 25th, 1990</td>
+                                                                    <th scope="row">Tanggal Lahir</th>
+                                                                    <td>4 Maret 1997</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th scope="row">Marital Status</th>
-                                                                    <td>Single</td>
+                                                                    <th scope="row">Status</th>
+                                                                    <td>Belum Menikah</td>
                                                                 </tr>
-                                                                <tr>
-                                                                    <th scope="row">Location</th>
-                                                                    <td>New York, USA</td>
-                                                                </tr>
+
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -116,24 +105,16 @@
                                                             <table class="table">
                                                                 <tbody>
                                                                 <tr>
+                                                                    <th scope="row">Alamat</th>
+                                                                     <td>Jalan Ayani km.31 Komplek Chandra Utama No.39 </td>
+                                                                </tr>
+                                                                <tr>
                                                                     <th scope="row">Email</th>
-                                                                    <td><a href="#!">Demo@phenix.com</a></td>
+                                                                    <td><a href="#!">trianggategarutama@gmail.com</a></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th scope="row">Mobile Number</th>
+                                                                    <th scope="row">No Tlp</th>
                                                                     <td>(0123) - 4567891</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">Twitter</th>
-                                                                    <td>@phoenixcoded</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">Skype</th>
-                                                                    <td>phoenixcoded.demo</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">Website</th>
-                                                                    <td><a href="#!">www.demo.com</a></td>
                                                                 </tr>
                                                                 </tbody>
                                                             </table>
@@ -154,443 +135,172 @@
                             </div>
                             <!-- end of card-->
                         </div>
-                        <!-- end of tab-pane -->
-                        <!-- end of about us tab-pane -->
 
-                        <!-- start tab-pane of project tab -->
                         <div class="tab-pane" id="project" role="tabpanel">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="card-header-text">Project Details</h5>
-                                    <button type="button" class="btn btn-primary waves-effect waves-light f-right">
-                                        + ADD PROJECTS</button>
-                                </div>
-                                <!-- end of card-header  -->
                                 <div class="row">
+                                    <!--input sizes starts-->
                                     <div class="col-lg-12">
-                                        <div class="project-table">
-                                            <div class="table-responsive">
-                                                <table class="table">
-                                                    <thead>
-                                                    <tr>
-                                                        <th class="text-center txt-primary pro-pic">Photo</th>
-                                                        <th class="text-center txt-primary">Client</th>
-                                                        <th class="text-center txt-primary">Start Date</th>
-                                                        <th class="text-center txt-primary">End Date</th>
-                                                        <th class="text-center txt-primary">Status</th>
-                                                        <th class="text-center txt-primary">Action</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody class="text-center">
-                                                    <tr>
-                                                        <td>
-                                                            <img src="assets/images/avatar-2.png" class="img-circle" alt="tbl">
-                                                        </td>
-                                                        <td>Web Consultant</td>
-                                                        <td>Oct 25th, 2014</td>
-                                                        <td>Oct 25th, 2015</td>
-                                                        <td class="text-center"><span class="label label-success m-t-20">Finish</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="icofont icofont-ui-edit"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="icofont icofont-ui-delete"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <img src="assets/images/avatar-2.png" class="img-circle" alt="tbl">
-                                                        </td>
-                                                        <td>Web Consultant</td>
-                                                        <td>Oct 25th, 2014</td>
-                                                        <td>Oct 25th, 2015</td>
-                                                        <td class="text-center"><span class="label label-success">Finish</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="icofont icofont-ui-edit"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="icofont icofont-ui-delete"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <img src="assets/images/avatar-2.png" class="img-circle" alt="tbl">
-                                                        </td>
-                                                        <td>Web Consultant</td>
-                                                        <td>Oct 25th, 2014</td>
-                                                        <td>Oct 25th, 2015</td>
-                                                        <td class="text-center"><span class="label label-warning">Pending</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="icofont icofont-ui-edit"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="icofont icofont-ui-delete"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <img src="assets/images/avatar-2.png" class="img-circle" alt="tbl">
-                                                        </td>
-                                                        <td>Web Consultant</td>
-                                                        <td>Oct 25th, 2014</td>
-                                                        <td>Oct 25th, 2015</td>
-                                                        <td class="text-center"><span class="label label-success">Finish</span></td>
-                                                        <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="icofont icofont-ui-edit"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="icofont icofont-ui-delete"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <img src="assets/images/avatar-2.png" class="img-circle" alt="tbl">
-                                                        </td>
-                                                        <td>Web Consultant</td>
-                                                        <td>Oct 25th, 2014</td>
-                                                        <td>Oct 25th, 2015</td>
-                                                        <td class="text-center"><span class="label label-danger">cancel</span></td>
-                                                        <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="icofont icofont-ui-edit"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="icofont icofont-ui-delete"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <img src="assets/images/avatar-2.png" class="img-circle" alt="tbl">
-                                                        </td>
-                                                        <td>Web Consultant</td>
-                                                        <td>Oct 25th, 2014</td>
-                                                        <td>Oct 25th, 2015</td>
-                                                        <td class="text-center"><span class="label label-warning">Pending</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="icofont icofont-ui-edit"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="icofont icofont-ui-delete"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <img src="assets/images/avatar-2.png" class="img-circle" alt="tbl">
-                                                        </td>
-                                                        <td>Web Consultant</td>
-                                                        <td>Oct 25th, 2014</td>
-                                                        <td>Oct 25th, 2015</td>
-                                                        <td class="text-center"><span class="label label-success m-t-20">Finish</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="icofont icofont-ui-edit"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="icofont icofont-ui-delete"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <img src="assets/images/avatar-2.png" class="img-circle" alt="tbl">
-                                                        </td>
-                                                        <td>Web Consultant</td>
-                                                        <td>Oct 25th, 2014</td>
-                                                        <td>Oct 25th, 2015</td>
-                                                        <td class="text-center"><span class="label label-success m-t-20">Finish</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="icofont icofont-ui-edit"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="icofont icofont-ui-delete"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <img src="assets/images/avatar-2.png" class="img-circle" alt="tbl">
-                                                        </td>
-                                                        <td>Web Consultant</td>
-                                                        <td>Oct 25th, 2014</td>
-                                                        <td>Oct 25th, 2015</td>
-                                                        <td class="text-center"><span class="label label-warning">Pending</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="icofont icofont-ui-edit"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="icofont icofont-ui-delete"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <img src="assets/images/avatar-2.png" class="img-circle" alt="tbl">
-                                                        </td>
-                                                        <td>Web Consultant</td>
-                                                        <td>Oct 25th, 2014</td>
-                                                        <td>Oct 25th, 2015</td>
-                                                        <td class="text-center"><span class="label label-success m-t-20">Finish</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="icofont icofont-ui-edit"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="icofont icofont-ui-delete"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <img src="assets/images/avatar-2.png" class="img-circle" alt="tbl">
-                                                        </td>
-                                                        <td>Web Consultant</td>
-                                                        <td>Oct 25th, 2014</td>
-                                                        <td>Oct 25th, 2015</td>
-                                                        <td class="text-center"><span class="label label-warning">Pending</span>
-                                                        </td>
-                                                        <td class="faq-table-btn">
-                                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="icofont icofont-ui-edit"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
-                                                                <i class="icofont icofont-eye-alt"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="icofont icofont-ui-delete"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                                <!-- end of table -->
+                                        <div class="card">
+                                            <div class="card-header"><h5 class="card-header-text">Input Sizes</h5>
+                                                <div class="f-right">
+                                                    <a href="" data-toggle="modal" data-target="#input-size-Modal"><i class="icofont icofont-code-alt"></i></a>
+                                                </div>
                                             </div>
-                                            <!-- end of table responsive -->
+
+                                            <div class="card-block">
+                                                <div class="form-group row">
+                                                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Nama Pegawai</label></div>
+                                                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Nama"></div>
+                                                </div>
+                                                <div class="form-group row">
+                                                        <div class="col-md-2"><label for="InputNormal" class="form-control-label">Jenis Kelamin</label></div>
+                                                        <div class="col-md-10">
+                                                            <div class="form-check">
+                                                                <label for="optionsRadios1" class="form-check-label">
+                                                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" valu6="option1" checked>
+                                                                       Laki-laki
+                                                                </label>
+                                                            </div>
+                                                             <div class="form-check">
+                                                                <label for="optionsRadios2" class="form-check-label">
+                                                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                                                                        Perempuan
+                                                                    </label>
+                                                            </div></div>
+                                                    </div>
+                                                <div class="form-group row">
+                                                        <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Jabatan</label></div>
+                                                        <div class="col-md-10">
+                                                            <select class="form-control" id="exampleSelect1">
+                                                                <option>Staff</option>
+                                                                <option>Wakil Supervisor</option>
+                                                                <option>Supervisor</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                <div class="form-group row">
+                                                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Tanggal Lahir</label></div>
+                                                    <div class="col-md-10"><input type="date" class="form-control" id="InputNormal"  placeholder="Alamat"></div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                        <div class="col-md-2"><label for="InputNormal" class="form-control-label">Status Menikah</label></div>
+                                                        <div class="col-md-10">
+                                                            <div class="form-check">
+                                                                <label for="optionsRadios1" class="form-check-label">
+                                                                    <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios3" valu6="option1" checked>
+                                                                       Belum Menikah
+                                                                </label>
+                                                            </div>
+                                                             <div class="form-check">
+                                                                <label for="optionsRadios2" class="form-check-label">
+                                                                    <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios4" value="option2">
+                                                                        Sudah Menikah
+                                                                    </label>
+                                                            </div></div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                            <div class="col-md-2"><label for="InputNormal" class="form-control-label">Alamat</label></div>
+                                                            <div class="col-md-10"><textarea name="" id="" class="form-control" id="InputNormal"></textarea></div>
+                                                        </div>
+                                                <div class="form-group row">
+                                                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Email</label></div>
+                                                    <div class="col-md-10"><input type="email" class="form-control" id="InputNormal"  placeholder="No.Tlp"></div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">No Tlp</label></div>
+                                                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="No.Tlp"></div>
+                                                </div>
+                                                <div class="form-group row">
+                                                        <label for="file" class="col-md-2 col-form-label form-control-label">Foto Pegawai</label>
+                                                        <div class="col-md-9">
+                                                            <label for="file" class="custom-file">
+                                                                <input type="file" id="file" class="custom-file-input">
+                                                                <span class="custom-file-control"></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            <div class="card-footer text-right">
+                                                <a href="" class="btn btn-inverse-primary">Ubah Data</a>
+                                            </div>
                                         </div>
-                                        <!-- end of project table -->
                                     </div>
-                                    <!-- end of col-lg-12 -->
+                                    <!--input sizes ends-->
+
                                 </div>
-                                <!-- end of row -->
+                                <!-- end of card-main -->
                             </div>
-                            <!-- end of card-main -->
-                        </div>
+                            <!-- end of project pane -->
                         <!-- end of project pane -->
 
                         <!-- start a question pane  -->
-
-                        <div class="tab-pane" id="questions" role="tabpanel">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="card-questioning">
-                                        <div class="accordion-box" id="question-open">
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg active">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                        <!-- end of accrodion box class -->
+                        <!-- start a question pane  -->
+                        <div class="tab-pane" id="infokerja" role="tabpanel">
+                                <div class="card">
+                                    <div class="card-header"><h5 class="card-header-text">Info Pekerjaan</h5>
+                                        <button id="edit-btn" type="button" class="btn btn-primary waves-effect waves-light f-right" >
+                                            <i  class="icofont icofont-edit"></i>
+                                        </button>
                                     </div>
-                                    <!-- end of class questing -->
+                                    <div class="card-block">
+                                        <div class="view-info">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="general-info">
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-xl-6">
+                                                                <table class="table m-0">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <th scope="row">Outlet</th>
+                                                                        <td>KFC Banjarbaru</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">Alamat Outlet</th>
+                                                                        <td>Jl.Pangeran Hidayatullah kelurahan Mentaos Banjarbaru Utara Banjarbaru,</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">Jabatan</th>
+                                                                        <td>Supervisor</td>
+                                                                    </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <!-- end of table col-lg-6 -->
+
+                                                            <div class="col-lg-12 col-xl-6">
+                                                                <table class="table">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <th scope="row">Gaji Pokok</th>
+                                                                         <td>Rp.5.000.000</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                            <th scope="row">Keterangan Tugas</th>
+                                                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, sequi. Vero iste numquam molestiae non quibusdam aliquid necessitatibus, fugit cum ratione illo esse enim voluptates maxime cupiditate, totam, deserunt neque.</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <!-- end of table col-lg-6 -->
+                                                        </div>
+                                                        <!-- end of row -->
+                                                    </div>
+                                                    <!-- end of general info -->
+                                                </div>
+                                                <!-- end of col-lg-12 -->
+                                            </div>
+                                            <!-- end of row -->
+                                        </div>
+                                        <!-- end of view-info -->
+                                    </div>
+                                    <!-- end of card-block -->
                                 </div>
-                                <!-- end of col-lg-12 -->
+                                <!-- end of card-->
                             </div>
-                            <!-- end of row -->
-                        </div>
                         <!-- end of tab pane question -->
 
                         <!-- start memeber ship tab pane -->
@@ -602,153 +312,21 @@
                                     <div class="card-member">
                                         <div class="accordion-box" id="member-open">
                                             <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
+                                                <a class="accordion-msg">28 Februari 2018 : B</a>
                                             </div>
                                             <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
+                                                <a class="accordion-msg">15 April 2018 : A</a>
                                             </div>
                                             <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
+                                                <a class="accordion-msg">12 Juni 2018 : B</a>
                                             </div>
                                             <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
+                                                <a class="accordion-msg">20 Agustus 2018 : C</a>
                                             </div>
-
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
+                                             <div class="faq-accordion">
+                                                <a class="accordion-msg">10 Oktober 2018 : B</a>
                                             </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <a class="accordion-msg">This is Photoshop's version  of Lorem Ipsum?</a>
-                                            </div>
-                                            <div class="faq-accordion">
-                                                <div class="accordion-desc">
-                                                    <p>
-                                                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                             </div>
                                         <!-- end of accrodion box class -->
                                     </div>
                                     <!-- end of class questing -->

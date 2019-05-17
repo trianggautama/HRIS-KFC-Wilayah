@@ -238,7 +238,6 @@
 
 </div>
 </div>
-
       <!-- Required Jqurey -->
       <script src="{{asset('assets/plugins/jquery/dist/jquery.min.js')}}"></script>
       <script src="{{asset('assets/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
@@ -247,7 +246,6 @@
       <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
       <!-- waves effects.js -->
       <script src="{{asset('assets/plugins/Waves/waves.min.js')}}"></script>
-
       <!-- Scrollbar JS-->
       <script src="{{asset('assets/plugins/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
       <script src="{{asset('assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js')}}"></script>
@@ -255,7 +253,6 @@
       <script src="{{asset('assets/plugins/classie/classie.js')}}"></script>
       <!-- notification -->
       <script src="{{asset('assets/plugins/notification/js/bootstrap-growl.min.js')}}"></script>
-
 
       <!-- custom js -->
       <script src="{{ asset('assets/js/main.min.js') }}"></script>

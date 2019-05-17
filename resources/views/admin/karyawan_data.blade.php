@@ -15,8 +15,8 @@
         <div class="card-header ">
                 <h4>Data Karyawan</h4>
                 <div class="text-right">
-                        <a class="btn btn-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
-                        <a class="btn btn-primary right" href=""><i class="icon-arrow-add"></i> tambah data</a>
+                        <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
+                        <a class="btn btn-inverse-primary right" href=""><i class="icon-arrow-add"></i> tambah data</a>
                     </div>
         </div>
         <div class="card-block">
@@ -43,9 +43,9 @@
                             <td>Laki-laki</td>
                             <td>0859685xxx</td>
                             <td>
-                            <a href="{{route('karyawan_detail')}}" class="btn btn-default"> detail</a>
-                                <a href="" class="btn btn-info"> edit</a>
-                                <a href="" class="btn btn-danger"> hapus</a>
+                            <a href="{{route('karyawan_detail')}}" class="btn btn-inverse-default"> detail</a>
+                                <a href="" class="btn btn-inverse-info"> edit</a>
+                                <a href="" class="btn btn-inverse-danger"> hapus</a>
                             </td>
                         </tr>
                         <tr>
@@ -56,9 +56,9 @@
                             <td>Laki-laki</td>
                             <td>081254321xxx</td>
                             <td>
-                                <a href="" class="btn btn-default"> detail</a>
-                                <a href="{{route('karyawan_detail')}}" class="btn btn-info"> edit</a>
-                                <a href="" class="btn btn-danger"> hapus</a>
+                                <a href="" class="btn btn-inverse-default"> detail</a>
+                                <a href="{{route('karyawan_detail')}}" class="btn btn-inverse-info"> edit</a>
+                                <a href="" class="btn btn-inverse-danger"> hapus</a>
                             </td>
                         </tr>
                         </tbody>

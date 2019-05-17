@@ -226,10 +226,10 @@
                                                             <td>Laki-laki</td>
                                                             <td class="text-center">Supervisor</td>
                                                             <td class="faq-table-btn">
-                                                                <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
+                                                                <button type="button" class="btn btn-inverse-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
                                                                     <i class="icofont icofont-eye-alt"></i>
                                                                 </button>
-                                                                <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                                <button type="button" class="btn btn-inverse-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
                                                                     <i class="icofont icofont-ui-delete"></i>
                                                                 </button>
                                                             </td>
@@ -243,10 +243,10 @@
                                                                 <td>Laki-laki</td>
                                                                 <td class="text-center">staff</td>
                                                                 <td class="faq-table-btn">
-                                                                    <button type="button" class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
+                                                                    <button type="button" class="btn btn-inverse-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="View">
                                                                         <i class="icofont icofont-eye-alt"></i>
                                                                     </button>
-                                                                    <button type="button" class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                                    <button type="button" class="btn btn-inverse-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Delete">
                                                                         <i class="icofont icofont-ui-delete"></i>
                                                                     </button>
                                                                 </td>
