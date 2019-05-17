@@ -18,6 +18,11 @@ class adminController extends Controller
         return view('admin.outlet_data');
     }
 
+    public function outlet_detail(){
+
+        return view('admin.outlet_detail');
+    }
+
      //jabatan
      public function jabatan_index(){
 

@@ -10,9 +10,9 @@
                     <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
                         <li class="breadcrumb-item"><a href="index.html"><i class="icofont icofont-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Extras</a>
+                        <li class="breadcrumb-item"><a href="#!">Karyawan</a>
                         </li>
-                        <li class="breadcrumb-item"><a href="profile.html">Profile</a>
+                        <li class="breadcrumb-item"><a href="profile.html">Detail</a>
                         </li>
                     </ol>
                 </div>

@@ -20,6 +20,8 @@ Route::get('/admin','adminController@index')->name('admin_index');
 
 //Outlet
 Route::get('/outlet','adminController@outlet_index')->name('outlet_index');
+Route::get('/outlet_detail','adminController@outlet_detail')->name('outlet_detail');
+
 
 //jabatan
 Route::get('/jabatan','adminController@jabatan_index')->name('jabatan_index');

@@ -15,8 +15,8 @@
         <div class="card-header ">
                 <h4>Data Outlet</h4>
                 <div class="text-right">
-                        <a class="btn btn-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
-                        <a class="btn btn-primary right" href=""><i class="icon-arrow-add"></i> tambah data</a>
+                        <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
+                        <a class="btn btn-inverse-primary right" href=""><i class="icon-arrow-add"></i> tambah data</a>
                     </div>
         </div>
         <div class="card-block">
@@ -26,68 +26,32 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                            <th>Nickname</th>
+                            <th>Nama Outlet</th>
+                            <th>Kecamatan</th>
+                            <th>No Tlp</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
                             <td>1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Ducky</td>
+                            <td> KFC Giant Extra</td>
+                            <td>Sungai Andai</td>
+                            <td>14234</td>
+                            <td>
+                                <a href="/outlet_detail" class="btn btn-inverse-primary"> detail</a>
+                                <a href="" class="btn btn-inverse-danger">Hapus</a>
+                            </td>
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>Ducky</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Larry</td>
-                            <td>Otto</td>
-                            <td>@twitter</td>
-                            <td>Ducky</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>Ducky</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>Ducky</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>Ducky</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>Ducky</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>Ducky</td>
+                            <td>KFC Banjarbaru</td>
+                            <td>Banjarbaru Utara</td>
+                            <td>14221</td>
+                            <td>
+                                <a href="/outlet_detail" class="btn btn-inverse-primary"> detail</a>
+                                <a href="" class="btn btn-inverse-danger">Hapus</a>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
