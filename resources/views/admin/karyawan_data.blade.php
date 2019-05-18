@@ -15,8 +15,8 @@
         <div class="card-header ">
                 <h4>Data Karyawan</h4>
                 <div class="text-right">
-                        <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
-                        <a class="btn btn-inverse-primary right" href=""><i class="icon-arrow-add"></i> tambah data</a>
+                        <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
+                        <a class="btn btn-inverse-primary right" href=""><i class="icofont icofont-ui-add"></i> tambah data</a>
                     </div>
         </div>
         <div class="card-block">
@@ -31,7 +31,7 @@
                             <th>Nama Karyawan</th>
                             <th>Jenis Kelamin</th>
                             <th>No.Tlp</th>
-                            <th>Action</th>
+                            <th class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -42,10 +42,9 @@
                             <td>Angga</td>
                             <td>Laki-laki</td>
                             <td>0859685xxx</td>
-                            <td>
-                            <a href="{{route('karyawan_detail')}}" class="btn btn-inverse-default"> detail</a>
-                                <a href="" class="btn btn-inverse-info"> edit</a>
-                                <a href="" class="btn btn-inverse-danger"> hapus</a>
+                            <td class="text-center">
+                            <a href="{{route('karyawan_detail')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
+                            <a href="" class="btn btn-inverse-danger"data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-delete"></i></a>
                             </td>
                         </tr>
                         <tr>
@@ -55,11 +54,10 @@
                             <td>Zaini</td>
                             <td>Laki-laki</td>
                             <td>081254321xxx</td>
-                            <td>
-                                <a href="" class="btn btn-inverse-default"> detail</a>
-                                <a href="{{route('karyawan_detail')}}" class="btn btn-inverse-info"> edit</a>
-                                <a href="" class="btn btn-inverse-danger"> hapus</a>
-                            </td>
+                            <td class="text-center">
+                                <a href="{{route('karyawan_detail')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
+                                <a href="" class="btn btn-inverse-danger"data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-delete"></i></a>
+                                </td>
                         </tr>
                         </tbody>
                     </table>

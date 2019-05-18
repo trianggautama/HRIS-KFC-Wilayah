@@ -15,8 +15,8 @@
         <div class="card-header ">
                 <h4>Data Outlet</h4>
                 <div class="text-right">
-                        <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
-                        <a class="btn btn-inverse-primary right" href=""><i class="icon-arrow-add"></i> tambah data</a>
+                        <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
+                        <a class="btn btn-inverse-primary right" href=""><i class="icofont icofont-ui-add"></i> tambah data</a>
                     </div>
         </div>
         <div class="card-block">
@@ -29,7 +29,7 @@
                             <th>Nama Outlet</th>
                             <th>Kecamatan</th>
                             <th>No Tlp</th>
-                            <th>Action</th>
+                            <th class="text-center" >Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -38,9 +38,9 @@
                             <td> KFC Giant Extra</td>
                             <td>Sungai Andai</td>
                             <td>14234</td>
-                            <td>
-                                <a href="/outlet_detail" class="btn btn-inverse-primary"> detail</a>
-                                <a href="" class="btn btn-inverse-danger">Hapus</a>
+                            <td class="text-center">
+                                <a href="/outlet_detail" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
+                                <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-delete"></i></a>
                             </td>
                         </tr>
                         <tr>
@@ -48,9 +48,9 @@
                             <td>KFC Banjarbaru</td>
                             <td>Banjarbaru Utara</td>
                             <td>14221</td>
-                            <td>
-                                <a href="/outlet_detail" class="btn btn-inverse-primary"> detail</a>
-                                <a href="" class="btn btn-inverse-danger">Hapus</a>
+                            <td class="text-center">
+                                <a href="/outlet_detail" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
+                                <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-delete"></i></a>
                             </td>
                         </tr>
                         </tbody>
