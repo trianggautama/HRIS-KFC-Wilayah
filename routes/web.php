@@ -30,3 +30,7 @@ Route::get('/jabatan','adminController@jabatan_index')->name('jabatan_index');
 Route::get('/karyawan','adminController@karyawan_index')->name('karyawan_index');
 Route::get('/karyawan_detail','adminController@karyawan_detail')->name('karyawan_detail');
 
+//HALAMAN OUTLET
+Route::get('/admin_outlet','outletController@index')->name('admin_outlet_index');
+Route::get('/edit_profil','outletController@edit_profil')->name('edit_profil');
+

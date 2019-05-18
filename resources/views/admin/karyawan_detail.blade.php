@@ -168,18 +168,7 @@
                                                                     </label>
                                                             </div></div>
                                                     </div>
-                                                <div class="form-group row">
-                                                        <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Jabatan</label></div>
-                                                        <div class="col-md-10">
-                                                            <select class="form-control" id="exampleSelect1">
-                                                                <option>Staff</option>
-                                                                <option>Wakil Supervisor</option>
-                                                                <option>Supervisor</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-
-                                                <div class="form-group row">
+                                   <div class="form-group row">
                                                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Tanggal Lahir</label></div>
                                                     <div class="col-md-10"><input type="date" class="form-control" id="InputNormal"  placeholder="Alamat"></div>
                                                 </div>
@@ -219,6 +208,26 @@
                                                                 <input type="file" id="file" class="custom-file-input">
                                                                 <span class="custom-file-control"></span>
                                                             </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Jabatan</label></div>
+                                                        <div class="col-md-10">
+                                                            <select class="form-control" id="exampleSelect1">
+                                                                <option>Staff</option>
+                                                                <option>Wakil Supervisor</option>
+                                                                <option>Supervisor</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Outlet</label></div>
+                                                        <div class="col-md-10">
+                                                            <select class="form-control" id="exampleSelect1">
+                                                                <option>KFC QMALL</option>
+                                                                <option>KFC BANJARBARU</option>
+                                                                <option>KFC GIANT EXPRESS</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                             </div>
