@@ -16,7 +16,6 @@
                 <h4>Data Karyawan</h4>
                 <div class="text-right">
                         <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
-                        <a class="btn btn-inverse-primary right" href=""><i class="icofont icofont-ui-add"></i> tambah data</a>
                     </div>
         </div>
         <div class="card-block">
