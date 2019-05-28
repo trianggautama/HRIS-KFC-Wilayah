@@ -16,4 +16,14 @@ class outletController extends Controller
 
         return view('outlet.edit_profil');
     }
+
+    public function karyawan_data(){
+
+        return view('outlet.karyawan_data');
+    }
+
+    public function karyawan_detail(){
+
+        return view('outlet.karyawan_detail');
+    }
 }

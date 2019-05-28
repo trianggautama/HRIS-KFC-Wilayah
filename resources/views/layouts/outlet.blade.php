@@ -190,7 +190,7 @@
                     <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Master Data</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
                             <li><a class="waves-effect waves-dark" href="{{route('jabatan_index')}}"><i class="icon-arrow-right"></i> Data Jabatan</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{route('karyawan_index')}}"><i class="icon-arrow-right"></i> Data Karyawan</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{route('karyawan_outlet_data')}}"><i class="icon-arrow-right"></i> Data Karyawan</a></li>
                       </ul>
                     </li>
                     <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Data Penilaian</span><i class="icon-arrow-down"></i></a>

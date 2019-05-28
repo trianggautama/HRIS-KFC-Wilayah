@@ -33,4 +33,6 @@ Route::get('/karyawan_detail','adminController@karyawan_detail')->name('karyawan
 //HALAMAN OUTLET
 Route::get('/admin_outlet','outletController@index')->name('admin_outlet_index');
 Route::get('/edit_profil','outletController@edit_profil')->name('edit_profil');
+Route::get('/karyawan_outlet_data','outletController@karyawan_data')->name('karyawan_outlet_data');
+Route::get('/karyawan_outlet_detail','outletController@karyawan_detail')->name('karyawan_outlet_detail');
 
