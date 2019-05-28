@@ -39,7 +39,7 @@
                             <td>Sungai Andai</td>
                             <td>14234</td>
                             <td class="text-center">
-                                <a href="/outlet_detail" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
+                                <a href="{{route('outlet_detail')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
                                 <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-delete"></i></a>
                             </td>
                         </tr>
@@ -49,7 +49,7 @@
                             <td>Banjarbaru Utara</td>
                             <td>14221</td>
                             <td class="text-center">
-                                <a href="/outlet_detail" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
+                                <a href="{{route('outlet_detail')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
                                 <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-delete"></i></a>
                             </td>
                         </tr>

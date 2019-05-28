@@ -41,7 +41,7 @@
                         </div>
                         <div class="card-block">
                             <h5>Mohon untuk melengkapi data Profile Outlet Anda </h5>
-                            <a href="/edit_profil" class="btn btn-sm btn-inverse-danger"> Disini</a>
+                            <a href="{{route('edit_profil_outlet')}}" class="btn btn-sm btn-inverse-danger"> Disini</a>
                         </div>
                     </div>
                 </div>
