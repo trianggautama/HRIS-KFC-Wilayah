@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Able Pro Responsive Bootstrap 4 Admin Template by Phoenixcoded</title>
+    <title>HRIS KFC</title>
 
      <meta charset="utf-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
