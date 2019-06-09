@@ -39,4 +39,5 @@ Route::get('/karyawan_outlet_detail','outletController@karyawan_detail')->name('
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'dashboardController@index')
+->name('home');
