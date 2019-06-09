@@ -36,3 +36,7 @@ Route::get('/edit_profil','outletController@edit_profil')->name('edit_profil_out
 Route::get('/karyawan_outlet_data','outletController@karyawan_data')->name('karyawan_outlet_data');
 Route::get('/karyawan_outlet_detail','outletController@karyawan_detail')->name('karyawan_outlet_detail');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
