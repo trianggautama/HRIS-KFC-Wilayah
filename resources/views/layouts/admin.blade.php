@@ -213,7 +213,7 @@
                         <li><a class="waves-effect waves-dark" href="{{route('outlet_index')}}"><i class="icon-arrow-right"></i> Data Outlet</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('jabatan_index')}}"><i class="icon-arrow-right"></i> Data Jabatan</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('kecamatan_index')}}"><i class="icon-arrow-right"></i> Data Kecamatan</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{route('kecamatan_index')}}"><i class="icon-arrow-right"></i> Data Kelurahan</a></li>
+                            <li><a class="waves-effect waves-dark" href="{{route('kelurahan_index')}}"><i class="icon-arrow-right"></i> Data Kelurahan</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('karyawan_index')}}"><i class="icon-arrow-right"></i> Data Karyawan</a></li>
                       </ul>
                     </li>

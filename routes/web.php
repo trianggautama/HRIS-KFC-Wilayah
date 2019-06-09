@@ -25,6 +25,8 @@ Route::get('/outlet_detail','adminController@outlet_detail')->name('outlet_detai
 //kecamatan
 Route::get('/kecamatan','adminController@kecamatan_index')->name('kecamatan_index');
 
+//kecamatan
+Route::get('/kelurahan','adminController@kelurahan_index')->name('kelurahan_index');
 
 //jabatan
 Route::get('/jabatan','adminController@jabatan_index')->name('jabatan_index');

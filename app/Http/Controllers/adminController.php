@@ -23,10 +23,15 @@ class adminController extends Controller
         return view('admin.outlet_detail');
     }
 
-     //kecam[atan]
+     //kecamatan
      public function kecamatan_index(){
 
         return view('admin.kecamatan_data');
+    }
+    //kelurahan
+    public function kelurahan_index(){
+
+    return view('admin.kelurahan_data');
     }
 
      //jabatan
