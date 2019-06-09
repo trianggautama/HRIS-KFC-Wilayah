@@ -11,7 +11,7 @@
 
     <div class="card">
         <div class="card-header ">
-                <h4>Data Jabatan</h4>
+                <h4>Data Kecamatan</h4>
                 <div class="text-right">
                     <a class="btn btn-inverse-success" href="" ><i class="icofont icofont-printer"></i> cetak data</a>
                     <a class="btn btn-inverse-primary right" href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="icofont icofont-ui-add"></i> tambah data</a>
@@ -24,28 +24,16 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Kode Jabatan</th>
-                            <th>Nama Jabatan</th>
-                            <th>Tugas</th>
+                            <th>Kode Kecamatan</th>
+                            <th>Nama Kecamatan</th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
                             <td>1</td>
-                            <td>SK01</td>
-                            <td>Staf Kasir</td>
-                            <td>Transaksi Pembeli</td>
-                            <td class="text-center">
-                                <a href="{{route('karyawan_detail')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
-                                <a href="" class="btn btn-inverse-danger"data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-delete"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>SV02</td>
-                            <td>Supervisor</td>
-                            <td>Penanggung Jawab</td>
+                            <td>K2</td>
+                            <td>Banjarbaru Utara</td>
                             <td class="text-center">
                                 <a href="{{route('karyawan_detail')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
                                 <a href="" class="btn btn-inverse-danger"data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-delete"></i></a>
@@ -73,22 +61,17 @@
         <div class="modal-body">
 
             <div class="form-group">
-                <label for="exampleInputEmail1" class="form-control-label">Kode Jabatan</label>
+                <label for="exampleInputEmail1" class="form-control-label">Kode Kecamatan</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Kode Jabatan">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1" class="form-control-label">Nama Jabatan</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nama Jabatan">
             </div>
-            <div class="form-group">
-                <label for="exampleTextarea" class="form-control-label">Tugas Pokok</label>
-                    <textarea class="form-control" id="exampleTextarea" ></textarea>
-            </div>
-
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-inverse-danger" data-dismiss="modal"> <i class="icofont icofont-ui-close"></i> Close</button>
-          <button type="button" class="btn btn-inverse-primary"> <i class="icofont icofont-save"></i> Save changes</button>
+          <button type="button" class="btn btn-inverse-primary"> <i class="icofont icofont-save"></i> Save </button>
         </form>
         </div>
       </div>
