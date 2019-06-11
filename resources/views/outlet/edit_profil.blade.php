@@ -1,7 +1,4 @@
 @extends('layouts.outlet')
-
-@section('title', __('outlet.list'))
-
 @section('content')
 <br>
 <div class="container-fluid">
