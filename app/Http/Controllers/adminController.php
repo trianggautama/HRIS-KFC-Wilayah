@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Outlet;
+use IDCrypt;
 use Illuminate\Http\Request;
 
 class adminController extends Controller
