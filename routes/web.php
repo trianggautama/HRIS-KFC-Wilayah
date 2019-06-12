@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['middleware' => 'admin'], function() {
 //admin wilayah
 Route::get('/admin','adminController@index')->name('admin_index');
 
@@ -37,6 +38,8 @@ Route::get('/jabatan','adminController@jabatan_index')->name('jabatan_index');
 //karyawan
 Route::get('/karyawan','adminController@karyawan_index')->name('karyawan_index');
 Route::get('/karyawan_detail','adminController@karyawan_detail')->name('karyawan_detail');
+//MIDLEWARE ADMIN
+});
 
 //HALAMAN OUTLET
 Route::get('/admin_outlet','outletController@index')->name('admin_outlet_index');
