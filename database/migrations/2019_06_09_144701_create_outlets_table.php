@@ -17,7 +17,6 @@ class CreateOutletsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('id_user');
             $table->bigInteger('id_kecamatan');
-            $table->string('nama')->length(191);
             $table->string('alamat')->length(191);
             $table->string('telepon')->length(13);
             $table->string('foto')->length(191);
