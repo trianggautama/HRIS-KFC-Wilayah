@@ -19,9 +19,9 @@ class adminController extends Controller
 
     //Outlet
     public function outlet_index(){
-        $Outlet = Outlet::All();
-        // dd($Outlet);
-        return view('admin.outlet_data',compact('Outlet'));
+        $Outlet = Outlet::all();
+        $User = User::all();
+        return view('admin.outlet_data',compact('Outlet','User'));
     }
 
     public function outlet_detail($id){
