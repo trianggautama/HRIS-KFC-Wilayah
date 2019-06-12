@@ -29,7 +29,7 @@
                             </div>
                         </div>
                         <div class="card-block text-center">
-                            <h4 class="f-18 f-normal m-b-10 txt-primary">KFC Banjarbaru</h4>
+                            <h4 class="f-18 f-normal m-b-10 txt-primary">{{ $User->name }}</h4>
 
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                                                                 <tbody>
                                                                 <tr>
                                                                     <th scope="row">Nama Outlet</th>
-                                                                    <td>{{ $Outlet->nama }}</td>
+                                                                    <td>{{ $User->name }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Kecamatan</th>
@@ -107,10 +107,6 @@
                                                                 <tr>
                                                                     <th scope="row">Jumlah Karyawan</th>
                                                                     <td><a href="#!">12 Orang</a></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">Username</th>
-                                                                    <td>{{ $User->name }}</td>
                                                                 </tr>
                                                                 </tbody>
                                                             </table>
@@ -151,7 +147,7 @@
                                             <div class="card-block">
                                                 <div class="form-group row">
                                                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Nama Outlet</label></div>
-                                                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal" name="nama"  placeholder="Nama" value="{{ $Outlet->nama }}"></div>
+                                                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal" name="name"  placeholder="Nama" value="{{ $User->name }}"></div>
                                                 </div>
                                                 <div class="form-group row">
                                                         <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Kecamatan</label></div>
@@ -174,8 +170,8 @@
                                                     <div class="col-md-10"><input type="text" class="form-control" id="InputNormal" name="telepon" value="{{ $Outlet->telepon }}" placeholder="No.Tlp"></div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">Username</label></div>
-                                                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal" name="name" value="{{ $User->name }}" placeholder="Isi Jika ingin mengganti username"></div>
+                                                    <div class="col-md-2"><label for="InputNormal" class="form-control-label">No Tlp</label></div>
+                                                    <div class="col-md-10"><input type="email" class="form-control" id="InputNormal" name="email" value="{{ $User->email }}" placeholder="Email"></div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Password</label></div>
