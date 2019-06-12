@@ -36,23 +36,13 @@
                             <td>{{$p->nama}}</td>
                             <td>{{$p->id_kecamatan}}</td>
                             <td>{{$p->telepon}}</td>
-                            {{-- <td class="text-center">
-                                <a href="{{ route('perusahaan_detail', ['id' => IDCrypt::Encrypt( $p->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
+                            <td class="text-center">
+                                <a href="{{ route('outlet_detail', ['id' => IDCrypt::Encrypt( $p->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
                                     
                                 <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
-                            </td> --}}
+                            </td>
                         </tr>
                             @endforeach    
-                        {{-- <tr>
-                            <td>2</td>
-                            <td>KFC Banjarbaru</td>
-                            <td>Banjarbaru Utara</td>
-                            <td>14221</td>
-                            <td class="text-center">
-                                <a href="{{route('outlet_detail')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
-                                <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-delete"></i></a>
-                            </td>
-                        </tr> --}}
                         </tbody>
                     </table>
                 </div>
