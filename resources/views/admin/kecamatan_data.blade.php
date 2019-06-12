@@ -9,7 +9,7 @@
     </div>
     <div class="card">
         <div class="card-header ">
-                <h4>Data Permohonan Pengujian</h4>
+                <h4>Data Kecamatan</h4>
                 <div class="text-right">
                 <a class="btn btn-inverse-primary right" href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="icofont icofont-ui-add"></i> tambah data</a>
                         <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
