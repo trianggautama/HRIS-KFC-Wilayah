@@ -20,7 +20,7 @@
                                     <strong>{{ $errors->first('name') }}</strong>
                                 </span>
                             @endif
-                        <label>Nama Perusahaan</label>
+                        <label>Nama Outlet</label>
                     </div>
                     <div class="md-input-wrapper">
                             <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} md-form-control md-static" name="email" value="{{ old('email') }} " required>

@@ -72,17 +72,17 @@
         </div>
         <div class="modal-body">
 
-            <div class="form-group">
-                <label for="exampleInputEmail1" class="form-control-label">Kode Jabatan</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Kode Jabatan">
+            <div class="md-input-wrapper">
+                 <input type="text" class="md-form-control md-static" />
+                    <label>Kode jabatan</label>
             </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1" class="form-control-label">Nama Jabatan</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nama Jabatan">
+            <div class="md-input-wrapper">
+                 <input type="text" class="md-form-control md-static" />
+                    <label>Nama jabatan</label>
             </div>
-            <div class="form-group">
-                <label for="exampleTextarea" class="form-control-label">Tugas Pokok</label>
-                    <textarea class="form-control" id="exampleTextarea" ></textarea>
+            <div class="md-input-wrapper">
+            <textarea name="" id="" class="md-form-control md-static" ></textarea>    
+            <label>Tugas Pokok</label>
             </div>
 
         </div>

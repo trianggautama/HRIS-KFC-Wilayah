@@ -223,12 +223,6 @@
                             <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> Data Penilaian Karyawan</a></li>
                         </ul>
                     </li>
-
-                    <li class="treeview">
-                        <a class="waves-effect waves-dark" href="basic-table.html">
-                            <i class="icon-list"></i><span> Kelola Admin</span>
-                        </a>
-                    </li>
                 </ul>
             </section>
         </aside>
