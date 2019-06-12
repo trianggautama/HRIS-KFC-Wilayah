@@ -23,7 +23,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Outlet</th>
-                            <th>Kecamatan</th>
+                            <th>Alamat</th>
                             <th>No Tlp</th>
                             <th class="text-center" >Action</th>
                         </tr>
@@ -34,7 +34,7 @@
                             @foreach ($Outlet as $p)
                             <td>{{$no = $no + 1}}</td>
                             <td>{{$p->user->name}}</td>
-                            <td>{{$p->id_kecamatan}}</td>
+                            <td>{{$p->alamat}}</td>
                             <td>{{$p->telepon}}</td>
                             <td class="text-center">
                                 <a href="{{ route('outlet_detail', ['id' => IDCrypt::Encrypt( $p->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
