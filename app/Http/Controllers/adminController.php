@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Outlet;
 
+use Hash;
 use IDCrypt;
 
 use Illuminate\Http\Request;
@@ -31,6 +32,39 @@ class adminController extends Controller
         // dd($User);
         return view('admin.outlet_detail',compact('Outlet','User'));
     }
+
+    public function outlet_update(Request $request, $id){
+        $id = IDCrypt::Decrypt($id);
+        $Outlet = Outlet::findOrFail($id);
+        $User = User::find($Outlet->id_user);
+
+        //  $this->validate(request(),[
+        //     'kode_rambu'=>'required',
+        //     'nama_rambu'=>'required',
+        //     'keterangan'=>'required'
+        // ]);
+        $User->name     = $request->name;
+        $User->email    = $request->email;
+        $Password       = Hash::make($request->password);
+        $User->password = $Password;
+        
+        if($request->gambar != null){
+        $FotoExt  = $request->gambar->getClientOriginalExtension();
+        $FotoName = $request->id_user.' - '.$request->name;
+        $gambar   = $FotoName.'.'.$FotoExt;
+        $request->gambar->move('images/outlet', $gambar);
+        $Outlet->gambar       = $gambar;
+        }
+
+        $kecamatan = 1;
+        $Outlet->id_kecamatan = $kecamatan;
+        $Outlet->alamat       = $request->alamat;
+        $Outlet->telepon      = $request->telepon;
+
+        $User->update();
+        $Outlet->update();
+        return redirect(route('outlet_index'))->with('success', 'Data outlet '.$request->name.' Berhasil di ubah');
+         }
 
      //kecamatan
      public function kecamatan_index(){
