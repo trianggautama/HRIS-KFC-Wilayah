@@ -20,7 +20,7 @@ Route::get('/admin','adminController@index')->name('admin_index');
 
 //Outlet
 Route::get('/outlet','adminController@outlet_index')->name('outlet_index');
-Route::get('/outlet_detail','adminController@outlet_detail')->name('outlet_detail');
+Route::get('/outlet/detail/{id}','adminController@outlet_detail')->name('outlet_detail');
 
 //kecamatan
 Route::get('/kecamatan','adminController@kecamatan_index')->name('kecamatan_index');
