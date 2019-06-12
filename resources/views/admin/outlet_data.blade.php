@@ -33,7 +33,7 @@
                             <?php $no = 0 ?>
                             @foreach ($Outlet as $p)
                             <td>{{$no = $no + 1}}</td>
-                            <td>{{$p->nama}}</td>
+                            <td>{{$p->user->name}}</td>
                             <td>{{$p->id_kecamatan}}</td>
                             <td>{{$p->telepon}}</td>
                             <td class="text-center">
@@ -42,7 +42,7 @@
                                 <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
                             </td>
                         </tr>
-                            @endforeach    
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
