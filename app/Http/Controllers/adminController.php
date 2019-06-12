@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Outlet;
 use Illuminate\Http\Request;
 
 class adminController extends Controller
@@ -14,8 +15,9 @@ class adminController extends Controller
 
     //Outlet
     public function outlet_index(){
-
-        return view('admin.outlet_data');
+        $Outlet = Outlet::All();
+        // dd($Outlet);
+        return view('admin.outlet_data',compact('Outlet'));
     }
 
     public function outlet_detail(){

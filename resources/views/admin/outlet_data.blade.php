@@ -21,7 +21,7 @@
                     <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Nama Outlet</th>
                             <th>Kecamatan</th>
                             <th>No Tlp</th>
@@ -30,16 +30,20 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>1</td>
-                            <td> KFC Giant Extra</td>
-                            <td>Sungai Andai</td>
-                            <td>14234</td>
-                            <td class="text-center">
-                                <a href="{{route('outlet_detail')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
-                                <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-delete"></i></a>
-                            </td>
+                            <?php $no = 0 ?>
+                            @foreach ($Outlet as $p)
+                            <td>{{$no = $no + 1}}</td>
+                            <td>{{$p->nama}}</td>
+                            <td>{{$p->id_kecamatan}}</td>
+                            <td>{{$p->telepon}}</td>
+                            {{-- <td class="text-center">
+                                <a href="{{ route('perusahaan_detail', ['id' => IDCrypt::Encrypt( $p->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
+                                    
+                                <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
+                            </td> --}}
                         </tr>
-                        <tr>
+                            @endforeach    
+                        {{-- <tr>
                             <td>2</td>
                             <td>KFC Banjarbaru</td>
                             <td>Banjarbaru Utara</td>
@@ -48,7 +52,7 @@
                                 <a href="{{route('outlet_detail')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
                                 <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-delete"></i></a>
                             </td>
-                        </tr>
+                        </tr> --}}
                         </tbody>
                     </table>
                 </div>
