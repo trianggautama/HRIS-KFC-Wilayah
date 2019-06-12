@@ -21,9 +21,10 @@ class adminController extends Controller
         return view('admin.outlet_data',compact('Outlet'));
     }
 
-    public function outlet_detail(){
-
-        return view('admin.outlet_detail');
+    public function outlet_detail($id){
+        $id = IDCrypt::Decrypt($id);
+        $Outlet = Outlet::findOrFail($id);
+        return view('admin.outlet_detail',compact('Outlet'));
     }
 
      //kecamatan
