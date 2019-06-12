@@ -81,7 +81,7 @@
                                                                 <tbody>
                                                                 <tr>
                                                                     <th scope="row">Nama Outlet</th>
-                                                                    <td>KFC Banjarbaru</td>
+                                                                    <td>{{ $Outlet->nama }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Kecamatan</th>
@@ -89,7 +89,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Alamat</th>
-                                                                    <td>Jalan Pengeran Hidayatullah,kelurahan Komet Banjarbaru Utara Banjarbaru</td>
+                                                                    <td>{{ $Outlet->alamat }}</td>
                                                                 </tr>
 
                                                                 </tbody>
@@ -102,7 +102,7 @@
                                                                 <tbody>
                                                                 <tr>
                                                                      <th scope="row">No Telp</th>
-                                                                    <td>14221</td>
+                                                                    <td>{{ $Outlet->telepon }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Jumlah Karyawan</th>
@@ -110,7 +110,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th scope="row">Username</th>
-                                                                    <td>kfcbjb123</td>
+                                                                    <td>{{ $User->name }}</td>
                                                                 </tr>
                                                                 </tbody>
                                                             </table>
@@ -145,11 +145,13 @@
                                                     <a href="" data-toggle="modal" data-target="#input-size-Modal"><i class="icofont icofont-code-alt"></i></a>
                                                 </div>
                                             </div>
-
+                                            <form  method="post" action="">
+                                                {{method_field('PUT') }}
+                                                {{ csrf_field() }}
                                             <div class="card-block">
                                                 <div class="form-group row">
                                                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Nama Outlet</label></div>
-                                                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Nama"></div>
+                                                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal" name="nama"  placeholder="Nama" value="{{ $Outlet->nama }}"></div>
                                                 </div>
                                                 <div class="form-group row">
                                                         <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Kecamatan</label></div>
@@ -165,23 +167,24 @@
 
                                                 <div class="form-group row">
                                                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Alamat</label></div>
-                                                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Alamat"></div>
+                                                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal" name="alamat" placeholder="Alamat" value="{{ $Outlet->alamat }}"></div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">No Tlp</label></div>
-                                                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="No.Tlp"></div>
+                                                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal" name="telepon" value="{{ $Outlet->telepon }}" placeholder="No.Tlp"></div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Username</label></div>
-                                                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Isi Jika ingin mengganti username"></div>
+                                                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal" name="name" value="{{ $User->name }}" placeholder="Isi Jika ingin mengganti username"></div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Password</label></div>
-                                                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Isi Jika ingin mengganti Password"></div>
+                                                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal" name="password" placeholder="Isi Jika ingin mengganti Password"></div>
                                                 </div>
+                                                {{ csrf_field() }}
                                             </div>
                                             <div class="card-footer text-right">
-                                                <a href="" class="btn btn-inverse-primary">Ubah Data</a>
+                                                <button type="submit" class="btn btn-inverse-primary">Ubah Data</button>
                                             </div>
                                         </div>
                                     </div>

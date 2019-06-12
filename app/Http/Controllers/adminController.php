@@ -28,7 +28,7 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $Outlet = Outlet::findOrFail($id);
         $User = User::find($Outlet->id_user);
-        dd($User);
+        // dd($User);
         return view('admin.outlet_detail',compact('Outlet','User'));
     }
 
