@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Outlet;
+
 use IDCrypt;
+
 use Illuminate\Http\Request;
 
 class adminController extends Controller
@@ -24,7 +27,9 @@ class adminController extends Controller
     public function outlet_detail($id){
         $id = IDCrypt::Decrypt($id);
         $Outlet = Outlet::findOrFail($id);
-        return view('admin.outlet_detail',compact('Outlet'));
+        $User = User::find($Outlet->id_user);
+        dd($User);
+        return view('admin.outlet_detail',compact('Outlet','User'));
     }
 
      //kecamatan
