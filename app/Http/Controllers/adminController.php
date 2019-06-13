@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\User;
 use App\Outlet;
 use App\kabupatenkota;
+use App\kecamatan;
 use Hash;
 use IDCrypt;
 
@@ -116,9 +116,27 @@ class adminController extends Controller
 
      //kecamatan
      public function kecamatan_index(){
+        $kecamatan = kecamatan::all();
+        $kabupatenkota = kabupatenkota::all();
 
-        return view('admin.kecamatan_data');
+        return view('admin.kecamatan_data',compact('kecamatan','kabupatenkota'));
     }
+
+    public function kecamatan_tambah(Request $request){
+          //dd($request);
+          $this->validate(request(),[
+              'kode_kecamatan'=>'required',
+              'kecamatan'=>'required',
+              'kabupatenkota_id'=>'required'
+            ]);
+           // dd($request);
+            $kecamatan = new kecamatan;
+            $kecamatan->kode_kecamatan= $request->kode_kecamatan;
+            $kecamatan->kecamatan= $request->kecamatan;
+            $kecamatan->kabupatenkota_id= $request->kabupatenkota_id;
+            $kecamatan->save();
+              return redirect(route('kecamatan_index'))->with('success', 'Data kabupaten / kota '.$request->kecamatan.' Berhasil di Simpan');
+      }
 
     public function kecamatan_edit(){
 

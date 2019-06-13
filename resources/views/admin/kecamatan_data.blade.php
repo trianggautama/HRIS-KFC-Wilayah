@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -24,19 +23,24 @@
                             <th>#</th>
                             <th>Kode Kecamatan</th>
                             <th>Nama Kecamatan</th>
+                            <th>Kabupaten / Kota</th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
+                        <?php $no = 1 ?>
+                            @foreach ($kecamatan as $kec)
                         <tr>
-                            <td>1</td>
-                            <td>K12`1</td>
-                            <td>Banjarbaru Selatan</td>
+                            <td>{{$no++}}</td>
+                            <td>{{$kec->kode_kecamatan}}</td>
+                            <td>{{$kec->kecamatan}}</td>
+                            <td>{{$kec->kabupatenkota->kabupatenkota}}</td>
                             <td class="text-center">
-                            <a href="{{route('kelurahan_edit')}}" class="btn btn-inverse-primary"> edit</a>
-                            <a href="" class="btn btn-inverse-danger"> hapus</a>
+                            <a href="{{route('kecamatan_edit', ['id' => IDCrypt::Encrypt( $kec->id)])}}" class="btn btn-inverse-primary"> edit</a>
+                            <a href="{{route('kecamatan_hapus', ['id' => IDCrypt::Encrypt( $kec->id)])}}" class="btn btn-inverse-danger"> hapus</a>
                             </td>
                         </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -56,27 +60,29 @@
               </button>
             </div>
             <div class="modal-body">
+            <form  method="post" action="">
                         <div class="md-input-wrapper">
-                            <input type="text" class="md-form-control md-static" />
+                            <input type="text" class="md-form-control md-static"  name="kode_kecamatan"/>
                             <label>Kode Kecamatan</label>
                         </div>
                         <div class="md-input-wrapper">
-                            <input type="text" class="md-form-control md-static" />
+                            <input type="text" class="md-form-control md-static"  name="kecamatan"/>
                             <label>Nama Kecamatan</label>
                         </div>
                         <div class="md-input-wrapper">
-                        <select class="md-form-control">
+                        <select class="md-form-control" name="kabupatenkota_id">
                           <option>kabupaten/kota</option>
-                          <option>Banjarbaru </option>
-                          <option>Banjarmasin </option>
-                          <option>Kabupaten Banjar</option>
+                          @foreach( $kabupatenkota as $kab )
+                          <option value="{{$kab->id}}">{{$kab->kabupatenkota}} </option>
+                          @endforeach
                         </select>
                     </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-inverse-primary">Save changes</button>
-            </form>
+              <input class="btn btn-inverse-primary" type="submit" name="submit" value="Save">
+              {{csrf_field() }}           
+               </form>
             </div>
           </div>
         </div>

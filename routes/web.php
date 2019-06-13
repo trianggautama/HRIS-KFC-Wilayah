@@ -31,14 +31,18 @@ Route::put('/outlet/detail/{id}','adminController@outlet_update')
 //kabupaten / kota
 Route::get('/kabupatenkota','adminController@kabupatenkota_index')->name('kabupatenkota_index');
 Route::post('/kabupatenkota','adminController@kabupatenkota_tambah')->name('kabupatenkota_tambah');
-Route::get('/kabupatenkota_edit/{id}','adminController@kabupatenkota_edit')->name('kabupatenkota_edit');
-Route::put('/kabupatenkota_edit/{id}','adminController@kabupatenkota_update')->name('kabupatenkota_update');
-Route::get('/kabupatenkota_hapus/{id}','adminController@kabupatenkota_hapus')->name('kabupatenkota_hapus');
+Route::get('/kabupatenkota/edit/{id}','adminController@kabupatenkota_edit')->name('kabupatenkota_edit');
+Route::put('/kabupatenkota/edit/{id}','adminController@kabupatenkota_update')->name('kabupatenkota_update');
+Route::get('/kabupatenkota/hapus/{id}','adminController@kabupatenkota_hapus')->name('kabupatenkota_hapus');
 
 
 //kecamatan
 Route::get('/kecamatan','adminController@kecamatan_index')->name('kecamatan_index');
-Route::get('/kecamatan_edit','adminController@kecamatan_edit')->name('kecamatan_edit');
+Route::post('/kecamatan','adminController@kecamatan_tambah')->name('kecamatan_tambah');
+Route::get('/kecamatan/edit/{id}','adminController@kecamatan_edit')->name('kecamatan_edit');
+Route::put('/kecamatan/edit/{id}','adminController@kecamatan_update')->name('kecamatan_update');
+Route::put('/kecamatan/hapus/{id}','adminController@kecamatan_hapus')->name('kecamatan_hapus');
+
 
 
 //kelurahan
