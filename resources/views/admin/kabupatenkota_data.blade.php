@@ -28,15 +28,18 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <?php $no = 1 ?>
+                            @foreach ($kabupatenkota as $k)
                         <tr>
-                            <td>1</td>
-                            <td>K12`1</td>
-                            <td>Kota Banjarbaru </td>
+                            <td>{{$no++}}</td>
+                            <td>{{$k->kode_kabupatenkota}}</td>
+                            <td>{{$k->kabupatenkota}} </td>
                             <td class="text-center">
-                            <a href="{{route('kabupatenkota_edit')}}" class="btn btn-inverse-primary"> edit</a>
-                            <a href="" class="btn btn-inverse-danger"> hapus</a>
+                            <a href="{{route('kabupatenkota_edit', ['id' => IDCrypt::Encrypt( $k->id)])}}" class="btn btn-inverse-primary"> edit</a>
+                            <a href="{{route('kabupatenkota_hapus', ['id' => IDCrypt::Encrypt( $k->id)])}}" class="btn btn-inverse-danger"> hapus</a>
                             </td>
                         </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -44,7 +47,6 @@
         </div>
     </div>
 </div>
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -56,18 +58,20 @@
               </button>
             </div>
             <div class="modal-body">
+            <form  method="post" action="">
                         <div class="md-input-wrapper">
-                            <input type="text" class="md-form-control md-static" />
+                            <input type="text" name="kode_kabupatenkota" class="md-form-control md-static" />
                             <label>Kode Kabupaten/Kota</label>
                         </div>
                         <div class="md-input-wrapper">
-                            <input type="text" class="md-form-control md-static" />
+                            <input type="text" name="kabupatenkota" class="md-form-control md-static" />
                             <label>Nama Kabupaten/Kota</label>
                         </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-inverse-primary">Save changes</button>
+              <input class="btn btn-inverse-primary" type="submit" name="submit" value="Save">
+              {{csrf_field() }}
             </form>
             </div>
           </div>

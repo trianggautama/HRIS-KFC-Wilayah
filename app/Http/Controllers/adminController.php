@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Outlet;
-
+use App\kabupatenkota;
 use Hash;
 use IDCrypt;
 
@@ -68,13 +68,50 @@ class adminController extends Controller
 
       //kabupatenkota
       public function kabupatenkota_index(){
+        $kabupatenkota = kabupatenkota::all();
 
-        return view('admin.kabupatenkota_data');
+        return view('admin.kabupatenkota_data',compact('kabupatenkota'));
+      }
+    
+    public function kabupatenkota_tambah(Request $request){
+        //  dd($request);
+          $this->validate(request(),[
+              'kode_kabupatenkota'=>'required|unique:kabupatenkota',
+              'kabupatenkota'=>'required'
+            ]);
+            $kabupatenkota = new kabupatenkota;
+            $kabupatenkota->kode_kabupatenkota= $request->kode_kabupatenkota;
+            $kabupatenkota->kabupatenkota= $request->kabupatenkota;
+            $kabupatenkota->save();
+              return redirect(route('kabupatenkota_index'))->with('success', 'Data kabupaten / kota '.$request->kabupatenkota.' Berhasil di Simpan');
+      }
+
+    public function kabupatenkota_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $kabupatenkota=kabupatenkota::findOrFail($id);
+        return view('admin.kabupatenkota_edit',compact('kabupatenkota'));
     }
+    
+    public function kabupatenkota_update( Request $request ,$id){
+       // dd('utes');
+        $id = IDCrypt::Decrypt($id);
+        $kabupatenkota = kabupatenkota::findOrFail($id);
+       // dd($request);
+       $this->validate(request(),[
+        'kode_kabupatenkota'=>'required|unique:kabupatenkota',
+        'kabupatenkota'=>'required'
+      ]);
+           $kabupatenkota->kode_kabupatenkota= $request->kode_kabupatenkota;
+           $kabupatenkota->kabupatenkota= $request->kabupatenkota;
+           $kabupatenkota->update();
+             return redirect(route('kabupatenkota_index'))->with('success', 'Data  Berhasil di Ubah');
+     }
 
-    public function kabupatenkota_edit(){
-
-        return view('admin.kabupatenkota_edit');
+    public function kabupatenkota_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+            $kabupatenkota=kabupatenkota::findOrFail($id);
+            $kabupatenkota->delete();
+            return redirect(route('kabupatenkota_index'));
     }
 
      //kecamatan

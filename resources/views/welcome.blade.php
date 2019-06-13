@@ -73,8 +73,6 @@
       
     </header>
 
-  
-
     <div class="site-blocks-cover overlay" style="background-image: url(images/background.jpg);" data-aos="fade" data-stellar-background-ratio="0.5" id="section-home">
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">

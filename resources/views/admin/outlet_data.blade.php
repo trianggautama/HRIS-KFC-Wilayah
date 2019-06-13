@@ -41,8 +41,8 @@
                                     
                                 <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
                             </td>
-                        </tr>
                             @endforeach
+                        </tr>
                         </tbody>
                     </table>
                 </div>

@@ -9,23 +9,24 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header"><h5 class="card-header-text">Input Sizes</h5>
-                <div class="f-right">
-                    <a href="" data-toggle="modal" data-target="#input-size-Modal"><i class="icofont icofont-code-alt"></i></a>
-                </div>
             </div>
-
+            <form  method="post" action="">
+                {{method_field('PUT') }}
+                {{ csrf_field() }}
             <div class="card-block">
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Kode kabupaten/ kota</label></div>
-                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Nama"></div>
+                    <div class="col-md-10"><input type="text" name="kode_kabupatenkota" class="form-control" id="InputNormal" value="{{$kabupatenkota->kode_kabupatenkota}}" ></div>
                 </div>
 
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Nama kabupaten/ kota</label></div>
-                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Isi Jika ingin mengganti Password"></div>
+                    <div class="col-md-10"><input type="text" name="kabupatenkota" class="form-control" id="InputNormal" value="{{$kabupatenkota->kabupatenkota}}"></div>
                 </div>
                 <div class="card-footer text-right">
-                    <a href="" class="btn btn-inverse-primary">Ubah Data</a>
+                {{csrf_field() }}
+                    <input class="btn btn-primary mr-2" type="submit" name="submit" value="Ubah">
+
                 </div>
             </div>
         </div>
