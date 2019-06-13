@@ -66,6 +66,17 @@ class adminController extends Controller
         return redirect(route('outlet_index'))->with('success', 'Data outlet '.$request->name.' Berhasil di ubah');
          }
 
+      //kabupatenkota
+      public function kabupatenkota_index(){
+
+        return view('admin.kabupatenkota_data');
+    }
+
+    public function kabupatenkota_edit(){
+
+        return view('admin.kabupatenkota_edit');
+    }
+
      //kecamatan
      public function kecamatan_index(){
 

@@ -9,7 +9,7 @@
     </div>
     <div class="card">
         <div class="card-header ">
-                <h4>Data Kecamatan</h4>
+                <h4>Data Kabupaten Kota</h4>
                 <div class="text-right">
                 <a class="btn btn-inverse-primary right" href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="icofont icofont-ui-add"></i> tambah data</a>
                         <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
@@ -22,8 +22,8 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Kode Kecamatan</th>
-                            <th>Nama Kecamatan</th>
+                            <th>Kode kabupaten/kota</th>
+                            <th>Nama kabupaten/kota</th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
@@ -31,9 +31,9 @@
                         <tr>
                             <td>1</td>
                             <td>K12`1</td>
-                            <td>Banjarbaru Selatan</td>
+                            <td>Kota Banjarbaru </td>
                             <td class="text-center">
-                            <a href="{{route('kelurahan_edit')}}" class="btn btn-inverse-primary"> edit</a>
+                            <a href="{{route('kabupatenkota_edit')}}" class="btn btn-inverse-primary"> edit</a>
                             <a href="" class="btn btn-inverse-danger"> hapus</a>
                             </td>
                         </tr>
@@ -58,20 +58,12 @@
             <div class="modal-body">
                         <div class="md-input-wrapper">
                             <input type="text" class="md-form-control md-static" />
-                            <label>Kode Kecamatan</label>
+                            <label>Kode Kabupaten/Kota</label>
                         </div>
                         <div class="md-input-wrapper">
                             <input type="text" class="md-form-control md-static" />
-                            <label>Nama Kecamatan</label>
+                            <label>Nama Kabupaten/Kota</label>
                         </div>
-                        <div class="md-input-wrapper">
-                        <select class="md-form-control">
-                          <option>kabupaten/kota</option>
-                          <option>Banjarbaru </option>
-                          <option>Banjarmasin </option>
-                          <option>Kabupaten Banjar</option>
-                        </select>
-                    </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>

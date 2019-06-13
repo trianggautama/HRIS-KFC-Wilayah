@@ -28,12 +28,16 @@ Route::get('/outlet/detail/{id}','adminController@outlet_detail')
 Route::put('/outlet/detail/{id}','adminController@outlet_update')
 ->name('outlet_update');
 
+//kabupaten / kota
+Route::get('/kabupatenkota','adminController@kabupatenkota_index')->name('kabupatenkota_index');
+Route::get('/kabupatenkota_edit','adminController@kabupatenkota_edit')->name('kabupatenkota_edit');
+
 //kecamatan
 Route::get('/kecamatan','adminController@kecamatan_index')->name('kecamatan_index');
 Route::get('/kecamatan_edit','adminController@kecamatan_edit')->name('kecamatan_edit');
 
 
-//kecamatan
+//kelurahan
 Route::get('/kelurahan','adminController@kelurahan_index')->name('kelurahan_index');
 Route::get('/kelurahan_edit','adminController@kelurahan_edit')->name('kelurahan_edit');
 
