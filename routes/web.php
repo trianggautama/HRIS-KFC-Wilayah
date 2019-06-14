@@ -27,6 +27,8 @@ Route::get('/outlet/detail/{id}','adminController@outlet_detail')
 ->name('outlet_detail');
 Route::put('/outlet/detail/{id}','adminController@outlet_update')
 ->name('outlet_update');
+Route::get('/outlet/hapus/{id}','adminController@outlet_hapus')
+->name('outlet_hapus');
 
 //kecamatan
 Route::get('/kecamatan','adminController@kecamatan_index')->name('kecamatan_index');
