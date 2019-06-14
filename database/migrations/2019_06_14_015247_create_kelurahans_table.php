@@ -15,9 +15,10 @@ class CreateKelurahansTable extends Migration
     {
         Schema::create('kelurahans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('kecamatan_id');
+            $table->unsignedbigInteger('kecamatan_id');
             $table->string('kode_kelurahan')->length(20);
             $table->string('kelurahan')->length(191);
+            $table->foreign('kecamatan_id')->references('id')->on('kecamatans')->onDelete('cascade');
             $table->timestamps();
         });
     }
