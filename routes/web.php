@@ -55,6 +55,8 @@ Route::get('/kelurahan/edit/{id}','adminController@kelurahan_edit')
 ->name('kelurahan_edit');
 Route::put('/kelurahan/edit/{id}','adminController@kelurahan_update')
 ->name('kelurahan_update');
+Route::get('/kelurahan/hapus/{id}','adminController@kelurahan_hapus')
+->name('kelurahan_hapus');
 
 //jabatan
 Route::get('/jabatan','adminController@jabatan_index')->name('jabatan_index');
