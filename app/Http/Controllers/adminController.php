@@ -275,6 +275,12 @@ class adminController extends Controller
              return redirect(route('jabatan_index'))->with('success', 'Data  Berhasil di Ubah');
      }//fungsi jabatan update
 
+    public function jabatan_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $Jabatan=Jabatan::findOrFail($id);
+        $Jabatan->delete();
+        return redirect(route('jabatan_index'));
+    }
         //karyawan
         public function karyawan_index(){
 
