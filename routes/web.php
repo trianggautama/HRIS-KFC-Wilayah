@@ -51,7 +51,7 @@ Route::put('/kecamatan/hapus/{id}','adminController@kecamatan_hapus')->name('kec
 Route::get('/kelurahan','adminController@kelurahan_index')->name('kelurahan_index');
 Route::post('/kelurahan','adminController@kelurahan_tambah')
 ->name('kelurahan_tambah');
-Route::get('/kelurahan_edit','adminController@kelurahan_edit')->name('kelurahan_edit');
+Route::get('/kelurahan/edit/{id}','adminController@kelurahan_edit')->name('kelurahan_edit');
 
 //jabatan
 Route::get('/jabatan','adminController@jabatan_index')->name('jabatan_index');
