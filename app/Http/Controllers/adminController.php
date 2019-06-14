@@ -5,6 +5,7 @@ use App\User;
 use App\Outlet;
 use App\kabupatenkota;
 use App\kecamatan;
+use App\Kelurahan;
 use Hash;
 use IDCrypt;
 
@@ -158,6 +159,23 @@ class adminController extends Controller
         $Kecamatan = Kecamatan::all();
     return view('admin.kelurahan_data',compact('Kelurahan','Kecamatan'));
     }
+
+    public function kelurahan_tambah(Request $request){
+        //dd($request);
+        $this->validate(request(),[
+            'kode_kelurahan'=>'required',
+            'kelurahan'=>'required',
+            'kecamatan_id'=>'required'
+          ]);
+         // dd($request);
+          $Kelurahan = new Kelurahan;
+          $Kelurahan->kode_kelurahan    = $request->kode_kelurahan;
+          $Kelurahan->kelurahan         = $request->kelurahan;
+          $Kelurahan->kecamatan_id      = $request->kecamatan_id;
+          $Kelurahan->save();
+            return redirect(route('kelurahan_index'))->with('success', 'Data Kelurahan '.$request->kelurahan.' Berhasil di Simpan');
+    }//fungsi kelurahan tambah
+
     public function kelurahan_edit(){
 
         return view('admin.kelurahan_edit');
