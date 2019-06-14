@@ -173,7 +173,6 @@ class adminController extends Controller
      public function kecamatan_hapus($id){
         $id = IDCrypt::Decrypt($id);
         $Kecamatan=kecamatan::findOrFail($id);
-        $Kecamatan->kelurahan()->delete();
         $Kecamatan->delete();
         return redirect(route('kecamatan_index'))->with('hapus', 'Data  Berhasil di Hapus');
 
