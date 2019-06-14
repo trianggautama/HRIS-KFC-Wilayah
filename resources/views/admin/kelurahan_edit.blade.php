@@ -30,7 +30,7 @@
                         <div class="col-md-2"><label for="InputNormal" class="form-control-label">Nama Kecamatan</label></div>
                 </div>
                 <div class="md-input-wrapper">
-                        <select class="md-form-control" name="id_kecamatan">
+                        <select class="md-form-control" name="kecamatan_id">
                             @foreach ($Kecamatan as $j)
                             <option value="{{ $j->id}}" {{ $Kelurahan->kecamatan_id == $j->id ? 'selected' : ''}}>{{$j->kecamatan}}</option>
                             @endforeach
