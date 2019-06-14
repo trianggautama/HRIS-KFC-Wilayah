@@ -181,7 +181,7 @@ class adminController extends Controller
         $Kecamatan = Kecamatan::All();
 
         return view('admin.kelurahan_edit',compact('Kelurahan','Kecamatan'));
-    }
+    }//fungsi kelurahan edit
 
     public function kelurahan_update( Request $request ,$id){
         $id = IDCrypt::Decrypt($id);
@@ -197,8 +197,14 @@ class adminController extends Controller
            $Kelurahan->kecamatan_id= $request->kecamatan_id;
            $Kelurahan->update();
              return redirect(route('kelurahan_index'))->with('success', 'Data  Berhasil di Ubah');
-     }
+     }//fungsi kelurahan update
 
+    public function kelurahan_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $Kelurahan=Kelurahan::findOrFail($id);
+        $Kelurahan->delete();
+        return redirect(route('kelurahan_index'));
+    }
 
      //jabatan
      public function jabatan_index(){
