@@ -237,7 +237,7 @@ class adminController extends Controller
      public function jabatan_index(){
         $Jabatan = Jabatan::All();
         return view('admin.jabatan_data',compact('Jabatan'));
-    }
+    }//fungsi jabatan index
 
     public function jabatan_tambah(Request $request){
         $this->validate(request(),[
@@ -251,7 +251,14 @@ class adminController extends Controller
           $jabatan->tugas= $request->tugas;
           $jabatan->save();
             return redirect(route('jabatan_index'))->with('success', 'Data jabatan '.$request->jabatan.' Berhasil di Simpan');
-    }
+    }//fungsi jabatan tambah
+
+    public function jabatan_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $Jabatan = jabatan::findOrFail($id);
+
+        return view('admin.jabatan_edit',compact('Jabatan'));
+    }//fungsi jabatan edit
 
         //karyawan
         public function karyawan_index(){
