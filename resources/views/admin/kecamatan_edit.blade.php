@@ -17,23 +17,24 @@
             <div class="card-block">
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Kode Kecamatan</label></div>
-                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Nama"></div>
+                    <div class="col-md-10"><input type="text" name="kode_kecamatan" class="form-control" id="InputNormal" value="{{ $Kecamatan->kode_kecamatan }}" placeholder="Kode Kecamatan"></div>
                 </div>
 
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Nama Kecamatan</label></div>
-                    <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Isi Jika ingin mengganti Password"></div>
+                    <div class="col-md-10"><input type="text" name="kecamatan" class="form-control" id="InputNormal" value="{{ $Kecamatan->kecamatan }}" placeholder="Nama Kecamatan"></div>
                 </div>
                 <div class="form-group">
-                <label for="exampleSelect1" class="form-control-label">Example select</label>
-                    <select class="form-control" id="exampleSelect1">
-                        <option>Banjarbaru</option>
-                        <option>Banjarmasin</option>
-                        <option>Kabupaten Banjar</option>
+                <label for="exampleSelect1" class="form-control-label">Kabupaten / Kota</label>
+                    <select class="form-control" id="exampleSelect1" name="kabupatenkota_id">
+                        @foreach ($Kabupatenkota as $j)
+                            <option value="{{ $j->id}}" {{ $Kecamatan->kabupatenkota_id == $j->id ? 'selected' : ''}}>{{$j->kabupatenkota}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="card-footer text-right">
-                    <a href="" class="btn btn-inverse-primary">Ubah Data</a>
+                    {{csrf_field() }}
+                    <input class="btn btn-primary mr-2" type="submit" name="submit" value="Ubah">
                 </div>
             </div>
         </div>
