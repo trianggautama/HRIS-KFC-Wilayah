@@ -17,7 +17,11 @@ class CreateKecamatansTable extends Migration
             $table->bigIncrements('id');
             $table->string('kode_kecamatan')->length(20);
             $table->string('kecamatan')->length(191);
-            $table->bigInteger('kabupatenkota_id');
+            $table->unsignedbigInteger('kabupatenkota_id');
+            $table
+            ->foreign('kabupatenkota_id')
+            ->references('id')->on('kabupatenkota')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }
