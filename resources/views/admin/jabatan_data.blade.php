@@ -23,7 +23,7 @@
                     <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Kode Jabatan</th>
                             <th>Nama Jabatan</th>
                             <th>Tugas</th>
@@ -32,25 +32,19 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>SK01</td>
-                            <td>Staf Kasir</td>
-                            <td>Transaksi Pembeli</td>
-                            <td class="text-center">
-                                <a href="{{route('karyawan_detail')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
-                                <a href="" class="btn btn-inverse-danger"data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-delete"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>SV02</td>
-                            <td>Supervisor</td>
-                            <td>Penanggung Jawab</td>
-                            <td class="text-center">
-                                <a href="{{route('karyawan_detail')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
-                                <a href="" class="btn btn-inverse-danger"data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-delete"></i></a>
-                            </td>
-                        </tr>
+                            <?php $no = 1 ?>
+                          @foreach ($Jabatan as $d)
+                      <tr>
+                          <td>{{$no++}}</td>
+                          <td>{{$d->kode_jabatan}}</td>
+                          <td>{{$d->jabatan}}</td>
+                          <td>{{$d->tugas}}</td>
+                          <td class="text-center">
+                          {{-- <a href="{{route('jabatan_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary"> edit</a>
+                          <a href="{{route('jabatan_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger"> hapus</a> --}}
+                          </td>
+                      </tr>
+                      @endforeach
                         </tbody>
                     </table>
                 </div>
