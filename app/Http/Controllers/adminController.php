@@ -103,7 +103,6 @@ class adminController extends Controller
     }
     
     public function kabupatenkota_update( Request $request ,$id){
-       // dd('utes');
         $id = IDCrypt::Decrypt($id);
         $kabupatenkota = kabupatenkota::findOrFail($id);
        // dd($request);
@@ -148,7 +147,7 @@ class adminController extends Controller
               return redirect(route('kecamatan_index'))->with('success', 'Data kabupaten / kota '.$request->kecamatan.' Berhasil di Simpan');
       }
 
-    public function kecamatan_edit(){
+    public function kecamatan_edit($id){
 
         return view('admin.kecamatan_edit');
     }
@@ -176,9 +175,12 @@ class adminController extends Controller
             return redirect(route('kelurahan_index'))->with('success', 'Data Kelurahan '.$request->kelurahan.' Berhasil di Simpan');
     }//fungsi kelurahan tambah
 
-    public function kelurahan_edit(){
+    public function kelurahan_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $Kelurahan = Kelurahan::findOrFail($id);
+        $Kecamatan = Kecamatan::All();
 
-        return view('admin.kelurahan_edit');
+        return view('admin.kelurahan_edit',compact('Kelurahan','Kecamatan'));
     }
 
 
