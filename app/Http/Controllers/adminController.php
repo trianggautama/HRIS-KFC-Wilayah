@@ -183,6 +183,22 @@ class adminController extends Controller
         return view('admin.kelurahan_edit',compact('Kelurahan','Kecamatan'));
     }
 
+    public function kelurahan_update( Request $request ,$id){
+        $id = IDCrypt::Decrypt($id);
+        $Kelurahan = Kelurahan::findOrFail($id);
+       // dd($request);
+       $this->validate(request(),[
+        'kode_kelurahan'=>'required|unique:kelurahans',
+        'kelurahan'=>'required',
+        'kecamatan_id'=>'required'
+      ]);
+           $Kelurahan->kode_kelurahan= $request->kode_kelurahan;
+           $Kelurahan->kelurahan= $request->kelurahan;
+           $Kelurahan->kecamatan_id= $request->kecamatan_id;
+           $Kelurahan->update();
+             return redirect(route('kelurahan_index'))->with('success', 'Data  Berhasil di Ubah');
+     }
+
 
      //jabatan
      public function jabatan_index(){
