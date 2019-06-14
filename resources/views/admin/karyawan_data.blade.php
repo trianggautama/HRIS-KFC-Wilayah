@@ -12,10 +12,10 @@
     </div>
     <div class="card">
         <div class="card-header ">
-                <h4>Data Karyawan</h4>
-                <div class="text-right">
-                        <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
-                    </div>
+            <h4>Data Karyawan</h4>
+            <div class="text-right">
+                <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
+            </div>
         </div>
         <div class="card-block">
             <div class="row">

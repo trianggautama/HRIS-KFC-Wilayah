@@ -152,14 +152,13 @@ class adminController extends Controller
 
     public function kecamatan_edit($id){
         $id = IDCrypt::Decrypt($id);
-        $Kecamatan = Kecamatan::findOrFail($id);
-        $Kabupatenkota = Kabupatenkota::All();
-
-        return view('admin.kecamatan_edit',compact('Kecamatan','Kabupatenkota'));
+        $kabupatenkota = kabupatenkota::all();
+        $kecamatan=kecamatan::findOrFail($id);
+        return view('admin.kecamatan_edit',compact('skecamatan','kabupatenkota'));
     }
 
     public function kecamatan_update( Request $request ,$id){
-        $id = IDCrypt::Decrypt($id);
+        $id = IDCrypt::Decrypt($id);s
         $Kecamatan = Kecamatan::findOrFail($id);
        $this->validate(request(),[
         'kode_kecamatan'=>'required|unique:kecamatans',
