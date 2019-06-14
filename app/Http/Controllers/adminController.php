@@ -260,6 +260,21 @@ class adminController extends Controller
         return view('admin.jabatan_edit',compact('Jabatan'));
     }//fungsi jabatan edit
 
+    public function jabatan_update( Request $request ,$id){
+        $id = IDCrypt::Decrypt($id);
+        $Jabatan = Jabatan::findOrFail($id);
+       $this->validate(request(),[
+        'kode_jabatan'=>'required|unique:jabatans',
+        'jabatan'=>'required',
+        'tugas'=>'required'
+      ]);
+           $Jabatan->kode_jabatan= $request->kode_jabatan;
+           $Jabatan->jabatan= $request->jabatan;
+           $Jabatan->tugas= $request->tugas;
+           $Jabatan->update();
+             return redirect(route('jabatan_index'))->with('success', 'Data  Berhasil di Ubah');
+     }//fungsi jabatan update
+
         //karyawan
         public function karyawan_index(){
 
