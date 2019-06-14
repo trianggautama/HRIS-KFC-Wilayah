@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -8,7 +9,7 @@
     </div>
     <div class="card">
         <div class="card-header ">
-                <h4>Data Kecamatan</h4>
+                <h4>Data Kabupaten Kota</h4>
                 <div class="text-right">
                 <a class="btn btn-inverse-primary right" href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="icofont icofont-ui-add"></i> tambah data</a>
                         <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
@@ -21,23 +22,21 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Kode Kecamatan</th>
-                            <th>Nama Kecamatan</th>
-                            <th>Kabupaten / Kota</th>
+                            <th>Kode kabupaten/kota</th>
+                            <th>Nama kabupaten/kota</th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php $no = 1 ?>
-                            @foreach ($kecamatan as $kec)
+                            @foreach ($kabupatenkota as $k)
                         <tr>
                             <td>{{$no++}}</td>
-                            <td>{{$kec->kode_kecamatan}}</td>
-                            <td>{{$kec->kecamatan}}</td>
-                            <td>{{$kec->kabupatenkota->kabupatenkota}}</td>
+                            <td>{{$k->kode_kabupatenkota}}</td>
+                            <td>{{$k->kabupatenkota}} </td>
                             <td class="text-center">
-                            <a href="{{route('kecamatan_edit', ['id' => IDCrypt::Encrypt( $kec->id)])}}" class="btn btn-inverse-primary"> edit</a>
-                            <a href="{{route('kecamatan_hapus', ['id' => IDCrypt::Encrypt( $kec->id)])}}" class="btn btn-inverse-danger"> hapus</a>
+                            <a href="{{route('kabupatenkota_edit', ['id' => IDCrypt::Encrypt( $k->id)])}}" class="btn btn-inverse-primary"> edit</a>
+                            <a href="{{route('kabupatenkota_hapus', ['id' => IDCrypt::Encrypt( $k->id)])}}" class="btn btn-inverse-danger"> hapus</a>
                             </td>
                         </tr>
                         @endforeach
@@ -48,7 +47,6 @@
         </div>
     </div>
 </div>
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -62,27 +60,19 @@
             <div class="modal-body">
             <form  method="post" action="">
                         <div class="md-input-wrapper">
-                            <input type="text" class="md-form-control md-static"  name="kode_kecamatan"/>
-                            <label>Kode Kecamatan</label>
+                            <input type="text" name="kode_kabupatenkota" class="md-form-control md-static" />
+                            <label>Kode Kabupaten/Kota</label>
                         </div>
                         <div class="md-input-wrapper">
-                            <input type="text" class="md-form-control md-static"  name="kecamatan"/>
-                            <label>Nama Kecamatan</label>
+                            <input type="text" name="kabupatenkota" class="md-form-control md-static" />
+                            <label>Nama Kabupaten/Kota</label>
                         </div>
-                        <div class="md-input-wrapper">
-                        <select class="md-form-control" name="kabupatenkota_id">
-                          <option>kabupaten/kota</option>
-                          @foreach( $kabupatenkota as $kab )
-                          <option value="{{$kab->id}}">{{$kab->kabupatenkota}} </option>
-                          @endforeach
-                        </select>
-                    </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>
               <input class="btn btn-inverse-primary" type="submit" name="submit" value="Save">
-              {{csrf_field() }}           
-               </form>
+              {{csrf_field() }}
+            </form>
             </div>
           </div>
         </div>

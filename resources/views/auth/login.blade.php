@@ -62,7 +62,7 @@
                     <!-- <div class="card-footer"> -->
                     <div class="col-sm-12 col-xs-12 text-center">
                         <span class="text-muted">Belum Punya Akun?</span>
-                        <a href="/register" class="f-w-600 p-l-5">Daftar Sekarang</a>
+                        <a href="{{route('register')}}" class="f-w-600 p-l-5">Daftar Sekarang</a>
                     </div>
 
                     <!-- </div> -->

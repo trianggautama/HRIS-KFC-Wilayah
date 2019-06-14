@@ -24,6 +24,14 @@
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Nama Kecamatan</label></div>
                     <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"  placeholder="Isi Jika ingin mengganti Password"></div>
                 </div>
+                <div class="form-group">
+                <label for="exampleSelect1" class="form-control-label">Example select</label>
+                    <select class="form-control" id="exampleSelect1">
+                        <option>Banjarbaru</option>
+                        <option>Banjarmasin</option>
+                        <option>Kabupaten Banjar</option>
+                    </select>
+                </div>
                 <div class="card-footer text-right">
                     <a href="" class="btn btn-inverse-primary">Ubah Data</a>
                 </div>

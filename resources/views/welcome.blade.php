@@ -73,8 +73,6 @@
       
     </header>
 
-  
-
     <div class="site-blocks-cover overlay" style="background-image: url(images/background.jpg);" data-aos="fade" data-stellar-background-ratio="0.5" id="section-home">
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
@@ -84,7 +82,7 @@
 
             <h1 class="text-white font-weight-light text-uppercase font-weight-bold" data-aos="fade-up">Pengelolaan Sumber Daya Manusia</h1>
             <p class="mb-5" data-aos="fade-up" data-aos-delay="100">pada KFC Wilayah Kalimantan Selatan</p>
-            <p data-aos="fade-up" data-aos-delay="200"><a href="/login" class="btn btn-primary py-3 px-5 text-white">Mulai!</a></p>
+            <p data-aos="fade-up" data-aos-delay="200"><a href="{{route('login')}}" class="btn btn-primary py-3 px-5 text-white">Mulai!</a></p>
 
           </div>
         </div>
