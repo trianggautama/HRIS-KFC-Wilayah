@@ -40,8 +40,8 @@
                           <td>{{$d->jabatan}}</td>
                           <td>{{$d->tugas}}</td>
                           <td class="text-center">
-                          {{-- <a href="{{route('jabatan_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary"> edit</a>
-                          <a href="{{route('jabatan_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger"> hapus</a> --}}
+                          <a href="{{route('jabatan_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary"> edit</a>
+                          {{-- <a href="{{route('jabatan_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger"> hapus</a> --}}
                           </td>
                       </tr>
                       @endforeach
