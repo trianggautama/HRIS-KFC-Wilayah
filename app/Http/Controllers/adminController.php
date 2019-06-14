@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Outlet;
 use App\Jabatan;
+use App\Karyawan;
 use App\kecamatan;
 use App\Kelurahan;
 use App\kabupatenkota;
@@ -31,8 +32,9 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $Outlet = Outlet::findOrFail($id);
         $User = User::find($Outlet->id_user);
-        // dd($User);
-        return view('admin.outlet_detail',compact('Outlet','User'));
+        $Kecamatan = Kecamatan::find($Outlet->id_kecamatan);
+        // dd($Kecamatan);
+        return view('admin.outlet_detail',compact('Outlet','User','Kecamatan'));
     }
 
     public function outlet_update(Request $request, $id){
@@ -283,8 +285,8 @@ class adminController extends Controller
     }
         //karyawan
         public function karyawan_index(){
-
-            return view('admin.karyawan_data');
+            $Karyawan= Karyawan::All();
+            return view('admin.karyawan_data',compact('Karyawan'));
         }
 
         public function karyawan_detail(){
