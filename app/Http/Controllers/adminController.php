@@ -154,8 +154,9 @@ class adminController extends Controller
 
     //kelurahan
     public function kelurahan_index(){
-
-    return view('admin.kelurahan_data');
+        $Kelurahan = Kelurahan::all();
+        $Kecamatan = Kecamatan::all();
+    return view('admin.kelurahan_data',compact('Kelurahan','Kecamatan'));
     }
     public function kelurahan_edit(){
 
