@@ -39,7 +39,7 @@
                           <td>{{$d->Kecamatan->kecamatan}}</td>
                           <td class="text-center">
                           <a href="{{route('kelurahan_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary"> edit</a>
-                          {{-- <a href="{{route('kelurahan_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger"> hapus</a> --}}
+                          <a href="{{route('kelurahan_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger"> hapus</a>
                           </td>
                       </tr>
                       @endforeach
