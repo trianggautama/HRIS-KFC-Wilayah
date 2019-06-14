@@ -23,7 +23,7 @@
                     <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Kode Jabatan</th>
                             <th>Nama Jabatan</th>
                             <th>Tugas</th>
@@ -32,25 +32,19 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>SK01</td>
-                            <td>Staf Kasir</td>
-                            <td>Transaksi Pembeli</td>
-                            <td class="text-center">
-                                <a href="{{route('karyawan_detail')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
-                                <a href="" class="btn btn-inverse-danger"data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-delete"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>SV02</td>
-                            <td>Supervisor</td>
-                            <td>Penanggung Jawab</td>
-                            <td class="text-center">
-                                <a href="{{route('karyawan_detail')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
-                                <a href="" class="btn btn-inverse-danger"data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-delete"></i></a>
-                            </td>
-                        </tr>
+                            <?php $no = 1 ?>
+                          @foreach ($Jabatan as $d)
+                      <tr>
+                          <td>{{$no++}}</td>
+                          <td>{{$d->kode_jabatan}}</td>
+                          <td>{{$d->jabatan}}</td>
+                          <td>{{$d->tugas}}</td>
+                          <td class="text-center">
+                          <a href="{{route('jabatan_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary"> edit</a>
+                          <a href="{{route('jabatan_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger"> hapus</a>
+                          </td>
+                      </tr>
+                      @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -71,24 +65,25 @@
           </button>
         </div>
         <div class="modal-body">
-
+            <form  method="post" action="">
             <div class="md-input-wrapper">
-                 <input type="text" class="md-form-control md-static" />
+                 <input type="text" name="kode_jabatan" class="md-form-control md-static" />
                     <label>Kode jabatan</label>
             </div>
             <div class="md-input-wrapper">
-                 <input type="text" class="md-form-control md-static" />
+                 <input type="text" name="jabatan" class="md-form-control md-static" />
                     <label>Nama jabatan</label>
             </div>
             <div class="md-input-wrapper">
-            <textarea name="" id="" class="md-form-control md-static" ></textarea>    
+            <textarea name="tugas" id="" class="md-form-control md-static" ></textarea>    
             <label>Tugas Pokok</label>
             </div>
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-inverse-danger" data-dismiss="modal"> <i class="icofont icofont-ui-close"></i> Close</button>
-          <button type="button" class="btn btn-inverse-primary"> <i class="icofont icofont-save"></i> Save changes</button>
+            <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>
+            <input class="btn btn-inverse-primary" type="submit" name="submit" value="Save">
+          {{csrf_field() }}  
         </form>
         </div>
       </div>

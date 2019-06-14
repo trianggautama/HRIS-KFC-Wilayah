@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\Outlet;
-use App\kabupatenkota;
+use App\Jabatan;
 use App\kecamatan;
+use App\Kelurahan;
+use App\kabupatenkota;
 use Hash;
 use IDCrypt;
 
@@ -64,7 +66,16 @@ class adminController extends Controller
         $User->update();
         $Outlet->update();
         return redirect(route('outlet_index'))->with('success', 'Data outlet '.$request->name.' Berhasil di ubah');
-         }
+         }//fungsi edit data outlet
+
+    public function outlet_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $Outlet=Outlet::findOrFail($id);
+        $Outlet->user()->delete();
+        $Outlet->delete();
+       
+        return redirect(route('outlet_index'))->with('success', 'Data outlet berhasil di hapus');
+    }//fungsi menghapus data outlet
 
       //kabupatenkota
       public function kabupatenkota_index(){
@@ -93,7 +104,6 @@ class adminController extends Controller
     }
     
     public function kabupatenkota_update( Request $request ,$id){
-       // dd('utes');
         $id = IDCrypt::Decrypt($id);
         $kabupatenkota = kabupatenkota::findOrFail($id);
        // dd($request);
@@ -144,23 +154,131 @@ class adminController extends Controller
         return view('admin.kecamatan_edit',compact('kecamatan'));
     }
 
+    public function kecamatan_update( Request $request ,$id){
+        $id = IDCrypt::Decrypt($id);
+        $Kecamatan = Kecamatan::findOrFail($id);
+       $this->validate(request(),[
+        'kode_kecamatan'=>'required|unique:kecamatans',
+        'kecamatan'=>'required',
+        'kabupatenkota_id'=>'required'
+      ]);
+           $Kecamatan->kode_kecamatan= $request->kode_kecamatan;
+           $Kecamatan->kecamatan= $request->kecamatan;
+           $Kecamatan->kabupatenkota_id= $request->kabupatenkota_id;
+           $Kecamatan->update();
+             return redirect(route('kecamatan_index'))->with('success', 'Data  Berhasil di Ubah');
+     }//fungsi kecamatan update
+
+     public function kecamatan_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $Kecamatan=kecamatan::findOrFail($id);
+        $Kecamatan->delete();
+        return redirect(route('kecamatan_index'))->with('hapus', 'Data  Berhasil di Hapus');
+
+    }  //menghapus data  kecamatan
+
     //kelurahan
     public function kelurahan_index(){
-
-        return view('admin.kelurahan_data');
-    }
-    public function kelurahan_edit(){
-
-        return view('admin.kelurahan_edit');
+        $Kelurahan = Kelurahan::all();
+        $Kecamatan = Kecamatan::all();
+    return view('admin.kelurahan_data',compact('Kelurahan','Kecamatan'));
     }
 
+    public function kelurahan_tambah(Request $request){
+        //dd($request);
+        $this->validate(request(),[
+            'kode_kelurahan'=>'required',
+            'kelurahan'=>'required',
+            'kecamatan_id'=>'required'
+          ]);
+         // dd($request);
+          $Kelurahan = new Kelurahan;
+          $Kelurahan->kode_kelurahan    = $request->kode_kelurahan;
+          $Kelurahan->kelurahan         = $request->kelurahan;
+          $Kelurahan->kecamatan_id      = $request->kecamatan_id;
+          $Kelurahan->save();
+            return redirect(route('kelurahan_index'))->with('success', 'Data Kelurahan '.$request->kelurahan.' Berhasil di Simpan');
+    }//fungsi kelurahan tambah
+
+    public function kelurahan_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $Kelurahan = Kelurahan::findOrFail($id);
+        $Kecamatan = Kecamatan::All();
+
+        return view('admin.kelurahan_edit',compact('Kelurahan','Kecamatan'));
+    }//fungsi kelurahan edit
+
+    public function kelurahan_update( Request $request ,$id){
+        $id = IDCrypt::Decrypt($id);
+        $Kelurahan = Kelurahan::findOrFail($id);
+       // dd($request);
+       $this->validate(request(),[
+        'kode_kelurahan'=>'required|unique:kelurahans',
+        'kelurahan'=>'required',
+        'kecamatan_id'=>'required'
+      ]);
+           $Kelurahan->kode_kelurahan= $request->kode_kelurahan;
+           $Kelurahan->kelurahan= $request->kelurahan;
+           $Kelurahan->kecamatan_id= $request->kecamatan_id;
+           $Kelurahan->update();
+             return redirect(route('kelurahan_index'))->with('success', 'Data  Berhasil di Ubah');
+     }//fungsi kelurahan update
+
+    public function kelurahan_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $Kelurahan=Kelurahan::findOrFail($id);
+        $Kelurahan->delete();
+        return redirect(route('kelurahan_index'));
+    }
 
      //jabatan
      public function jabatan_index(){
+        $Jabatan = Jabatan::All();
+        return view('admin.jabatan_data',compact('Jabatan'));
+    }//fungsi jabatan index
 
-        return view('admin.jabatan_data');
+    public function jabatan_tambah(Request $request){
+        $this->validate(request(),[
+            'kode_jabatan'=>'required',
+            'jabatan'=>'required',
+            'tugas'=>'required'
+          ]);
+          $jabatan = new jabatan;
+          $jabatan->kode_jabatan= $request->kode_jabatan;
+          $jabatan->jabatan= $request->jabatan;
+          $jabatan->tugas= $request->tugas;
+          $jabatan->save();
+            return redirect(route('jabatan_index'))->with('success', 'Data jabatan '.$request->jabatan.' Berhasil di Simpan');
+    }//fungsi jabatan tambah
+
+    public function jabatan_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $Jabatan = jabatan::findOrFail($id);
+
+        return view('admin.jabatan_edit',compact('Jabatan'));
+    }//fungsi jabatan edit
+
+    public function jabatan_update( Request $request ,$id){
+        $id = IDCrypt::Decrypt($id);
+        $Jabatan = Jabatan::findOrFail($id);
+       $this->validate(request(),[
+        'kode_jabatan'=>'required|unique:jabatans',
+        'jabatan'=>'required',
+        'tugas'=>'required'
+      ]);
+           $Jabatan->kode_jabatan= $request->kode_jabatan;
+           $Jabatan->jabatan= $request->jabatan;
+           $Jabatan->tugas= $request->tugas;
+           $Jabatan->update();
+             return redirect(route('jabatan_index'))->with('success', 'Data  Berhasil di Ubah');
+     }//fungsi jabatan update
+
+    public function jabatan_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $Jabatan=Jabatan::findOrFail($id);
+        $Jabatan->delete();
+        return redirect(route('jabatan_index'));
     }
-
         //karyawan
         public function karyawan_index(){
 

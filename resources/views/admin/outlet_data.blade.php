@@ -39,7 +39,7 @@
                             <td class="text-center">
                                 <a href="{{ route('outlet_detail', ['id' => IDCrypt::Encrypt( $p->id)])}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
                                     
-                                <a href="" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
+                                <a href="{{ route('outlet_hapus', ['id' => IDCrypt::Encrypt( $p->id)])}}" class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top" title="hapus"><i class="icofont icofont-ui-delete"></i></a>
                             </td>
                             @endforeach
                         </tr>
