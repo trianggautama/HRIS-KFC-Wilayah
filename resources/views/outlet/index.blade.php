@@ -39,7 +39,8 @@
                         </div>
                         <div class="card-block">
                             <h5>Mohon untuk melengkapi data Profile Outlet Anda </h5>
-                            <a href="{{route('edit_profil_outlet')}}" class="btn btn-sm btn-inverse-danger"> Disini</a>
+                            <a href="{{route('profil_edit_outlet', ['id' => IDCrypt::Encrypt( $id)])}}" class="btn btn-inverse-danger"> Disini</a>
+                            {{-- <a href="{{route('profil_edit_outlet')}}" class="btn btn-sm btn-inverse-danger"> Disini</a> --}}
                         </div>
                     </div>
                 </div>
