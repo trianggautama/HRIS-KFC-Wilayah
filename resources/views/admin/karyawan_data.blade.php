@@ -23,40 +23,33 @@
                     <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Outlet</th>
                             <th>Kode Karyawan</th>
                             <th>Nama Karyawan</th>
                             <th>Jenis Kelamin</th>
                             <th>No.Tlp</th>
+                            <th>Jabatan</th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>KFC QMALL</td>
-                            <td>F12S2</td>
-                            <td>Angga</td>
-                            <td>Laki-laki</td>
-                            <td>0859685xxx</td>
+                            <?php $no = 1 ?>
+                            @foreach ($Karyawan as $d)
+                        <tr>
+                            <td>{{$no++}}</td>
+                            <td>{{$d->outlet->outlet}}</td>
+                            <td>{{$d->kode_karyawan}}</td>
+                            <td>{{$d->nama}}</td>
+                            <td>{{$d->telepon}}</td>
+                            <td>{{$d->jabatan->jabatan}}</td>
                             <td class="text-center">
-                            <a href="{{route('karyawan_detail')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
-                            <a href="" class="btn btn-inverse-danger"data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-delete"></i></a>
+                            {{-- <a href="{{route('karyawan_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary"> edit</a>
+                            <a href="{{route('karyawan_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger"> hapus</a> --}}
                             </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>KFC GIANT EKSPRESS</td>
-                            <td>H54A3</td>
-                            <td>Zaini</td>
-                            <td>Laki-laki</td>
-                            <td>081254321xxx</td>
-                            <td class="text-center">
-                                <a href="{{route('karyawan_detail')}}" class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="icofont icofont-eye-alt"></i></a>
-                                <a href="" class="btn btn-inverse-danger"data-toggle="tooltip" data-placement="top" title="hapus"> <i class="icofont icofont-ui-delete"></i></a>
-                                </td>
-                        </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
