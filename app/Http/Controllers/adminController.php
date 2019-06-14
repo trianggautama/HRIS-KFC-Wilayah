@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\Outlet;
-use App\kabupatenkota;
+use App\Jabatan;
 use App\kecamatan;
 use App\Kelurahan;
+use App\kabupatenkota;
 use Hash;
 use IDCrypt;
 
@@ -234,8 +235,22 @@ class adminController extends Controller
 
      //jabatan
      public function jabatan_index(){
+        $Jabatan = Jabatan::All();
+        return view('admin.jabatan_data',compact('Jabatan'));
+    }
 
-        return view('admin.jabatan_data');
+    public function jabatan_tambah(Request $request){
+        $this->validate(request(),[
+            'kode_jabatan'=>'required',
+            'jabatan'=>'required',
+            'tugas'=>'required'
+          ]);
+          $jabatan = new jabatan;
+          $jabatan->kode_jabatan= $request->kode_jabatan;
+          $jabatan->jabatan= $request->jabatan;
+          $jabatan->tugas= $request->tugas;
+          $jabatan->save();
+            return redirect(route('jabatan_index'))->with('success', 'Data jabatan '.$request->jabatan.' Berhasil di Simpan');
     }
 
         //karyawan
