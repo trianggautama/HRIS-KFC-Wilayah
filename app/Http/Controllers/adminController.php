@@ -286,7 +286,10 @@ class adminController extends Controller
         //karyawan
         public function karyawan_index(){
             $Karyawan= Karyawan::All();
-            return view('admin.karyawan_data',compact('Karyawan'));
+            $Outlet= Outlet::All();
+            // dd($Outlet);
+            $Jabatan= Jabatan::All();
+            return view('admin.karyawan_data',compact('Karyawan','Outlet','Jabatan'));
         }
 
         public function karyawan_detail(){
