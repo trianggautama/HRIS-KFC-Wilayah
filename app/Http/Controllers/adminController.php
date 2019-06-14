@@ -138,15 +138,16 @@ class adminController extends Controller
               return redirect(route('kecamatan_index'))->with('success', 'Data kabupaten / kota '.$request->kecamatan.' Berhasil di Simpan');
       }
 
-    public function kecamatan_edit(){
-
-        return view('admin.kecamatan_edit');
+    public function kecamatan_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $kecamatan=kecamatan::findOrFail($id);
+        return view('admin.kecamatan_edit',compact('kecamatan'));
     }
 
     //kelurahan
     public function kelurahan_index(){
 
-    return view('admin.kelurahan_data');
+        return view('admin.kelurahan_data');
     }
     public function kelurahan_edit(){
 

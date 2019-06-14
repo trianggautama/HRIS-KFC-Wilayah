@@ -75,12 +75,11 @@
                             <a href="#!" class="drop icon-circle" onclick="javascript:toggleFullScreen()">
                                 <i class="icon-size-fullscreen"></i>
                             </a>
-
                         </li>
                         <!-- User Menu-->
                         <li class="dropdown">
                             <a href="#!" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
-                                <span><img class="img-circle " src="assets/images/avatar-1.png" style="width:40px;" alt="User Image"></span>
+                                <span><img class="img-circle " src="{asset('assets/images/avatar-1.png')}}" style="width:40px;" alt="User Image"></span>
                                 <span>{{ Auth::user()->name }}<i class=" icofont icofont-simple-down"></i></span>
 
                             </a>
