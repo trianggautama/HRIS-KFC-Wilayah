@@ -15,6 +15,9 @@
             </div>
 
             <div class="card-block">
+                <form  method="post" action="">
+                {{method_field('PUT') }}
+                {{ csrf_field() }}
                 <div class="form-group row">
                     <div class="col-md-2"><label for="InputNormal" class="form-control-label">Kode Kecamatan</label></div>
                     <div class="col-md-10"><input type="text" name="kode_kecamatan" class="form-control" id="InputNormal" value="{{ $Kecamatan->kode_kecamatan }}" placeholder="Kode Kecamatan"></div>
