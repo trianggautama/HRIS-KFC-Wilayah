@@ -83,13 +83,13 @@
                                                                     <th scope="row">Nama Outlet</th>
                                                                     <td>{{ $User->name }}</td>
                                                                 </tr>
-                                                                <tr>
+                                                                {{-- <tr>
                                                                     <th scope="row">Kecamatan</th>
-                                                                    <td>Banjarbaru Utara</td>
-                                                                </tr>
+                                                                    <td>{{ $Outlet->kecamatan->kecamatan }}</td>
+                                                                </tr> --}}
                                                                 <tr>
                                                                     <th scope="row">Alamat</th>
-                                                                    <td>{{ $Outlet->alamat }}</td>
+                                                                    <td>{{ $Outlet->alamat }} Kecamatan {{ $Outlet->kecamatan->kecamatan }}</td>
                                                                 </tr>
 
                                                                 </tbody>
