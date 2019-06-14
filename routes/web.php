@@ -73,6 +73,8 @@ Route::get('/kelurahan/hapus/{id}','adminController@kelurahan_hapus')
 //jabatan
 Route::get('/jabatan','adminController@jabatan_index')
 ->name('jabatan_index');
+Route::post('/jabatan','adminController@jabatan_tambah')
+->name('jabatan_tambah');
 
 //karyawan
 Route::get('/karyawan','adminController@karyawan_index')
