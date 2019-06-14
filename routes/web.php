@@ -52,8 +52,9 @@ Route::get('/kecamatan/edit/{id}','adminController@kecamatan_edit')
 ->name('kecamatan_edit');
 Route::put('/kecamatan/edit/{id}','adminController@kecamatan_update')
 ->name('kecamatan_update');
-Route::put('/kecamatan/hapus/{id}','adminController@kecamatan_hapus'
+Route::get('/kecamatan/hapus/{id}','adminController@kecamatan_hapus'
 )->name('kecamatan_hapus');
+
 
 
 
