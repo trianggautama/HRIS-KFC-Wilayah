@@ -65,24 +65,25 @@
           </button>
         </div>
         <div class="modal-body">
-
+            <form  method="post" action="">
             <div class="md-input-wrapper">
-                 <input type="text" class="md-form-control md-static" />
+                 <input type="text" name="kode_jabatan" class="md-form-control md-static" />
                     <label>Kode jabatan</label>
             </div>
             <div class="md-input-wrapper">
-                 <input type="text" class="md-form-control md-static" />
+                 <input type="text" name="jabatan" class="md-form-control md-static" />
                     <label>Nama jabatan</label>
             </div>
             <div class="md-input-wrapper">
-            <textarea name="" id="" class="md-form-control md-static" ></textarea>    
+            <textarea name="tugas" id="" class="md-form-control md-static" ></textarea>    
             <label>Tugas Pokok</label>
             </div>
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-inverse-danger" data-dismiss="modal"> <i class="icofont icofont-ui-close"></i> Close</button>
-          <button type="button" class="btn btn-inverse-primary"> <i class="icofont icofont-save"></i> Save changes</button>
+            <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>
+            <input class="btn btn-inverse-primary" type="submit" name="submit" value="Save">
+          {{csrf_field() }}  
         </form>
         </div>
       </div>
