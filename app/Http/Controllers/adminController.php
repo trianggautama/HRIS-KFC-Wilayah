@@ -170,6 +170,15 @@ class adminController extends Controller
              return redirect(route('kecamatan_index'))->with('success', 'Data  Berhasil di Ubah');
      }//fungsi kecamatan update
 
+     public function kecamatan_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $Kecamatan=kecamatan::findOrFail($id);
+        $Kecamatan->kelurahan()->delete();
+        $Kecamatan->delete();
+        return redirect(route('kecamatan_index'))->with('hapus', 'Data  Berhasil di Hapus');
+
+    }  //menghapus data  kecamatan
+
     //kelurahan
     public function kelurahan_index(){
         $Kelurahan = Kelurahan::all();
