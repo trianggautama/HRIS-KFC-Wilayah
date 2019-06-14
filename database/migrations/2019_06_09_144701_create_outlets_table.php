@@ -15,11 +15,14 @@ class CreateOutletsTable extends Migration
     {
         Schema::create('outlets', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('id_user');
-            $table->bigInteger('id_kecamatan');
+            $table->unsignedbigInteger('user_id');
+            $table->unsignedbigInteger('kecamatan_id');
+            $table->string('nama_cabang')->length(191);
             $table->string('alamat')->length(191);
             $table->string('telepon')->length(13);
             $table->string('foto')->length(191);
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('kecamatan_id')->references('id')->on('kecamatans')->onDelete('cascade');
             $table->timestamps();
         });
     }
