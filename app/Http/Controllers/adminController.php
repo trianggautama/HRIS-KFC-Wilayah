@@ -148,8 +148,11 @@ class adminController extends Controller
       }
 
     public function kecamatan_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $Kecamatan = Kecamatan::findOrFail($id);
+        $Kabupatenkota = Kabupatenkota::All();
 
-        return view('admin.kecamatan_edit');
+        return view('admin.kecamatan_edit',compact('Kecamatan','Kabupatenkota'));
     }
 
     //kelurahan
