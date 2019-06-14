@@ -42,6 +42,7 @@
                             <td>{{$d->outlet->outlet}}</td>
                             <td>{{$d->kode_karyawan}}</td>
                             <td>{{$d->nama}}</td>
+                            <td>{{$d->jenis_kelamin}}</td>
                             <td>{{$d->telepon}}</td>
                             <td>{{$d->jabatan->jabatan}}</td>
                             <td class="text-center">
