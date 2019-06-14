@@ -155,6 +155,21 @@ class adminController extends Controller
         return view('admin.kecamatan_edit',compact('Kecamatan','Kabupatenkota'));
     }
 
+    public function kecamatan_update( Request $request ,$id){
+        $id = IDCrypt::Decrypt($id);
+        $Kecamatan = Kecamatan::findOrFail($id);
+       $this->validate(request(),[
+        'kode_kecamatan'=>'required|unique:kecamatans',
+        'kecamatan'=>'required',
+        'kabupaten_id'=>'required'
+      ]);
+           $Kecamatan->kode_kecamatan= $request->kode_kecamatan;
+           $Kecamatan->kecamatan= $request->kecamatan;
+           $Kecamatan->kabupaten_id= $request->kabupaten_id;
+           $Kecamatan->update();
+             return redirect(route('kecamatan_index'))->with('success', 'Data  Berhasil di Ubah');
+     }//fungsi kecamatan update
+
     //kelurahan
     public function kelurahan_index(){
         $Kelurahan = Kelurahan::all();
