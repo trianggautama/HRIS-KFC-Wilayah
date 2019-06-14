@@ -21,7 +21,7 @@
                     <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Kode Kelurahan</th>
                             <th>Nama kelurahan</th>
                             <th>Kecamatan</th>
@@ -30,15 +30,19 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>K12`1</td>
-                            <td>Kemuning</td>
-                            <td>Banjarbaru Selatan</td>
-                            <td class="text-center">
-                            <a href="{{route('kelurahan_edit')}}" class="btn btn-inverse-primary"> edit</a>
-                            <a href="" class="btn btn-inverse-danger"> hapus</a>
-                            </td>
-                        </tr>
+                          <?php $no = 1 ?>
+                          @foreach ($Kelurahan as $d)
+                      <tr>
+                          <td>{{$no++}}</td>
+                          <td>{{$d->kode_kelurahan}}</td>
+                          <td>{{$d->kelurahan}}</td>
+                          <td>{{$d->Kecamatan->kecamatan}}</td>
+                          <td class="text-center">
+                          <a href="{{route('kelurahan_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary"> edit</a>
+                          {{-- <a href="{{route('kelurahan_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger"> hapus</a> --}}
+                          </td>
+                      </tr>
+                      @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -58,26 +62,28 @@
               </button>
             </div>
             <div class="modal-body">
+            <form  method="post" action="">
                         <div class="md-input-wrapper">
-                            <input type="text" class="md-form-control md-static" />
+                            <input type="text" name="kode_kelurahan" class="md-form-control md-static" />
                             <label>Kode kelurahan</label>
                         </div>
                         <div class="md-input-wrapper">
-                            <input type="text" class="md-form-control md-static" />
+                            <input type="text" name="kelurahan" class="md-form-control md-static" />
                             <label>Nama kelurahan</label>
                         </div>
                         <div class="md-input-wrapper">
-                        <select class="md-form-control">
+                        <select class="md-form-control" name="kecamatan_id">
                           <option>Kecamatan</option>
-                          <option>Banjarbaru Selatan</option>
-                          <option>Banjarbaru Utara</option>
-                          <option>Cempaka</option>
+                          @foreach( $Kecamatan as $d )
+                          <option value="{{$d->id}}">{{$d->kecamatan}} </option>
+                          @endforeach
                         </select>
                     </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-inverse-primary">Save </button>
+                <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>
+                <input class="btn btn-inverse-primary" type="submit" name="submit" value="Save">
+              {{csrf_field() }}           
             </form>
             </div>
           </div>
