@@ -64,7 +64,16 @@ class adminController extends Controller
         $User->update();
         $Outlet->update();
         return redirect(route('outlet_index'))->with('success', 'Data outlet '.$request->name.' Berhasil di ubah');
-         }
+         }//fungsi edit data outlet
+
+    public function outlet_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $Outlet=Outlet::findOrFail($id);
+        $Outlet->user()->delete();
+        $Outlet->delete();
+       
+        return redirect(route('outlet_index'))->with('success', 'Data outlet berhasil di hapus');
+    }//fungsi menghapus data outlet
 
      //kecamatan
      public function kecamatan_index(){
