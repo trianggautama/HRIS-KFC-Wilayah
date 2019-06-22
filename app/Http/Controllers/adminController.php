@@ -110,7 +110,7 @@ class adminController extends Controller
         $kabupatenkota = kabupatenkota::findOrFail($id);
        // dd($request);
        $this->validate(request(),[
-        'kode_kabupatenkota'=>'required|unique:kabupatenkota',
+        'kode_kabupatenkota'=>'required',
         'kabupatenkota'=>'required'
       ]);
            $kabupatenkota->kode_kabupatenkota= $request->kode_kabupatenkota;
@@ -161,7 +161,7 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $Kecamatan = Kecamatan::findOrFail($id);
        $this->validate(request(),[
-        'kode_kecamatan'=>'required|unique:kecamatans',
+        'kode_kecamatan'=>'required',
         'kecamatan'=>'required',
         'kabupatenkota_id'=>'required'
       ]);
@@ -216,7 +216,7 @@ class adminController extends Controller
         $Kelurahan = Kelurahan::findOrFail($id);
        // dd($request);
        $this->validate(request(),[
-        'kode_kelurahan'=>'required|unique:kelurahans',
+        'kode_kelurahan'=>'required',
         'kelurahan'=>'required',
         'kecamatan_id'=>'required'
       ]);
