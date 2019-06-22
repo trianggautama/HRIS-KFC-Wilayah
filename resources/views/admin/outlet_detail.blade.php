@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="card-block text-center">
-                    <h4 class="f-18 f-normal m-b-10 txt-primary">{{ $User->name }}</h4>
+                    <h4 class="f-18 f-normal m-b-10 txt-primary">{{ $Outlet->user->name }}</h4>
 
                 </div>
             </div>
@@ -81,7 +81,7 @@
                                                                 <tbody>
                                                                 <tr>
                                                                     <th scope="row">Nama Outlet</th>
-                                                                    <td>{{ $User->name }}</td>
+                                                                    <td>{{ $Outlet->user->name }}</td>
                                                                 </tr>
                                                                 {{-- <tr>
                                                                     <th scope="row">Kecamatan</th>
@@ -152,7 +152,7 @@
                                                     class="form-control-label">Nama Outlet</label></div>
                                             <div class="col-md-10"><input type="text" class="form-control"
                                                     id="InputNormal" name="name" placeholder="Nama"
-                                                    value="{{ $User->name }}"></div>
+                                                    value="{{ $Outlet->user->name }}"></div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-md-2"><label for="exampleSelect1"
@@ -185,7 +185,7 @@
                                             <div class="col-md-2"><label for="InputNormal" class="form-control-label">No
                                                     Tlp</label></div>
                                             <div class="col-md-10"><input type="email" class="form-control"
-                                                    id="InputNormal" name="email" value="{{ $User->email }}"
+                                                    id="InputNormal" name="email" value="{{ $Outlet->user->email }}"
                                                     placeholder="Email"></div>
                                         </div>
                                         <div class="form-group row">
