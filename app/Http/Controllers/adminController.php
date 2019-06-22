@@ -51,7 +51,7 @@ class adminController extends Controller
         $User->email    = $request->email;
         $Password       = Hash::make($request->password);
         $User->password = $Password;
-        
+
         if($request->gambar != null){
         $FotoExt  = $request->gambar->getClientOriginalExtension();
         $FotoName = $request->id_user.' - '.$request->name;
@@ -75,7 +75,7 @@ class adminController extends Controller
         $Outlet=Outlet::findOrFail($id);
         $Outlet->user()->delete();
         $Outlet->delete();
-       
+
         return redirect(route('outlet_index'))->with('success', 'Data outlet berhasil di hapus');
     }//fungsi menghapus data outlet
 
@@ -85,7 +85,7 @@ class adminController extends Controller
 
         return view('admin.kabupatenkota_data',compact('kabupatenkota'));
       }
-    
+
     public function kabupatenkota_tambah(Request $request){
         //  dd($request);
           $this->validate(request(),[
@@ -104,7 +104,7 @@ class adminController extends Controller
         $kabupatenkota=kabupatenkota::findOrFail($id);
         return view('admin.kabupatenkota_edit',compact('kabupatenkota'));
     }
-    
+
     public function kabupatenkota_update( Request $request ,$id){
         $id = IDCrypt::Decrypt($id);
         $kabupatenkota = kabupatenkota::findOrFail($id);
@@ -158,7 +158,7 @@ class adminController extends Controller
     }
 
     public function kecamatan_update( Request $request ,$id){
-        $id = IDCrypt::Decrypt($id);s
+        $id = IDCrypt::Decrypt($id);
         $Kecamatan = Kecamatan::findOrFail($id);
        $this->validate(request(),[
         'kode_kecamatan'=>'required|unique:kecamatans',
