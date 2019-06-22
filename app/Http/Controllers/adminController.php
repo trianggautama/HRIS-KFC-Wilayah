@@ -265,7 +265,7 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $Jabatan = Jabatan::findOrFail($id);
        $this->validate(request(),[
-        'kode_jabatan'=>'required|unique:jabatans',
+        'kode_jabatan'=>'required',
         'jabatan'=>'required',
         'tugas'=>'required'
       ]);
