@@ -13,7 +13,7 @@
             <div class="col-sm-12 card dashboard-product">
                 <span>Outlets</span>
                 <h2 class="dashboard-total-products counter">12</h2>
-                <span class="label label-warning">Outlet</span>Wilayah Kalsel-teng
+                <span class="label label-warning">Outlet</span>Wilayah Kalsel
                 <div class="side-box bg-warning">
                     <i class="icon-social-soundcloud"></i>
                 </div>
