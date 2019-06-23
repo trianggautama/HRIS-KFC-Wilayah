@@ -156,7 +156,7 @@ class adminController extends Controller
     }
 
     public function kecamatan_update( Request $request ,$id){
-        $id = IDCrypt::Decrypt($id);s
+        $id = IDCrypt::Decrypt($id);
         $Kecamatan = Kecamatan::findOrFail($id);
        $this->validate(request(),[
         'kode_kecamatan'=>'required|unique:kecamatans',
