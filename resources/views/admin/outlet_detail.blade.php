@@ -22,14 +22,14 @@
         <div class="col-xl-3 col-lg-4">
             <div class="card faq-left">
                 <div class="social-profile">
-                    <img class="img-fluid" src="assets/images/social/profile.jpg" alt="">
+                    <img class="img-fluid" src="{{asset('assets/images/social/profile.jpg')  }}" alt="">
                     <div class="profile-hvr m-t-15">
                         <i class="icofont icofont-ui-edit p-r-10 c-pointer"></i>
                         <i class="icofont icofont-ui-delete c-pointer"></i>
                     </div>
                 </div>
                 <div class="card-block text-center">
-                    <h4 class="f-18 f-normal m-b-10 txt-primary">{{ $User->name }}</h4>
+                    <h4 class="f-18 f-normal m-b-10 txt-primary">{{ $Outlet->user->name }}</h4>
 
                 </div>
             </div>
@@ -62,37 +62,35 @@
             </div>
             <!-- end of tab-header -->
 
-            <div class="tab-content">
-                <div class="tab-pane active" id="personal" role="tabpanel">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-header-text">About Me</h5>
-                            <button id="edit-btn" type="button"
-                                class="btn btn-primary waves-effect waves-light f-right">
-                                <i class="icofont icofont-edit"></i>
-                            </button>
-                        </div>
-                        <div class="card-block">
-                            <div class="view-info">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="general-info">
-                                            <div class="row">
-                                                <div class="col-lg-12 col-xl-6">
-                                                    <table class="table m-0">
-                                                        <tbody>
-                                                            <tr>
-                                                                <th scope="row">Nama Outlet</th>
-                                                                <td>{{ $User->name }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">Kecamatan</th>
-                                                                <td>Banjarbaru Utara</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">Alamat</th>
-                                                                <td>{{ $Outlet->alamat }}</td>
-                                                            </tr>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="personal" role="tabpanel">
+                            <div class="card">
+                                <div class="card-header"><h5 class="card-header-text">About Me</h5>
+                                    <button id="edit-btn" type="button" class="btn btn-primary waves-effect waves-light f-right" >
+                                        <i  class="icofont icofont-edit"></i>
+                                    </button>
+                                </div>
+                                <div class="card-block">
+                                    <div class="view-info">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="general-info">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-xl-6">
+                                                            <table class="table m-0">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <th scope="row">Nama Outlet</th>
+                                                                    <td>{{ $Outlet->user->name }}</td>
+                                                                </tr>
+                                                                {{-- <tr>
+                                                                    <th scope="row">Kecamatan</th>
+                                                                    <td>{{ $Outlet->kecamatan->kecamatan }}</td>
+                                                                </tr> --}}
+                                                                <tr>
+                                                                    <th scope="row">Alamat</th>
+                                                                    <td>{{ $Outlet->alamat }} Kecamatan {{ $Outlet->kecamatan->kecamatan }}</td>
+                                                                </tr>
 
                                                         </tbody>
                                                     </table>
@@ -154,7 +152,7 @@
                                                     class="form-control-label">Nama Outlet</label></div>
                                             <div class="col-md-10"><input type="text" class="form-control"
                                                     id="InputNormal" name="name" placeholder="Nama"
-                                                    value="{{ $User->name }}"></div>
+                                                    value="{{ $Outlet->user->name }}"></div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-md-2"><label for="exampleSelect1"
@@ -187,7 +185,7 @@
                                             <div class="col-md-2"><label for="InputNormal" class="form-control-label">No
                                                     Tlp</label></div>
                                             <div class="col-md-10"><input type="email" class="form-control"
-                                                    id="InputNormal" name="email" value="{{ $User->email }}"
+                                                    id="InputNormal" name="email" value="{{ $Outlet->user->email }}"
                                                     placeholder="Email"></div>
                                         </div>
                                         <div class="form-group row">

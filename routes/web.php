@@ -93,8 +93,8 @@ Route::get('/karyawan_detail','adminController@karyawan_detail')
 //HALAMAN OUTLET
 Route::get('/admin_outlet','outletController@index')
 ->name('admin_outlet_index');
-Route::get('/edit_profil','outletController@edit_profil')
-->name('edit_profil_outlet');
+Route::get('/profil/edit/{id}','outletController@profil_edit')
+->name('profil_edit_outlet');
 Route::get('/karyawan_outlet_data','outletController@karyawan_data')
 ->name('karyawan_outlet_data');
 Route::get('/karyawan_outlet_detail','outletController@karyawan_detail')

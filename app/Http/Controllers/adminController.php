@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Outlet;
 use App\Jabatan;
+use App\Karyawan;
 use App\kecamatan;
 use App\Kelurahan;
 use App\kabupatenkota;
@@ -31,8 +32,9 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $Outlet = Outlet::findOrFail($id);
         $User = User::find($Outlet->id_user);
-        // dd($User);
-        return view('admin.outlet_detail',compact('Outlet','User'));
+        $Kecamatan = Kecamatan::find($Outlet->id_kecamatan);
+        // dd($Kecamatan);
+        return view('admin.outlet_detail',compact('Outlet','User','Kecamatan'));
     }
 
     public function outlet_update(Request $request, $id){
@@ -49,7 +51,7 @@ class adminController extends Controller
         $User->email    = $request->email;
         $Password       = Hash::make($request->password);
         $User->password = $Password;
-        
+
         if($request->gambar != null){
         $FotoExt  = $request->gambar->getClientOriginalExtension();
         $FotoName = $request->id_user.' - '.$request->name;
@@ -73,7 +75,7 @@ class adminController extends Controller
         $Outlet=Outlet::findOrFail($id);
         $Outlet->user()->delete();
         $Outlet->delete();
-       
+
         return redirect(route('outlet_index'))->with('success', 'Data outlet berhasil di hapus');
     }//fungsi menghapus data outlet
 
@@ -83,7 +85,7 @@ class adminController extends Controller
 
         return view('admin.kabupatenkota_data',compact('kabupatenkota'));
       }
-    
+
     public function kabupatenkota_tambah(Request $request){
         //  dd($request);
           $this->validate(request(),[
@@ -102,13 +104,13 @@ class adminController extends Controller
         $kabupatenkota=kabupatenkota::findOrFail($id);
         return view('admin.kabupatenkota_edit',compact('kabupatenkota'));
     }
-    
+
     public function kabupatenkota_update( Request $request ,$id){
         $id = IDCrypt::Decrypt($id);
         $kabupatenkota = kabupatenkota::findOrFail($id);
        // dd($request);
        $this->validate(request(),[
-        'kode_kabupatenkota'=>'required|unique:kabupatenkota',
+        'kode_kabupatenkota'=>'required',
         'kabupatenkota'=>'required'
       ]);
            $kabupatenkota->kode_kabupatenkota= $request->kode_kabupatenkota;
@@ -152,14 +154,14 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $kabupatenkota = kabupatenkota::all();
         $kecamatan=kecamatan::findOrFail($id);
-        return view('admin.kecamatan_edit',compact('skecamatan','kabupatenkota'));
+        return view('admin.kecamatan_edit',compact('kecamatan','kabupatenkota'));
     }
 
     public function kecamatan_update( Request $request ,$id){
         $id = IDCrypt::Decrypt($id);
         $Kecamatan = Kecamatan::findOrFail($id);
        $this->validate(request(),[
-        'kode_kecamatan'=>'required|unique:kecamatans',
+        'kode_kecamatan'=>'required',
         'kecamatan'=>'required',
         'kabupatenkota_id'=>'required'
       ]);
@@ -214,7 +216,7 @@ class adminController extends Controller
         $Kelurahan = Kelurahan::findOrFail($id);
        // dd($request);
        $this->validate(request(),[
-        'kode_kelurahan'=>'required|unique:kelurahans',
+        'kode_kelurahan'=>'required',
         'kelurahan'=>'required',
         'kecamatan_id'=>'required'
       ]);
@@ -263,7 +265,7 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $Jabatan = Jabatan::findOrFail($id);
        $this->validate(request(),[
-        'kode_jabatan'=>'required|unique:jabatans',
+        'kode_jabatan'=>'required',
         'jabatan'=>'required',
         'tugas'=>'required'
       ]);
@@ -282,8 +284,11 @@ class adminController extends Controller
     }
         //karyawan
         public function karyawan_index(){
-
-            return view('admin.karyawan_data');
+            $Karyawan= Karyawan::All();
+            $Outlet= Outlet::All();
+            // dd($Outlet);
+            $Jabatan= Jabatan::All();
+            return view('admin.karyawan_data',compact('Karyawan','Outlet','Jabatan'));
         }
 
         public function karyawan_detail(){

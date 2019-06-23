@@ -29,17 +29,18 @@
                     <i class="icon-social-soundcloud"></i>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    Pengumuman!
-                </div>
-                <div class="card-block">
-                    <h5>Mohon untuk melengkapi data Profile Outlet Anda </h5>
-                    <a href="{{route('edit_profil_outlet')}}" class="btn btn-sm btn-inverse-danger"> Disini</a>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Pengumuman!
+                        </div>
+                        <div class="card-block">
+                            <h5>Mohon untuk melengkapi data Profile Outlet Anda </h5>
+                            <a href="{{route('profil_edit_outlet', ['id' => IDCrypt::Encrypt( $id)])}}" class="btn btn-inverse-danger"> Disini</a>
+                            {{-- <a href="{{route('profil_edit_outlet')}}" class="btn btn-sm btn-inverse-danger"> Disini</a> --}}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

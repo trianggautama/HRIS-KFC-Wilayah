@@ -15,7 +15,7 @@ class DashboardController extends Controller
         if (Auth::user()->role == 2){
         return redirect('/admin');
         } else {
-        return redirect('/user');
+        return redirect('/admin_outlet');
         }
     }
 }
