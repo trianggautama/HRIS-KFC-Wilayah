@@ -24,7 +24,7 @@ File: menu.css
   content: initial; }
 
 .main-header-top {
-  background-color: #1b8bf9; }
+  background-color: #f9471b; }
 
 .nav-level {
   padding: 10px 15px !important;
@@ -84,7 +84,7 @@ File: menu.css
 .sidebar-menu > li.active > a {
   color: #fff;
   font-weight: 600;
-  background: #1b8bf9; }
+  background: #f93c1b; }
 
 .sidebar-menu .treeview-menu {
   margin: 0 1px;
@@ -189,7 +189,7 @@ header .wrapper {
   max-height: 50px;
   border-radius: 0;
   padding: 0;
-  background-color: #1b8bf9; }
+  background-color: #f9471b; }
 .main-header-top .sidebar-toggle {
   float: left;
   background-color: transparent;
