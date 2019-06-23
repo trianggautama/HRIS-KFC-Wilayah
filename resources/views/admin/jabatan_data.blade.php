@@ -1,30 +1,29 @@
 @extends('layouts.admin')
 
 @section('content')
-
 <div class="container-fluid">
     <div class="row">
         <div class="main-header">
 
         </div>
     </div>
-
     <div class="card">
         <div class="card-header ">
             <h4>Data Jabatan</h4>
             <div class="text-right">
-                <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
                 <a class="btn btn-inverse-primary right" href="" data-toggle="modal"
                     data-target="#exampleModalCenter"><i class="icofont icofont-ui-add"></i> tambah data</a>
+                <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
             </div>
         </div>
         <div class="card-block">
             <div class="row">
                 <div class="col-sm-12 table-responsive">
+                @include('layouts.alert')
                     <table class="table table-hover" id="myTable">
                         <thead>
                             <tr>
-                                <th>No</th>
+                            <th>No</th>
                                 <th>Kode Jabatan</th>
                                 <th>Nama Jabatan</th>
                                 <th>Tugas</th>
@@ -32,11 +31,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <?php $no = 1 ?>
+                            <?php $no = 1 ?>
+                            <?php $no = 1 ?>
                                 @foreach ($Jabatan as $d)
                             <tr>
-                                <td>{{$no++}}</td>
+                            <td>{{$no++}}</td>
                                 <td>{{$d->kode_jabatan}}</td>
                                 <td>{{$d->jabatan}}</td>
                                 <td>{{$d->tugas}}</td>
@@ -48,6 +47,7 @@
                                 </td>
                             </tr>
                             @endforeach
+
                         </tbody>
                     </table>
                 </div>
@@ -55,8 +55,6 @@
         </div>
     </div>
 </div>
-
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
@@ -95,4 +93,5 @@
 </div>
 <!-- content-wrapper ends -->
 </div>
+
 @endsection

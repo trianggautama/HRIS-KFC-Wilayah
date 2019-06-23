@@ -7,7 +7,6 @@
 
         </div>
     </div>
-
     <div class="card">
         <div class="card-header ">
             <h4>Data Outlet</h4>
@@ -18,6 +17,7 @@
         <div class="card-block">
             <div class="row">
                 <div class="col-sm-12 table-responsive">
+                @include('layouts.alert')
                     <table class="table table-hover" id="myTable">
                         <thead>
                             <tr>

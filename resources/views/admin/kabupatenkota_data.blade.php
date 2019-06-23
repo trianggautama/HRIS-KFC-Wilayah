@@ -19,6 +19,7 @@
         <div class="card-block">
             <div class="row">
                 <div class="col-sm-12 table-responsive">
+                @include('layouts.alert')
                     <table class="table table-hover" id="myTable">
                         <thead>
                             <tr>

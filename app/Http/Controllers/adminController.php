@@ -123,7 +123,7 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
             $kabupatenkota=kabupatenkota::findOrFail($id);
             $kabupatenkota->delete();
-            return redirect(route('kabupatenkota_index'));
+            return redirect(route('kabupatenkota_index'))->with('success', 'Data  Berhasil di Hapus');
     }
 
      //kecamatan

@@ -84,7 +84,7 @@ File: menu.css
 .sidebar-menu > li.active > a {
   color: #fff;
   font-weight: 600;
-  background: #f93c1b; }
+  background: #e94f34d2; }
 
 .sidebar-menu .treeview-menu {
   margin: 0 1px;
@@ -189,7 +189,7 @@ header .wrapper {
   max-height: 50px;
   border-radius: 0;
   padding: 0;
-  background-color: #f9471b; }
+  background-color: #f34c2af6; }
 .main-header-top .sidebar-toggle {
   float: left;
   background-color: transparent;
