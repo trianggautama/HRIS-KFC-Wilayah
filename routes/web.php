@@ -91,6 +91,10 @@ Route::get('/penilaian_outlet','adminController@penilaian_outlet_index')
 Route::get('/penilaian_outlet/tambah','adminController@penilaian_outlet_tambah')
 ->name('penilaian_outlet_tambah');
 
+//penilaian karyawan
+Route::get('/penilaian_karyawan','adminController@penilaian_karyawan_index')
+->name('penilaian_karyawan_index');
+
 //MIDLEWARE ADMIN
 });
 

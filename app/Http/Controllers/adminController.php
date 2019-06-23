@@ -295,8 +295,9 @@ class adminController extends Controller
 
             return view('admin.karyawan_detail');
         }
-
-        public function penilaian_outlet_index(){
+      
+      //penilaianOutlet
+      public function penilaian_outlet_index(){
  
           return view('admin.penilaian_outlet_data');
       }
@@ -306,6 +307,10 @@ class adminController extends Controller
         return view('admin.penilaian_outlet_tambah');
     }
 
-
+    //penilaian karyawan
+    public function penilaian_karyawan_index(){
+ 
+      return view('admin.penilaian_karyawan_data');
+  }
 
 }

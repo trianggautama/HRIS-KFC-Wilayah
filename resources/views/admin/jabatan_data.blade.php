@@ -31,7 +31,6 @@
                         </thead>
                         <tbody>
                             <?php $no = 1 ?>
-                            <?php $no = 1 ?>
                                 @foreach ($Jabatan as $d)
                             <tr>
                             <td>{{$no++}}</td>

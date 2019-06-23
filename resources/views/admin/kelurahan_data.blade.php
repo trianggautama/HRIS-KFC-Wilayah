@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="container-fluid">
-<div class="row">
+    <div class="row">
         <div class="main-header">
 
         </div>
@@ -22,30 +22,30 @@
                     <table class="table table-hover" id="myTable">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Kode Kelurahan</th>
-                                <th>Nama kelurahan</th>
-                                <th>Kecamatan</th>
+                            <th>No</th>
+                                <th>Kode Jabatan</th>
+                                <th>Nama Jabatan</th>
+                                <th>Tugas</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $no = 1 ?>
+                            @foreach ($Kelurahan as $d)
                             <tr>
-                                <?php $no = 1 ?>
-                                @foreach ($Kelurahan as $d)
-                            <tr>
-                                <td>{{$no++}}</td>
+                            <td>{{$no++}}</td>
                                 <td>{{$d->kode_kelurahan}}</td>
                                 <td>{{$d->kelurahan}}</td>
                                 <td>{{$d->Kecamatan->kecamatan}}</td>
                                 <td class="text-center">
-                                    <a href="{{route('kelurahan_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}"
+                                <a href="{{route('kelurahan_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}"
                                         class="btn btn-inverse-primary"> edit</a>
                                     <a href="{{route('kelurahan_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}"
                                         class="btn btn-inverse-danger"> hapus</a>
                                 </td>
                             </tr>
                             @endforeach
+
                         </tbody>
                     </table>
                 </div>
@@ -53,7 +53,6 @@
         </div>
     </div>
 </div>
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">

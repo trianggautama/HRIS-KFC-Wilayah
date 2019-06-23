@@ -35,7 +35,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
                             <?php $no = 1 ?>
                             @foreach ($Karyawan as $d)
                         <tr>

@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-
 <div class="container-fluid">
     <div class="row">
         <div class="main-header">
@@ -9,9 +8,9 @@
     </div>
     <div class="card">
         <div class="card-header ">
-            <h4>Data Outlet</h4>
+            <h4>Data Kelurahan</h4>
             <div class="text-right">
-                <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
+                <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
             </div>
         </div>
         <div class="card-block">
@@ -20,8 +19,8 @@
                 @include('layouts.alert')
                     <table class="table table-hover" id="myTable">
                         <thead>
-                            <tr>
-                                <th>No</th>
+                        <tr>
+                            <th>No</th>
                                 <th>Nama Outlet</th>
                                 <th>Alamat</th>
                                 <th>No Tlp</th>
@@ -29,9 +28,9 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php $no = 0 ?>
+                        @foreach ($Outlet as $p)
                             <tr>
-                                <?php $no = 0 ?>
-                                @foreach ($Outlet as $p)
                                 <td>{{$no = $no + 1}}</td>
                                 <td>{{$p->user->name}}</td>
                                 <td>{{$p->alamat}}</td>
@@ -45,8 +44,8 @@
                                         class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top"
                                         title="hapus"><i class="icofont icofont-ui-delete"></i></a>
                                 </td>
-                                @endforeach
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -54,5 +53,4 @@
         </div>
     </div>
 </div>
-
 @endsection
