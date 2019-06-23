@@ -55,9 +55,6 @@ Route::put('/kecamatan/edit/{id}','adminController@kecamatan_update')
 Route::get('/kecamatan/hapus/{id}','adminController@kecamatan_hapus'
 )->name('kecamatan_hapus');
 
-
-
-
 //kelurahan
 Route::get('/kelurahan','adminController@kelurahan_index')
 ->name('kelurahan_index');
@@ -87,6 +84,13 @@ Route::get('/karyawan','adminController@karyawan_index')
 ->name('karyawan_index');
 Route::get('/karyawan_detail','adminController@karyawan_detail')
 ->name('karyawan_detail');
+
+//penilaian Outlet
+Route::get('/penilaian_outlet','adminController@penilaian_outlet_index')
+->name('penilaian_outlet_index');
+Route::get('/penilaian_outlet/tambah','adminController@penilaian_outlet_tambah')
+->name('penilaian_outlet_tambah');
+
 //MIDLEWARE ADMIN
 });
 
