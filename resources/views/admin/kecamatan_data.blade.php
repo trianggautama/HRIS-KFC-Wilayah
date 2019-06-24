@@ -37,6 +37,8 @@
                                 <td>{{$kec->kecamatan}}</td>
                                 <td>{{$kec->kabupatenkota->kabupatenkota}}</td>
                                 <td class="text-center">
+                                <a href="{{route('kecamatan_detail')}}"
+                                        class="btn btn-inverse-success"><i class="icon-eye"></i></a>
                                     <a href="{{route('kecamatan_edit', ['id' => IDCrypt::Encrypt( $kec->id)])}}"
                                         class="btn btn-inverse-primary"><i class="icon-pencil"></i></a>
                                     <a href="{{route('kecamatan_hapus', ['id' => IDCrypt::Encrypt( $kec->id)])}}"

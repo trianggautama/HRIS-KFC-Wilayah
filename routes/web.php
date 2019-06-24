@@ -38,6 +38,8 @@ Route::get('/kecamatan','adminController@kecamatan_index')
 ->name('kecamatan_index');
 Route::post('/kecamatan','adminController@kecamatan_tambah')
 ->name('kecamatan_tambah');
+Route::get('/kecamatan/detail/','adminController@kecamatan_detail')
+->name('kecamatan_detail');
 Route::get('/kecamatan/edit/{id}','adminController@kecamatan_edit')
 ->name('kecamatan_edit');
 Route::put('/kecamatan/edit/{id}','adminController@kecamatan_update')
