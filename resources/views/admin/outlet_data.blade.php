@@ -3,14 +3,13 @@
 <div class="container-fluid">
     <div class="row">
         <div class="main-header">
-
         </div>
     </div>
     <div class="card">
         <div class="card-header ">
             <h4>Data Outlet</h4>
             <div class="text-right">
-                <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
+                <a class="btn btn-inverse-success" href="{{Route('cetak_outlet_keseluruhan')}}"><i class="icon-printer"></i> cetak data</a>
             </div>
         </div>
         <div class="card-block">
@@ -38,11 +37,11 @@
                                 <td class="text-center">
                                     <a href="{{ route('outlet_detail', ['id' => IDCrypt::Encrypt( $p->id)])}}"
                                         class="btn btn-inverse-primary" data-toggle="tooltip" data-placement="top"
-                                        title="Detail"><i class="icofont icofont-eye-alt"></i></a>
+                                        title="Detail"><i class="icon-eye"></i></a>
 
                                     <a href="{{ route('outlet_hapus', ['id' => IDCrypt::Encrypt( $p->id)])}}"
                                         class="btn btn-inverse-danger" data-toggle="tooltip" data-placement="top"
-                                        title="hapus"><i class="icofont icofont-ui-delete"></i></a>
+                                        title="hapus"><i class="icon-trash"></i></a>
                                 </td>
                             </tr>
                             @endforeach

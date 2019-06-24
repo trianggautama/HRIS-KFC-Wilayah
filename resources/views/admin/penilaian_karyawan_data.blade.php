@@ -3,7 +3,6 @@
 <div class="container-fluid">
     <div class="row">
         <div class="main-header">
-
         </div>
     </div>
     <div class="card">
@@ -50,5 +49,4 @@
         </div>
     </div>
 </div>
-
 @endsection
