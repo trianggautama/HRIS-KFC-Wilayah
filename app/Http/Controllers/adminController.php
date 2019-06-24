@@ -313,4 +313,13 @@ class adminController extends Controller
       return view('admin.penilaian_karyawan_data');
   }
 
+
+  //Fungsi Laporan
+
+   //penilaian karyawan
+   public function cetak_outlet_keseluruhan(){
+ 
+    return view('laporan.outlet_keseluruhan');
+}
+
 }

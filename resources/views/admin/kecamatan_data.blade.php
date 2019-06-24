@@ -12,7 +12,6 @@
             <div class="text-right">
                 <a class="btn btn-inverse-primary right" href="" data-toggle="modal"
                     data-target="#exampleModalCenter"><i class="icofont icofont-ui-add"></i> tambah data</a>
-                <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
             </div>
         </div>
         <div class="card-block">
@@ -39,9 +38,9 @@
                                 <td>{{$kec->kabupatenkota->kabupatenkota}}</td>
                                 <td class="text-center">
                                     <a href="{{route('kecamatan_edit', ['id' => IDCrypt::Encrypt( $kec->id)])}}"
-                                        class="btn btn-inverse-primary"> edit</a>
+                                        class="btn btn-inverse-primary"><i class="icon-pencil"></i></a>
                                     <a href="{{route('kecamatan_hapus', ['id' => IDCrypt::Encrypt( $kec->id)])}}"
-                                        class="btn btn-inverse-danger"> hapus</a>
+                                        class="btn btn-inverse-danger"><i class="icon-trash"></i> </a>
                                 </td>
                             </tr>
                             @endforeach
@@ -84,8 +83,8 @@
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>
-                <input class="btn btn-inverse-primary" type="submit" name="submit" value="Save">
+                <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Batal</button>
+                <input class="btn btn-inverse-primary" type="submit" name="submit" value="Simpan">
                 {{csrf_field() }}
                 </form>
             </div>

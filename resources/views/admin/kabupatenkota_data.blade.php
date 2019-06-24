@@ -1,10 +1,8 @@
 @extends('layouts.admin')
-
 @section('content')
 <div class="container-fluid">
     <div class="row">
         <div class="main-header">
-
         </div>
     </div>
     <div class="card">
@@ -13,7 +11,6 @@
             <div class="text-right">
                 <a class="btn btn-inverse-primary right" href="" data-toggle="modal"
                     data-target="#exampleModalCenter"><i class="icofont icofont-ui-add"></i> tambah data</a>
-                <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
             </div>
         </div>
         <div class="card-block">
@@ -38,9 +35,9 @@
                                 <td>{{$k->kabupatenkota}} </td>
                                 <td class="text-center">
                                     <a href="{{route('kabupatenkota_edit', ['id' => IDCrypt::Encrypt( $k->id)])}}"
-                                        class="btn btn-inverse-primary"> edit</a>
+                                        class="btn btn-inverse-primary"><i class="icon-pencil"></i> </a>
                                     <a href="{{route('kabupatenkota_hapus', ['id' => IDCrypt::Encrypt( $k->id)])}}"
-                                        class="btn btn-inverse-danger"> hapus</a>
+                                        class="btn btn-inverse-danger"><i class="icon-trash"></i> </a>
                                 </td>
                             </tr>
                             @endforeach
