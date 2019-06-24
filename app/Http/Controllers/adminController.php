@@ -208,6 +208,10 @@ class adminController extends Controller
             return redirect(route('kelurahan_index'))->with('success', 'Data Kelurahan '.$request->kelurahan.' Berhasil di Simpan');
     }//fungsi kelurahan tambah
 
+    public function kelurahan_detail(){
+     
+      return view('admin.kelurahan_detail');
+   }
     public function kelurahan_edit($id){
         $id = IDCrypt::Decrypt($id);
         $Kelurahan = Kelurahan::findOrFail($id);
