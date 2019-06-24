@@ -307,6 +307,16 @@ class adminController extends Controller
         return view('admin.penilaian_outlet_tambah');
     }
 
+    public function penilaian_outlet_filter_periode(){
+ 
+      return view('admin.penilaian_outlet_periode');
+  }
+
+  public function penilaian_outlet_filter_outlet(){
+ 
+    return view('admin.penilaian_outlet_outlet');
+}
+
     //penilaian karyawan
     public function penilaian_karyawan_index(){
  

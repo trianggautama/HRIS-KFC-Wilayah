@@ -12,7 +12,7 @@
             <div class="text-right">
                 <a class="btn btn-inverse-primary right" href="" data-toggle="modal"
                     data-target="#exampleModalCenter"><i class="icofont icofont-ui-add"></i> tambah data</a>
-                <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
+                <a class="btn btn-inverse-success" href=""><i class="icon-printer"></i>cetak data</a>
             </div>
         </div>
         <div class="card-block">

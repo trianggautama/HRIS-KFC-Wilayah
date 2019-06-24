@@ -80,6 +80,10 @@ Route::get('/penilaian_outlet','adminController@penilaian_outlet_index')
 ->name('penilaian_outlet_index');
 Route::get('/penilaian_outlet/tambah','adminController@penilaian_outlet_tambah')
 ->name('penilaian_outlet_tambah');
+Route::get('/penilaian_outlet/filter/periode','adminController@penilaian_outlet_filter_periode')
+->name('penilaian_outlet_filter_periode');
+Route::get('/penilaian_outlet/filter/outlet','adminController@penilaian_outlet_filter_outlet')
+->name('penilaian_outlet_filter_outlet');
 
 //penilaian karyawan
 Route::get('/penilaian_karyawan','adminController@penilaian_karyawan_index')
