@@ -38,10 +38,12 @@
                                 <td>{{$d->kelurahan}}</td>
                                 <td>{{$d->Kecamatan->kecamatan}}</td>
                                 <td class="text-center">
+                                <a href="{{route('kelurahan_detail')}}"
+                                        class="btn btn-inverse-success"><i class="icon-eye"></i></a>
                                 <a href="{{route('kelurahan_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}"
-                                        class="btn btn-inverse-primary"> edit</a>
+                                        class="btn btn-inverse-primary"><i class="icon-pencil"></i></a>
                                     <a href="{{route('kelurahan_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}"
-                                        class="btn btn-inverse-danger"> hapus</a>
+                                        class="btn btn-inverse-danger"><i class="icon-trash"></i></a>
                                 </td>
                             </tr>
                             @endforeach

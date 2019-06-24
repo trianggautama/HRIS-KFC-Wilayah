@@ -38,6 +38,8 @@ Route::get('/kecamatan','adminController@kecamatan_index')
 ->name('kecamatan_index');
 Route::post('/kecamatan','adminController@kecamatan_tambah')
 ->name('kecamatan_tambah');
+Route::get('/kecamatan/detail/','adminController@kecamatan_detail')
+->name('kecamatan_detail');
 Route::get('/kecamatan/edit/{id}','adminController@kecamatan_edit')
 ->name('kecamatan_edit');
 Route::put('/kecamatan/edit/{id}','adminController@kecamatan_update')
@@ -50,6 +52,8 @@ Route::get('/kelurahan','adminController@kelurahan_index')
 ->name('kelurahan_index');
 Route::post('/kelurahan','adminController@kelurahan_tambah')
 ->name('kelurahan_tambah');
+Route::get('/kelurahan/detail/','adminController@kelurahan_detail')
+->name('kelurahan_detail');
 Route::get('/kelurahan/edit/{id}','adminController@kelurahan_edit')
 ->name('kelurahan_edit');
 Route::put('/kelurahan/edit/{id}','adminController@kelurahan_update')
