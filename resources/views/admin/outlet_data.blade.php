@@ -8,7 +8,7 @@
     </div>
     <div class="card">
         <div class="card-header ">
-            <h4>Data Kelurahan</h4>
+            <h4>Data Outlet</h4>
             <div class="text-right">
                 <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
             </div>
