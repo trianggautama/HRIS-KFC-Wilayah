@@ -305,6 +305,17 @@ class adminController extends Controller
             return view('admin.karyawan_detail');
         }
       
+      //object Penilaian
+      public function object_penilaian_index(){
+
+        return view('admin.object_penilaian_data');
+      }
+
+      public function object_penilaian_edit(){
+        
+        return view('admin.object_penilaian_edit');
+      }
+
       //penilaianOutlet
       public function penilaian_outlet_index(){
  

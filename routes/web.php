@@ -79,6 +79,12 @@ Route::get('/karyawan','adminController@karyawan_index')
 Route::get('/karyawan_detail','adminController@karyawan_detail')
 ->name('karyawan_detail');
 
+//Object Penilaian
+Route::get('/object_penilaian','adminController@object_penilaian_index')
+->name('object_penilaian_index');
+Route::get('/object_penilaian/edit','adminController@object_penilaian_edit')
+->name('object_penilaian_edit');
+
 //penilaian Outlet
 Route::get('/penilaian_outlet','adminController@penilaian_outlet_index')
 ->name('penilaian_outlet_index');
