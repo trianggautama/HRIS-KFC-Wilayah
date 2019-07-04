@@ -23,8 +23,8 @@
                         <thead>
                             <tr>
                             <th>No</th>
-                                <th>Kode Jabatan</th>
-                                <th>Nama Jabatan</th>
+                                <th>Kode Kelurahan</th>
+                                <th>Nama Kelurahan</th>
                                 <th>Tugas</th>
                                 <th class="text-center">Action</th>
                             </tr>
@@ -69,7 +69,7 @@
             <div class="modal-body">
                 <form method="post" action="">
                     <div class="md-input-wrapper">
-                        <input type="text" name="kode_kelurahan" class="md-form-control md-static" />
+                        <input type="text" name="kode_kelurahan" class="md-form-control md-static" value="{{ $kj }}" />
                         <label>Kode kelurahan</label>
                     </div>
                     <div class="md-input-wrapper">
