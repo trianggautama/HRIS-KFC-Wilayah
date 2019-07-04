@@ -20,7 +20,7 @@
                     <table class="table table-hover" id="myTable">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>No</th>
                                 <th>Kode Kecamatan</th>
                                 <th>Nama Kecamatan</th>
                                 <th>Kabupaten / Kota</th>
@@ -67,7 +67,7 @@
             <div class="modal-body">
                 <form method="post" action="">
                     <div class="md-input-wrapper">
-                        <input type="text" class="md-form-control md-static" name="kode_kecamatan" />
+                        <input type="text" class="md-form-control md-static" name="kode_kecamatan" value="{{ $kj }}" />
                         <label>Kode Kecamatan</label>
                     </div>
                     <div class="md-input-wrapper">
