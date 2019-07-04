@@ -73,17 +73,41 @@
                         <label>Kode karyawan</label>
                     </div>
                     <div class="md-input-wrapper">
-                        <input type="text" class="md-form-control md-static" name="karyawan" />
+                        <input type="text" class="md-form-control md-static" name="nama" />
                         <label>Nama karyawan</label>
                     </div>
-                    {{-- <div class="md-input-wrapper">
-                        <select class="md-form-control" name="kabupatenkota_id">
-                            <option>kabupaten/kota</option>
-                            @foreach( $kabupatenkota as $kab )
-                            <option value="{{$kab->id}}">{{$kab->kabupatenkota}} </option>
+                    <div class="md-input-wrapper">
+                        <select class="md-form-control" name="jenis_kelamin">
+                            <option>Jenis Kelamin</option>
+                            <option value="Laki-Laki">Laki-Laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+                    </div>
+                    <div class="md-input-wrapper">
+                            <input type="text" class="md-form-control md-static" name="alamat" />
+                            <label>Alamat</label>
+                        </div>
+                    <div class="md-input-wrapper">
+                            <input type="text" class="md-form-control md-static" name="telepon" />
+                            <label>No Telepon</label>
+                        </div>
+                    <div class="md-input-wrapper">
+                        <select class="md-form-control" name="jabatan_id">
+                            <option>Jabatan</option>
+                            @foreach( $jabatan as $j )
+                            <option value="{{$j->id}}">{{$j->jabatan}} </option>
                             @endforeach
                         </select>
-                    </div> --}}
+                    </div>
+                    <div class="form-group row">
+                            <label for="file" class="col-md-2 col-form-label form-control-label">Gambar/Logo</label>
+                            <div class="col-md-9">
+                                <label for="file" class="custom-file">
+                                    <input type="file" name="foto" id="file" class="custom-file-input">
+                                    <span class="custom-file-control"></span>
+                                </label>
+                            </div>
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Batal</button>
