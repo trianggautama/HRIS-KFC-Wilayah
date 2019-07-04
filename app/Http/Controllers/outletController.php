@@ -90,11 +90,16 @@ class outletController extends Controller
 
 
     public function karyawan_data(){
-        $outlet_id=Auth::user()->id;
-        $karyawan= karyawan::where('outlet_id',$outlet_id);
+        $user_id=Auth::user()->id;
+        $outlet= outlet::where('user_id',$user_id)->first();
+        // dd($outlet);
+        $karyawan= karyawan::where('outlet_id',$outlet->id)->get();
+        // dd($karyawan);
         $getallkaryawan = karyawan::all();
+        $jabatan = jabatan::all();
 
-        $data = karyawan::all()->max('id');
+        $data = $karyawan->max('id');
+        // dd($data);
         $data++;
         $str='KAR00';
         $kode = count($getallkaryawan);
@@ -104,8 +109,39 @@ class outletController extends Controller
             }
                 $kj = $str.+$data;
 
-        return view('outlet.karyawan_data',compact('karyawan','kj'));
+        return view('outlet.karyawan_data',compact('karyawan','jabatan','kj'));
     }
+
+    public function karyawan_store(Request $request){
+        $user_id = Auth::user()->id;
+        $outlet= outlet::where('user_id',$user_id)->first();
+        // dd($outlet->id);
+        $karyawan = new karyawan;
+
+        if ($request->foto) {
+            $FotoExt  = $request->foto->getClientOriginalExtension();
+            $FotoName = 'karyawan'.$outlet_id.'-'. $request->nama;
+            $foto     = $FotoName.'.'.$FotoExt;
+            $request->foto->move('images/karyawan', $foto);
+            $karyawan->foto= $foto;
+        }else {
+            $karyawan->foto = 'default.jpg';
+          }
+
+        // dd($outlet_id);
+        $karyawan->outlet_id       = $outlet->id;
+        $karyawan->jabatan_id      = $request->jabatan_id;
+        $karyawan->kode_karyawan      = $request->kode_karyawan;
+        $karyawan->nama      = $request->nama;
+        $karyawan->jenis_kelamin      = $request->jenis_kelamin;
+        $karyawan->alamat      = $request->alamat;
+        $karyawan->telepon      = $request->telepon;
+
+
+        $karyawan->save();
+
+          return redirect(route('karyawan_outlet_data'))->with('success', 'Data karyawan '.$karyawan->nama.' Berhasil di Tambahkan');
+      }//fungsi menambahkan data outlet
 
     public function karyawan_detail(){
 
