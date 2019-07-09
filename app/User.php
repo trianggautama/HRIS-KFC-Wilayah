@@ -43,4 +43,9 @@ class User extends Authenticatable
 
         return false;
     }
+
+    public function outlet(){
+        return $this->hasMany('App\Outlet','user_id');
+      }
+
 }
