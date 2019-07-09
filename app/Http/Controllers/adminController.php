@@ -31,10 +31,10 @@ class adminController extends Controller
     public function outlet_detail($id){
         $id = IDCrypt::Decrypt($id);
         $Outlet = Outlet::findOrFail($id);
-        $User = User::find($Outlet->id_user);
+        $Karyawan = Karyawan::where('outlet_id',$id)->get();
         $kelurahan = kelurahan::find($Outlet->kelurahan_id)->first();
         // dd($kelurahan);
-        return view('admin.outlet_detail',compact('Outlet','User','kelurahan'));
+        return view('admin.outlet_detail',compact('Outlet','Karyawan','kelurahan'));
     }
 
     public function outlet_update(Request $request, $id){
