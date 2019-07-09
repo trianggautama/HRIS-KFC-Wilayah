@@ -237,8 +237,7 @@
                                             @foreach($Karyawan as $k)
                                                 <tr>
                                                     <td>
-                                                        <img src="/images/karyawan/{{$k->foto}}" class="img-circle"
-                                                          >
+                                                        <img src="/images/karyawan/{{$k->foto}}" class="img-circle">
                                                     </td>
                                                     <td>{{$k->kode_karyawan}}</td>
                                                     <td>{{$k->nama}}</td>
