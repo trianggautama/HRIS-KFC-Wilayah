@@ -20,7 +20,9 @@ class CreateKaryawansTable extends Migration
             $table->string('kode_karyawan')->length(20);
             $table->string('nama')->length(191);
             $table->string('jenis_kelamin')->length(10);
+            $table->string('alamat')->length(191);
             $table->string('telepon')->length(13);
+            $table->string('foto')->length(191);
             $table->foreign('outlet_id')->references('id')->on('outlets')->onDelete('cascade');
             $table->foreign('jabatan_id')->references('id')->on('jabatans')->onDelete('cascade');
             $table->timestamps();

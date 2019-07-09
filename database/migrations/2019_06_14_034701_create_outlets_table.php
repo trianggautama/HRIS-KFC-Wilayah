@@ -16,16 +16,12 @@ class CreateOutletsTable extends Migration
         Schema::create('outlets', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedbigInteger('user_id');
-            $table->unsignedbigInteger('kabupatenkota_id');
-            $table->unsignedbigInteger('kecamatan_id');
             $table->unsignedbigInteger('kelurahan_id');
-            $table->string('nama_cabang')->length(191);
+            // $table->string('nama_cabang')->length(191);
             $table->string('alamat')->length(191);
             $table->string('telepon')->length(13);
             $table->string('foto')->length(191);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('kabupatenkota_id')->references('id')->on('kabupatenkota')->onDelete('cascade');
-            $table->foreign('kecamatan_id')->references('id')->on('kecamatans')->onDelete('cascade');
             $table->foreign('kelurahan_id')->references('id')->on('kelurahans')->onDelete('cascade');
             $table->timestamps();
         });

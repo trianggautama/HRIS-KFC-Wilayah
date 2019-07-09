@@ -36,8 +36,11 @@
                             Pengumuman!
                         </div>
                         <div class="card-block">
-                            <a href="{{ route('outlet_tambah')}}" class="btn btn-primary">Klik Disini Untuk Melengkapi/mengubah Profil Anda</a>
-                            </div>
+                            <h5>Mohon untuk melengkapi data Profile Outlet Anda </h5>
+                            <a href="{{ route('admin_outlet_tambah')}}" class="btn btn-primary">Klik Disini Untuk Melengkapi/mengubah Profil Outlet</a>
+                            {{-- <a href="{{route('profil_edit_outlet', ['id' => IDCrypt::Encrypt( $id)])}}" class="btn btn-inverse-danger"> Disini</a> --}}
+                            {{-- <a href="{{route('profil_edit_outlet')}}" class="btn btn-sm btn-inverse-danger"> Disini</a> --}}
+                        </div>
                     </div>
             </div>
     </div>

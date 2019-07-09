@@ -199,7 +199,7 @@
                 <ul class="sidebar-menu">
                     <li class="nav-level">Navigation</li>
                     <li class="active treeview">
-                        <a class="waves-effect waves-dark" href="{{Route('admin_outlet_index')}}">
+                        <a class="waves-effect waves-dark" href="/admin_outlet">
                             <i class="icon-speedometer"></i><span> Dashboard</span>
                         </a>
                     </li>
