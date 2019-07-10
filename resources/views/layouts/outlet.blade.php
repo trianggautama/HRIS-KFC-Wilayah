@@ -46,7 +46,7 @@
 </div> -->
         <!-- Navbar-->
         <header class="main-header-top hidden-print">
-            <a href="index.html" class="logo"><b>Outlet KFC</b></a>
+            <a href="{{Route('admin_outlet_index')}}" class="logo"><b>Outlet KFC</b></a>
             <nav class="navbar navbar-static-top">
                 <!-- Sidebar toggle button--><a href="#!" data-toggle="offcanvas" class="sidebar-toggle"></a>
                 <!-- Navbar Right Menu-->
@@ -199,7 +199,7 @@
                 <ul class="sidebar-menu">
                     <li class="nav-level">Navigation</li>
                     <li class="active treeview">
-                        <a class="waves-effect waves-dark" href="/admin">
+                        <a class="waves-effect waves-dark" href="/admin_outlet">
                             <i class="icon-speedometer"></i><span> Dashboard</span>
                         </a>
                     </li>
@@ -207,8 +207,6 @@
                     <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i
                                 class="icon-briefcase"></i><span> Master Data</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
-                            <li><a class="waves-effect waves-dark" href="{{route('jabatan_index')}}"><i
-                                        class="icon-arrow-right"></i> Data Jabatan</a></li>
                             <li><a class="waves-effect waves-dark" href="{{route('karyawan_outlet_data')}}"><i
                                         class="icon-arrow-right"></i> Data Karyawan</a></li>
                         </ul>

@@ -63,7 +63,7 @@
                                 <li class="bell-notification">
                                     <a href="javascript:;" class="media">
                                         <span class="media-left media-icon">
-                                            <img class="img-circle" src="assets/images/avatar-1.png" alt="User Image">
+                                            <img class="img-circle" src="{{asset('assets/images/avatar-1.png')}}" alt="User Image">
                                         </span>
                                         <div class="media-body"><span class="block">Lisa sent you a mail</span><span
                                                 class="text-muted block-time">2min ago</span></div>
@@ -231,6 +231,8 @@
                                 class="icon-book-open"></i><span> Data Penilaian</span><i
                                 class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
+                            <li><a class="waves-effect waves-dark" href="{{Route('object_penilaian_index')}}"><i class="icon-arrow-right"></i> Object
+                                    Penilaian </a></li>
                             <li><a class="waves-effect waves-dark" href="{{Route('penilaian_outlet_index')}}"><i class="icon-arrow-right"></i> Data
                                     Penilaian Outlet</a></li>
                             <li><a class="waves-effect waves-dark" href="{{Route('penilaian_karyawan_index')}}"><i class="icon-arrow-right"></i> Data

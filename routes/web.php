@@ -79,6 +79,12 @@ Route::get('/karyawan','adminController@karyawan_index')
 Route::get('/karyawan_detail','adminController@karyawan_detail')
 ->name('karyawan_detail');
 
+//Object Penilaian
+Route::get('/object_penilaian','adminController@object_penilaian_index')
+->name('object_penilaian_index');
+Route::get('/object_penilaian/edit','adminController@object_penilaian_edit')
+->name('object_penilaian_edit');
+
 //penilaian Outlet
 Route::get('/penilaian_outlet','adminController@penilaian_outlet_index')
 ->name('penilaian_outlet_index');
@@ -99,10 +105,18 @@ Route::get('/penilaian_karyawan','adminController@penilaian_karyawan_index')
 //HALAMAN OUTLET
 Route::get('/admin_outlet','outletController@index')
 ->name('admin_outlet_index');
-Route::get('/profil/edit/{id}','outletController@profil_edit')
-->name('profil_edit_outlet');
+Route::get('/admin_outlet/tambah','outletController@outlet_tambah')
+->name('admin_outlet_tambah');
+Route::post('/admin_outlet/tambah','outletController@outlet_tambah_store')
+->name('admin_outlet_tambah');
+Route::put('/profil/edit/{id}','outletController@outlet_update')
+->name('admin_outlet_update');
+
+
 Route::get('/karyawan_outlet_data','outletController@karyawan_data')
 ->name('karyawan_outlet_data');
+Route::post('/karyawan_outlet_data','outletController@karyawan_store')
+->name('karyawan_outlet_store');
 Route::get('/karyawan_outlet_detail','outletController@karyawan_detail')
 ->name('karyawan_outlet_detail');
 

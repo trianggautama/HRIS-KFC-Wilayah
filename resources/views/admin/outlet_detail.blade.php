@@ -22,7 +22,7 @@
         <div class="col-xl-3 col-lg-4">
             <div class="card faq-left">
                 <div class="social-profile">
-                    <img class="img-fluid" src="{{asset('assets/images/social/profile.jpg')  }}" alt="">
+                    <img class="img-fluid" src="{{asset('/images/outlet/'.$Outlet->foto)  }}" alt="">
                     <div class="profile-hvr m-t-15">
                         <i class="icofont icofont-ui-edit p-r-10 c-pointer"></i>
                         <i class="icofont icofont-ui-delete c-pointer"></i>
@@ -89,7 +89,7 @@
                                                                 </tr> --}}
                                                                 <tr>
                                                                     <th scope="row">Alamat</th>
-                                                                    <td>{{ $Outlet->alamat }} Kecamatan {{ $Outlet->kecamatan->kecamatan }}</td>
+                                                                    <td>{{ $Outlet->alamat }} Kelurahan {{ $kelurahan->kelurahan }} </td>
                                                                 </tr>
 
                                                         </tbody>
@@ -234,15 +234,16 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="text-center">
+                                            @foreach($Karyawan as $k)
                                                 <tr>
                                                     <td>
-                                                        <img src="assets/images/avatar-2.png" class="img-circle"
-                                                            alt="tbl">
+                                                        <img src="/images/karyawan/{{$k->foto}}" class="img-circle"
+                                                          >
                                                     </td>
-                                                    <td>F12S2</td>
-                                                    <td>Angga</td>
-                                                    <td>Laki-laki</td>
-                                                    <td class="text-center">Supervisor</td>
+                                                    <td>{{$k->kode_karyawan}}</td>
+                                                    <td>{{$k->nama}}</td>
+                                                    <td>{{$k->jenis_kelamin}}</td>
+                                                    <td class="text-center">{{$k->jabatan->jabatan}}</td>
                                                     <td class="faq-table-btn">
                                                         <button type="button"
                                                             class="btn btn-inverse-success waves-effect waves-light"
@@ -256,28 +257,7 @@
                                                         </button>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="assets/images/avatar-2.png" class="img-circle"
-                                                            alt="tbl">
-                                                    </td>
-                                                    <td>H54A3</td>
-                                                    <td>Zaini</td>
-                                                    <td>Laki-laki</td>
-                                                    <td class="text-center">staff</td>
-                                                    <td class="faq-table-btn">
-                                                        <button type="button"
-                                                            class="btn btn-inverse-success waves-effect waves-light"
-                                                            data-toggle="tooltip" data-placement="top" title="View">
-                                                            <i class="icofont icofont-eye-alt"></i>
-                                                        </button>
-                                                        <button type="button"
-                                                            class="btn btn-inverse-danger waves-effect waves-light"
-                                                            data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="icofont icofont-ui-delete"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                         <!-- end of table -->

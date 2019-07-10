@@ -31,10 +31,10 @@ class adminController extends Controller
     public function outlet_detail($id){
         $id = IDCrypt::Decrypt($id);
         $Outlet = Outlet::findOrFail($id);
-        $User = User::find($Outlet->id_user);
-        $Kecamatan = Kecamatan::find($Outlet->id_kecamatan);
-        // dd($Kecamatan);
-        return view('admin.outlet_detail',compact('Outlet','User','Kecamatan'));
+        $Karyawan = Karyawan::where('outlet_id',$id)->get();
+        $kelurahan = kelurahan::find($Outlet->kelurahan_id)->first();
+        // dd($kelurahan);
+        return view('admin.outlet_detail',compact('Outlet','Karyawan','kelurahan'));
     }
 
     public function outlet_update(Request $request, $id){
@@ -73,7 +73,7 @@ class adminController extends Controller
     public function outlet_hapus($id){
         $id = IDCrypt::Decrypt($id);
         $Outlet=Outlet::findOrFail($id);
-        $Outlet->user()->delete();
+        // $Outlet->user()->delete();
         $Outlet->delete();
 
         return redirect(route('outlet_index'))->with('success', 'Data outlet berhasil di hapus');
@@ -83,7 +83,17 @@ class adminController extends Controller
       public function kabupatenkota_index(){
         $kabupatenkota = kabupatenkota::all();
 
-        return view('admin.kabupatenkota_data',compact('kabupatenkota'));
+        $data = kabupatenkota::all()->max('id');
+        $data++;
+        $str='KAB00';
+        $kode = count($kabupatenkota);
+            //dd($perusahaan);
+            if($kode == 0){
+                $kj = $str.+1;
+            }
+                $kj = $str.+$data;
+
+        return view('admin.kabupatenkota_data',compact('kabupatenkota','kj'));
       }
 
     public function kabupatenkota_tambah(Request $request){
@@ -130,8 +140,17 @@ class adminController extends Controller
      public function kecamatan_index(){
         $kecamatan = kecamatan::all();
         $kabupatenkota = kabupatenkota::all();
+        $data = kecamatan::all()->max('id');
+        $data++;
+        $str='KEC00';
+        $kode = count($kecamatan);
+            //dd($perusahaan);
+            if($kode == 0){
+                $kj = $str.+1;
+            }
+                $kj = $str.+$data;
 
-        return view('admin.kecamatan_data',compact('kecamatan','kabupatenkota'));
+        return view('admin.kecamatan_data',compact('kecamatan','kabupatenkota','kj'));
     }
 
     public function kecamatan_tambah(Request $request){
@@ -151,7 +170,7 @@ class adminController extends Controller
       }
 
       public function kecamatan_detail(){
-     
+
         return view('admin.kecamatan_detail');
     }
 
@@ -189,7 +208,16 @@ class adminController extends Controller
     public function kelurahan_index(){
         $Kelurahan = Kelurahan::all();
         $Kecamatan = Kecamatan::all();
-    return view('admin.kelurahan_data',compact('Kelurahan','Kecamatan'));
+        $data = kelurahan::all()->max('id');
+        $data++;
+        $str='KEL00';
+        $kode = count($Kelurahan);
+            //dd($perusahaan);
+            if($kode == 0){
+                $kj = $str.+1;
+            }
+                $kj = $str.+$data;
+    return view('admin.kelurahan_data',compact('Kelurahan','Kecamatan','kj'));
     }
 
     public function kelurahan_tambah(Request $request){
@@ -209,7 +237,7 @@ class adminController extends Controller
     }//fungsi kelurahan tambah
 
     public function kelurahan_detail(){
-     
+
       return view('admin.kelurahan_detail');
    }
     public function kelurahan_edit($id){
@@ -246,7 +274,20 @@ class adminController extends Controller
      //jabatan
      public function jabatan_index(){
         $Jabatan = Jabatan::All();
-        return view('admin.jabatan_data',compact('Jabatan'));
+        // dd($Jabatan);
+        $data = jabatan::all()->max('id');
+        $data++;
+        $str='KJ00';
+        $kode = count($Jabatan);
+            //dd($perusahaan);
+            if($kode == 0){
+                $kj = $str.+1;
+            }
+                $kj = $str.+$data;
+
+
+            // dd($kj);
+        return view('admin.jabatan_data',compact('Jabatan','kj'));
     }//fungsi jabatan index
 
     public function jabatan_tambah(Request $request){
@@ -304,31 +345,42 @@ class adminController extends Controller
 
             return view('admin.karyawan_detail');
         }
-      
+
+      //object Penilaian
+      public function object_penilaian_index(){
+
+        return view('admin.object_penilaian_data');
+      }
+
+      public function object_penilaian_edit(){
+
+        return view('admin.object_penilaian_edit');
+      }
+
       //penilaianOutlet
       public function penilaian_outlet_index(){
- 
+
           return view('admin.penilaian_outlet_data');
       }
 
       public function penilaian_outlet_tambah(){
- 
+
         return view('admin.penilaian_outlet_tambah');
     }
 
     public function penilaian_outlet_filter_periode(){
- 
+
       return view('admin.penilaian_outlet_periode');
   }
 
   public function penilaian_outlet_filter_outlet(){
- 
+
     return view('admin.penilaian_outlet_outlet');
 }
 
     //penilaian karyawan
     public function penilaian_karyawan_index(){
- 
+
       return view('admin.penilaian_karyawan_data');
   }
 
@@ -337,7 +389,7 @@ class adminController extends Controller
 
    //penilaian karyawan
    public function cetak_outlet_keseluruhan(){
- 
+
     return view('laporan.outlet_keseluruhan');
 }
 

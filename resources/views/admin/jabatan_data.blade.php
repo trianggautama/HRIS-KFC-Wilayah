@@ -67,7 +67,7 @@
             <div class="modal-body">
                 <form method="post" action="">
                     <div class="md-input-wrapper">
-                        <input type="text" name="kode_jabatan" class="md-form-control md-static" />
+                        <input type="text" name="kode_jabatan" class="md-form-control md-static" value="{{ $kj }}" />
                         <label>Kode jabatan</label>
                     </div>
                     <div class="md-input-wrapper">
