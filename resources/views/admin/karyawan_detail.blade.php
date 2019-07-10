@@ -1,7 +1,4 @@
 @extends('layouts.admin')
-
-@section('title', __('outlet.list'))
-
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -22,15 +19,15 @@
         <div class="col-xl-3 col-lg-4">
             <div class="card faq-left">
                 <div class="social-profile">
-                    <img class="img-fluid" src="assets/images/social/profile.jpg" alt="">
+                    <img class="img-fluid" src="{{asset('assets/images/social/profile.jpg')}}" alt="">
                     <div class="profile-hvr m-t-15">
                         <i class="icofont icofont-ui-edit p-r-10 c-pointer"></i>
                         <i class="icofont icofont-ui-delete c-pointer"></i>
                     </div>
                 </div>
                 <div class="card-block text-center">
-                    <h4 class="f-18 f-normal m-b-10 txt-primary">Tri Angga Tegar Utama</h4>
-                    <h5 class="f-14">Supervisor</h5>
+                    <h4 class="f-18 f-normal m-b-10 txt-primary">{{$karyawan->nama}}</h4>
+                    <h5 class="f-14">{{$karyawan->jabatan->jabatan}}</h5>
                 </div>
             </div>
             <!-- end of card-block -->
@@ -83,19 +80,11 @@
                                                         <tbody>
                                                             <tr>
                                                                 <th scope="row">Nama Lengkap</th>
-                                                                <td>Tri Angga Tegar Utama</td>
+                                                                <td>{{$karyawan->nama}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">Jenis Kelamin</th>
-                                                                <td>Laki-laki</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">Tanggal Lahir</th>
-                                                                <td>4 Maret 1997</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">Status</th>
-                                                                <td>Belum Menikah</td>
+                                                                <td>{{$karyawan->jenis_kelamin}}</td>
                                                             </tr>
 
                                                         </tbody>
@@ -108,15 +97,11 @@
                                                         <tbody>
                                                             <tr>
                                                                 <th scope="row">Alamat</th>
-                                                                <td>Jalan Ayani km.31 Komplek Chandra Utama No.39 </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">Email</th>
-                                                                <td><a href="#!">trianggategarutama@gmail.com</a></td>
+                                                                <td>{{$karyawan->alamat}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">No Tlp</th>
-                                                                <td>(0123) - 4567891</td>
+                                                                <td>{{$karyawan->telepon}}</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>

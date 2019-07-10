@@ -341,9 +341,10 @@ class adminController extends Controller
             return view('admin.karyawan_data',compact('Karyawan','Outlet','Jabatan'));
         }
 
-        public function karyawan_detail(){
-
-            return view('admin.karyawan_detail');
+        public function karyawan_detail($id){
+            $id = IDCrypt::Decrypt($id);
+            $karyawan = Karyawan::findOrFail($id);
+            return view('admin.karyawan_detail',compact('karyawan'));
         }
 
       //object Penilaian

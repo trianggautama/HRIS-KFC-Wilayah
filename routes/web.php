@@ -76,7 +76,7 @@ Route::get('/jabatan/hapus/{id}','adminController@jabatan_hapus')
 //karyawan
 Route::get('/karyawan','adminController@karyawan_index')
 ->name('karyawan_index');
-Route::get('/karyawan_detail','adminController@karyawan_detail')
+Route::get('/karyawan/detail/{id}','adminController@karyawan_detail')
 ->name('karyawan_detail');
 
 //Object Penilaian

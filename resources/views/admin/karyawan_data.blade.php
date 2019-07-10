@@ -1,7 +1,4 @@
 @extends('layouts.admin')
-
-@section('title', __('outlet.list'))
-
 @section('content')
 
 <div class="container-fluid">
@@ -29,7 +26,6 @@
                             <th>Kode Karyawan</th>
                             <th>Nama Karyawan</th>
                             <th>Jenis Kelamin</th>
-                            <th>No.Tlp</th>
                             <th>Jabatan</th>
                             <th class="text-center">Action</th>
                         </tr>
@@ -43,11 +39,11 @@
                             <td>{{$d->kode_karyawan}}</td>
                             <td>{{$d->nama}}</td>
                             <td>{{$d->jenis_kelamin}}</td>
-                            <td>{{$d->telepon}}</td>
                             <td>{{$d->jabatan->jabatan}}</td>
                             <td class="text-center">
-                             <a href="" class="btn btn-inverse-primary"> edit</a>
-                            <a href="" class="btn btn-inverse-danger"> hapus</a>
+                            <a href="{{route('karyawan_detail',['id' => IDCrypt::Encrypt( $d->id)])}}"class="btn btn-inverse-primary"><i class="icon-eye" style="padding:0px;"></i></a>
+                            <a href=""class="btn btn-inverse-warning"><i class="icon-pencil"></i></a>
+                            <a href=""class="btn btn-inverse-danger"><i class="icon-trash"></i></a>
                             </td>
                         </tr>
                         @endforeach
