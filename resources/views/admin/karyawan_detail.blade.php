@@ -141,7 +141,7 @@
                                         <div class="col-md-2"><label for="InputNormal" class="form-control-label">Nama
                                                 Pegawai</label></div>
                                         <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"
-                                                placeholder="Nama"></div>
+                                                placeholder="Nama" value="{{$karyawan->nama}}"></div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-md-2"><label for="InputNormal" class="form-control-label">Jenis
@@ -194,19 +194,13 @@
                                         <div class="col-md-2"><label for="InputNormal"
                                                 class="form-control-label">Alamat</label></div>
                                         <div class="col-md-10"><textarea name="" id="" class="form-control"
-                                                id="InputNormal"></textarea></div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-md-2"><label for="InputNormal"
-                                                class="form-control-label">Email</label></div>
-                                        <div class="col-md-10"><input type="email" class="form-control" id="InputNormal"
-                                                placeholder="No.Tlp"></div>
+                                                id="InputNormal">{{$karyawan->alamat}}</textarea></div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-md-2"><label for="InputNormal" class="form-control-label">No
                                                 Tlp</label></div>
                                         <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"
-                                                placeholder="No.Tlp"></div>
+                                                placeholder="No.Tlp" value="{{$karyawan->telepon}}"></div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="file" class="col-md-2 col-form-label form-control-label">Foto
@@ -276,16 +270,15 @@
                                                         <tbody>
                                                             <tr>
                                                                 <th scope="row">Outlet</th>
-                                                                <td>KFC Banjarbaru</td>
+                                                                <td>{{$karyawan->Outlet->User->name}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">Alamat Outlet</th>
-                                                                <td>Jl.Pangeran Hidayatullah kelurahan Mentaos
-                                                                    Banjarbaru Utara Banjarbaru,</td>
+                                                                <td>{{$karyawan->Outlet->alamat}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">Jabatan</th>
-                                                                <td>Supervisor</td>
+                                                                <td>{{$karyawan->jabatan->jabatan}}</td>
                                                             </tr>
 
                                                         </tbody>
