@@ -66,6 +66,8 @@ Route::get('/jabatan','adminController@jabatan_index')
 ->name('jabatan_index');
 Route::post('/jabatan','adminController@jabatan_tambah')
 ->name('jabatan_tambah');
+Route::get('/jabatan/detail/{id}','adminController@jabatan_detail')
+->name('jabatan_detail');
 Route::get('/jabatan/edit/{id}','adminController@jabatan_edit')
 ->name('jabatan_edit');
 Route::put('/jabatan/edit/{id}','adminController@jabatan_update')

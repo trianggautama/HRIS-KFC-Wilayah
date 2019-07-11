@@ -304,6 +304,12 @@ class adminController extends Controller
             return redirect(route('jabatan_index'))->with('success', 'Data jabatan '.$request->jabatan.' Berhasil di Simpan');
     }//fungsi jabatan tambah
 
+    public function jabatan_detail($id){
+        $id = IDCrypt::Decrypt($id);
+        $Karyawan = Karyawan::where('jabatan_id',$id)->get();
+        return view('admin.jabatan_detail',compact('Karyawan'));
+    }//fungsi jabatan edit
+
     public function jabatan_edit($id){
         $id = IDCrypt::Decrypt($id);
         $Jabatan = jabatan::findOrFail($id);
