@@ -8,6 +8,7 @@ use App\Karyawan;
 use App\kecamatan;
 use App\Kelurahan;
 use App\kabupatenkota;
+use App\object_penilaian;
 use Hash;
 use IDCrypt;
 
@@ -355,15 +356,42 @@ class adminController extends Controller
 
       //object Penilaian
       public function object_penilaian_index(){
-
-        return view('admin.object_penilaian_data');
+        $object_penilaian = object_penilaian::all();
+        return view('admin.object_penilaian_data',compact('object_penilaian'));
       }
 
-      public function object_penilaian_edit(){
+      public function object_penilaian_tambah(Request $request){
+        $this->validate(request(),[
+            'object'=>'required'
+          ]);
+          $object_penilaian = new object_penilaian;
+          $object_penilaian->object= $request->object;
+          $object_penilaian->save();       
+          return redirect(route('object_penilaian_index'))->with('success', 'Data  Berhasil di simpan');
+        }
 
-        return view('admin.object_penilaian_edit');
+      public function object_penilaian_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $object_penilaian = object_penilaian::findorFail($id);
+        return view('admin.object_penilaian_edit',compact('object_penilaian'));
       }
+      public function object_penilaian_update( Request $request ,$id){
+        $id = IDCrypt::Decrypt($id);
+        $object_penilaian = object_penilaian::findOrFail($id);
+        $this->validate(request(),[
+            'object'=>'required'
+          ]);
+          $object_penilaian->object= $request->object;
+          $object_penilaian->update();   
+          return redirect(route('object_penilaian_index'))->with('success', 'Data  Berhasil di ubah');
+     }//fungsi jabatan update
 
+     public function object_penilaian_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $object_penilaian = object_penilaian::findOrFail($id);
+        $object_penilaian->delete();
+        return redirect(route('object_penilaian_index'))->with('success', 'Data  Berhasil di hapus');
+    }
       //penilaianOutlet
       public function penilaian_outlet_index(){
 

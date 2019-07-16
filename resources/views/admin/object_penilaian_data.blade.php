@@ -24,30 +24,21 @@
                             <tr>
                                 <th>No</th>
                                 <th  class="text-center">Objek</th>
-                                <th  class="text-center">Bobot</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no = 1 ?>
+                            @foreach($object_penilaian as $d)
                             <tr>
-                                <td>1</td>
-                                <td  class="text-center">Kebersihan</td>
-                                <td  class="text-center">4</td>
+                                <td>{{$no++}}</td>
+                                <td  class="text-center">{{$d->object}}</td>
                                 <td class="text-center">
-                                    <a href="{{Route('object_penilaian_edit')}}" class="btn btn-inverse-primary"> edit</a>
-                                    <a href="" class="btn btn-inverse-danger"> hapus</a>
+                                    <a href="{{route('object_penilaian_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary"> edit</a>
+                                    <a href="{{route('object_penilaian_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger"> hapus</a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td  class="text-center">SOP</td>
-                                <td  class="text-center">6</td>
-                                <td class="text-center">
-                                    <a href="{{Route('object_penilaian_edit')}}" class="btn btn-inverse-primary"> edit</a>
-                                    <a href="" class="btn btn-inverse-danger"> hapus</a>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -73,10 +64,6 @@
                     <div class="md-input-wrapper">
                         <input type="text" class="md-form-control md-static" name="object" />
                         <label>Object Penilaian</label>
-                    </div>
-                    <div class="md-input-wrapper">
-                        <input type="number" class="md-form-control md-static" name="kecamatan" />
-                        <label>Bobot</label>
                     </div>
             </div>
             <div class="modal-footer">

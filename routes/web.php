@@ -84,8 +84,14 @@ Route::get('/karyawan/detail/{id}','adminController@karyawan_detail')
 //Object Penilaian
 Route::get('/object_penilaian','adminController@object_penilaian_index')
 ->name('object_penilaian_index');
-Route::get('/object_penilaian/edit','adminController@object_penilaian_edit')
+Route::post('/object_penilaian','adminController@object_penilaian_tambah')
+->name('object_penilaian_tambah');
+Route::get('/object_penilaian/edit/{id}','adminController@object_penilaian_edit')
 ->name('object_penilaian_edit');
+Route::put('/object_penilaian/edit/{id}','adminController@object_penilaian_update')
+->name('object_penilaian_update');
+Route::get('/object_penilaian/hapus/{id}','adminController@object_penilaian_hapus')
+->name('object_penilaian_hapus');
 
 //penilaian Outlet
 Route::get('/penilaian_outlet','adminController@penilaian_outlet_index')
