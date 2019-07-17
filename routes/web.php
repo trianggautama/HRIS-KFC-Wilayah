@@ -66,6 +66,8 @@ Route::get('/jabatan','adminController@jabatan_index')
 ->name('jabatan_index');
 Route::post('/jabatan','adminController@jabatan_tambah')
 ->name('jabatan_tambah');
+Route::get('/jabatan/detail/{id}','adminController@jabatan_detail')
+->name('jabatan_detail');
 Route::get('/jabatan/edit/{id}','adminController@jabatan_edit')
 ->name('jabatan_edit');
 Route::put('/jabatan/edit/{id}','adminController@jabatan_update')
@@ -82,14 +84,22 @@ Route::get('/karyawan/detail/{id}','adminController@karyawan_detail')
 //Object Penilaian
 Route::get('/object_penilaian','adminController@object_penilaian_index')
 ->name('object_penilaian_index');
-Route::get('/object_penilaian/edit','adminController@object_penilaian_edit')
+Route::post('/object_penilaian','adminController@object_penilaian_tambah')
+->name('object_penilaian_tambah');
+Route::get('/object_penilaian/edit/{id}','adminController@object_penilaian_edit')
 ->name('object_penilaian_edit');
+Route::put('/object_penilaian/edit/{id}','adminController@object_penilaian_update')
+->name('object_penilaian_update');
+Route::get('/object_penilaian/hapus/{id}','adminController@object_penilaian_hapus')
+->name('object_penilaian_hapus');
 
 //penilaian Outlet
 Route::get('/penilaian_outlet','adminController@penilaian_outlet_index')
 ->name('penilaian_outlet_index');
 Route::get('/penilaian_outlet/tambah','adminController@penilaian_outlet_tambah')
 ->name('penilaian_outlet_tambah');
+Route::post('/penilaian_outlet/tambah','adminController@penilaian_outlet_store')
+->name('penilaian_outlet_store');
 Route::get('/penilaian_outlet/filter/periode','adminController@penilaian_outlet_filter_periode')
 ->name('penilaian_outlet_filter_periode');
 Route::get('/penilaian_outlet/filter/outlet','adminController@penilaian_outlet_filter_outlet')

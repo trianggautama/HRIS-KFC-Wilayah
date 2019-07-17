@@ -9,7 +9,7 @@
     </div>
     <div class="card">
         <div class="card-header ">
-            <h4>Data Karyawan</h4>
+            <h4>Data Detail Jabatan</h4>
             <div class="text-right">
                 <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
             </div>

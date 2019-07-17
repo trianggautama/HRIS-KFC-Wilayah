@@ -35,15 +35,17 @@
                                     <?php $no = 1 ?>
                                     @foreach ($karyawan as $d)
                                 <tr>
-                                    <td>{{$no++}}</td>>
+                                    <td>{{$no++}}</td>
                                     <td>{{$d->kode_karyawan}}</td>
                                     <td>{{$d->nama}}</td>
                                     <td>{{$d->jenis_kelamin}}</td>
                                     <td>{{$d->telepon}}</td>
                                     <td>{{$d->jabatan->jabatan}}</td>
                                     <td class="text-center">
-                                     <a href="#" class="btn btn-inverse-primary"> edit</a>
-                                    <a href="#" class="btn btn-inverse-danger"> hapus</a>
+                                    <a href="{{route('karyawan_detail')}}"
+                                        class="btn btn-inverse-success"><i class="icon-eye"></i></a>
+                                    <a href=""
+                                        class="btn btn-inverse-success"><i class="icon-pencil"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach

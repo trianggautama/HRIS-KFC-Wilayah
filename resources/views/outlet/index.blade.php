@@ -1,5 +1,4 @@
 @extends('layouts.outlet')
-
 @section('content')
 
 <div class="container-fluid">

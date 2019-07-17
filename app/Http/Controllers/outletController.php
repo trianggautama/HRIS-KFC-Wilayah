@@ -142,8 +142,9 @@ class outletController extends Controller
           return redirect(route('karyawan_outlet_data'))->with('success', 'Data karyawan '.$karyawan->nama.' Berhasil di Tambahkan');
       }//fungsi menambahkan data outlet
 
-    public function karyawan_detail(){
-
-        return view('outlet.karyawan_detail');
+    public function karyawan_detail($id){
+        $id = IDCrypt::Decrypt($id);
+        $karyawan = Karyawan::findOrFail($id);
+        return view('outlet.karyawan_detail',compact('karyawan'));
     }
 }

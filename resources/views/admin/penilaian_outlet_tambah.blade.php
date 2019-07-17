@@ -18,22 +18,15 @@
                 <div class="card-block">
                     <form method="post" action="">
                         <!--inputannya di loop aja sesuai data objek penilaian-->
+                        @foreach( $object_penilaian as $d)
                         <div class="form-group row">
-                            <div class="col-md-2"><label for="InputNormal" class="form-control-label">Kinerja
-                                    Karyawan</label></div>
+                            <div class="col-md-2"><label for="InputNormal" class="form-control-label">{{$d->object}}</label></div>
                             <div class="col-md-10"><input type="text"
-                                    name="<!-- nama ini ngambil dari data object penilaian -->" class="form-control"
+                                    name="{{$d->object}}" class="form-control"
                                     id="InputNormal" value="" placeholder="0-100">
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <div class="col-md-2"><label for="InputNormal" class="form-control-label">Kebersihan</label>
-                            </div>
-                            <div class="col-md-10"><input type="text"
-                                    name="<!-- nama ini ngambil dari data object penilaian -->" class="form-control"
-                                    id="InputNormal" value="" placeholder="0-100">
-                            </div>
-                        </div>
+                        @endforeach
                         <div class="card-footer text-right">
                             {{csrf_field() }}
                             <input class="btn btn-primary mr-2" type="submit" name="submit" value="Simpan Penilaian">
