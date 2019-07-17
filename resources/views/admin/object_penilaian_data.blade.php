@@ -24,6 +24,7 @@
                             <tr>
                                 <th>No</th>
                                 <th  class="text-center">Objek</th>
+                                <th  class="text-center">Status</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -33,6 +34,12 @@
                             <tr>
                                 <td>{{$no++}}</td>
                                 <td  class="text-center">{{$d->object}}</td>
+                                <td  class="text-center">@if($d->status == 1)
+                                <label class="label bg-primary">Penilaian Outlet</label>
+                                @else
+                            <label class="label bg-success">Penilaian Karyawan</label>
+                                @endif
+                                </td>
                                 <td class="text-center">
                                     <a href="{{route('object_penilaian_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary"> edit</a>
                                     <a href="{{route('object_penilaian_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger"> hapus</a>
@@ -61,6 +68,14 @@
             </div>
             <div class="modal-body">
                 <form method="post" action="">
+                <div class="md-input-wrapper">
+                        <select class="md-form-control" name="status">
+                            <option>Pilih penilaian</option>
+                            <option value="1">Penilaian Outlet </option>
+                            <option value="2">Penilaian Karyawan </option>
+
+                        </select>
+                    </div>
                     <div class="md-input-wrapper">
                         <input type="text" class="md-form-control md-static" name="object" />
                         <label>Object Penilaian</label>

@@ -33,16 +33,25 @@
                         </thead>
                         <tbody>
                             <?php $no = 1 ?>
+                            @foreach($raport_outlet as $d)
                             <tr>
-                                <td>1</td>
-                                <td>KFC QMALL</td>
-                                <td><span class="label label-success">Baik</span></td>
-                                <td>Maret 2019</td>
+                                <td>{{$no++}}</td>
+                                <td>{{$d->outlet->user->name}}</td>
+                                <td>
+                                @if($d->nilai < 30 )
+                                <span class="label label-danger">Kurang Baik</span>
+                                @elseif($d->nilai < 60)
+                                <span class="label label-warning">Baik</span>
+                                @else
+                                <span class="label label-primary"> Sangat Baik</span>
+                                @endif
+                                </td>
+                                <td>{{$d->created_at}}</td>
                                 <td class="text-center">
-                                    <a href="" class="btn btn-inverse-primary"> edit</a>
-                                    <a href="" class="btn btn-inverse-danger"> hapus</a>
+                                    <a href="{{route('penilaian_outlet_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger"> hapus</a>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -104,6 +104,8 @@ Route::get('/penilaian_outlet/filter/periode','adminController@penilaian_outlet_
 ->name('penilaian_outlet_filter_periode');
 Route::get('/penilaian_outlet/filter/outlet','adminController@penilaian_outlet_filter_outlet')
 ->name('penilaian_outlet_filter_outlet');
+Route::get('/penilaian_outlet/hapus/{id}','adminController@penilaian_outlet_hapus')
+->name('penilaian_outlet_hapus');
 
 //penilaian karyawan
 Route::get('/penilaian_karyawan','adminController@penilaian_karyawan_index')

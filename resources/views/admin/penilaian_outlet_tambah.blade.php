@@ -16,8 +16,20 @@
                     </div>
                 </div>
                 <div class="card-block">
+                @include('layouts.alert')
                     <form method="post" action="">
                         <!--inputannya di loop aja sesuai data objek penilaian-->
+                     <div class="form-group row">
+                            <div class="col-md-2"><label for="InputNormal" class="form-control-label">Outlet</label></div>
+                            <div class="col-md-10">
+                            <select class="form-control" name="outlet_id">
+                            <option value="" >-Pilih Outlet-</option>
+                            @foreach($outlet as $d)
+                            <option value="{{$d->id}}">{{$d->user->name}}</option>
+                            @endforeach
+                        </select>
+                            </div>
+                        </div>
                         @foreach( $object_penilaian as $d)
                         <div class="form-group row">
                             <div class="col-md-2"><label for="InputNormal" class="form-control-label">{{$d->object}}</label></div>
