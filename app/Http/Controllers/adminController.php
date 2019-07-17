@@ -399,9 +399,19 @@ class adminController extends Controller
       }
 
       public function penilaian_outlet_tambah(){
-
-        return view('admin.penilaian_outlet_tambah');
+        $outlet = Outlet::all();
+        $object_penilaian =object_penilaian::all();
+        return view('admin.penilaian_outlet_tambah',compact('object_penilaian','Outlet'));
     }
+    public function penilaian_outlet_store(Request $request){
+      $collection = collect($request);
+      $pembagi = $collection->count();
+      $pembagi = $pembagi - 2;
+      $average = collect($request)->sum();
+      $nilai  = $average/$pembagi;
+
+      return view('admin.penilaian_outlet_tambah',compact('nilai'));
+  }
 
     public function penilaian_outlet_filter_periode(){
 
