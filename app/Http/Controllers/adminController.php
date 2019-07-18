@@ -34,9 +34,10 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $Outlet = Outlet::findOrFail($id);
         $Karyawan = Karyawan::where('outlet_id',$id)->get();
+        $raport_outlet= raport_outlet::where('outlet_id',$id)->get();
         $kelurahan = kelurahan::find($Outlet->kelurahan_id)->first();
         // dd($kelurahan);
-        return view('admin.outlet_detail',compact('Outlet','Karyawan','kelurahan'));
+        return view('admin.outlet_detail',compact('Outlet','Karyawan','kelurahan','raport_outlet'));
     }
 
     public function outlet_update(Request $request, $id){
@@ -351,8 +352,8 @@ class adminController extends Controller
 
         public function karyawan_detail($id){
             $id = IDCrypt::Decrypt($id);
-            $karyawan = Karyawan::findOrFail($id);
-            return view('admin.karyawan_detail',compact('karyawan'));
+            $Karyawan = Karyawan::findOrFail($id);
+            return view('admin.karyawan_detail',compact('Karyawan'));
         }
 
       //object Penilaian

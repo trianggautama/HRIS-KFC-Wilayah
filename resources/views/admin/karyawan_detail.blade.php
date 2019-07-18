@@ -23,24 +23,15 @@
         <div class="col-xl-3 col-lg-4">
             <div class="card faq-left">
                 <div class="social-profile">
-<<<<<<< HEAD
-                    <img class="img-fluid" src="/images/karyawan/default.jpg" alt="">
-=======
                     <img class="img-fluid" src="{{asset('assets/images/social/profile.jpg')}}" alt="">
->>>>>>> 8c929b53cf91e025c99d4670795cf53bc7103c58
                     <div class="profile-hvr m-t-15">
                         <i class="icofont icofont-ui-edit p-r-10 c-pointer"></i>
                         <i class="icofont icofont-ui-delete c-pointer"></i>
                     </div>
                 </div>
                 <div class="card-block text-center">
-<<<<<<< HEAD
                     <h4 class="f-18 f-normal m-b-10 txt-primary">{{$Karyawan->nama}}</h4>
                     <h5 class="f-14">{{$Karyawan->jabatan->jabatan}}</h5>
-=======
-                    <h4 class="f-18 f-normal m-b-10 txt-primary">{{$karyawan->nama}}</h4>
-                    <h5 class="f-14">{{$karyawan->jabatan->jabatan}}</h5>
->>>>>>> 8c929b53cf91e025c99d4670795cf53bc7103c58
                 </div>
             </div>
             <!-- end of card-block -->
@@ -93,11 +84,11 @@
                                                         <tbody>
                                                             <tr>
                                                                 <th scope="row">Nama Lengkap</th>
-                                                                <td>{{$karyawan->nama}}</td>
+                                                                <td>{{$Karyawan->nama}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">Jenis Kelamin</th>
-                                                                <td>{{$karyawan->jenis_kelamin}}</td>
+                                                                <td>{{$Karyawan->jenis_kelamin}}</td>
                                                             </tr>
 
                                                         </tbody>
@@ -110,11 +101,11 @@
                                                         <tbody>
                                                             <tr>
                                                                 <th scope="row">Alamat</th>
-                                                                <td>{{$karyawan->alamat}}</td>
+                                                                <td>{{$Karyawan->alamat}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">No Tlp</th>
-                                                                <td>{{$karyawan->telepon}}</td>
+                                                                <td>{{$Karyawan->telepon}}</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -154,7 +145,7 @@
                                         <div class="col-md-2"><label for="InputNormal" class="form-control-label">Nama
                                                 Pegawai</label></div>
                                         <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"
-                                                placeholder="Nama" value="{{$karyawan->nama}}"></div>
+                                                placeholder="Nama" value="{{$Karyawan->nama}}"></div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-md-2"><label for="InputNormal" class="form-control-label">Jenis
@@ -207,13 +198,13 @@
                                         <div class="col-md-2"><label for="InputNormal"
                                                 class="form-control-label">Alamat</label></div>
                                         <div class="col-md-10"><textarea name="" id="" class="form-control"
-                                                id="InputNormal">{{$karyawan->alamat}}</textarea></div>
+                                                id="InputNormal">{{$Karyawan->alamat}}</textarea></div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-md-2"><label for="InputNormal" class="form-control-label">No
                                                 Tlp</label></div>
                                         <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"
-                                                placeholder="No.Tlp" value="{{$karyawan->telepon}}"></div>
+                                                placeholder="No.Tlp" value="{{$Karyawan->telepon}}"></div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="file" class="col-md-2 col-form-label form-control-label">Foto
@@ -283,15 +274,15 @@
                                                         <tbody>
                                                             <tr>
                                                                 <th scope="row">Outlet</th>
-                                                                <td>{{$karyawan->Outlet->User->name}}</td>
+                                                                <td>{{$Karyawan->Outlet->User->name}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">Alamat Outlet</th>
-                                                                <td>{{$karyawan->Outlet->alamat}}</td>
+                                                                <td>{{$Karyawan->Outlet->alamat}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">Jabatan</th>
-                                                                <td>{{$karyawan->jabatan->jabatan}}</td>
+                                                                <td>{{$Karyawan->jabatan->jabatan}}</td>
                                                             </tr>
 
                                                         </tbody>
