@@ -42,8 +42,7 @@
                                     <td>{{$d->telepon}}</td>
                                     <td>{{$d->jabatan->jabatan}}</td>
                                     <td class="text-center">
-                                    <a href="{{route('karyawan_detail')}}"
-                                        class="btn btn-inverse-success"><i class="icon-eye"></i></a>
+                                    <a href="{{route('karyawan_outlet_detail',['id' => IDCrypt::Encrypt( $d->id)])}}"class="btn btn-inverse-primary"><i class="icon-eye" style="padding:0px;"></i></a>
                                     <a href=""
                                         class="btn btn-inverse-success"><i class="icon-pencil"></i></a>
                                     </td>

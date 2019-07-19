@@ -129,8 +129,17 @@ Route::get('/karyawan_outlet_data','outletController@karyawan_data')
 ->name('karyawan_outlet_data');
 Route::post('/karyawan_outlet_data','outletController@karyawan_store')
 ->name('karyawan_outlet_store');
-Route::get('/karyawan_outlet_detail','outletController@karyawan_detail')
+Route::get('/karyawan/detail/{id}','outletController@karyawan_detail')
 ->name('karyawan_outlet_detail');
+
+Route::get('outlet/penilaian_outlet','outletController@penilaian_outlet_index')
+->name('outlet_penilaian_outlet_index');
+
+Route::get('outlet/penilaian_karyawan','outletController@penilaian_karyawan_index')
+->name('outlet_penilaian_karyawan_index');
+Route::get('outlet/penilaian_karyawan/tambah','outletController@penilaian_karyawan_tambah')
+->name('outlet_penilaian_karyawan_tambah');
+
 
 Auth::routes();
 

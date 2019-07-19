@@ -7,6 +7,8 @@ use App\Outlet;
 use App\Jabatan;
 use App\Karyawan;
 use App\Kelurahan;
+use App\object_penilaian;
+use App\raport_outlet;
 use Hash;
 use IDCrypt;
 use Illuminate\Http\Request;
@@ -142,9 +144,34 @@ class outletController extends Controller
           return redirect(route('karyawan_outlet_data'))->with('success', 'Data karyawan '.$karyawan->nama.' Berhasil di Tambahkan');
       }//fungsi menambahkan data outlet
 
-    public function karyawan_detail($id){
+      public function karyawan_detail($id){
         $id = IDCrypt::Decrypt($id);
-        $karyawan = Karyawan::findOrFail($id);
-        return view('outlet.karyawan_detail',compact('karyawan'));
+        $Karyawan = Karyawan::findOrFail($id);
+        return view('admin.karyawan_detail',compact('Karyawan'));
     }
+
+     //penilaianOutlet
+     public function penilaian_outlet_index(){
+        $user_id=Auth::user()->id;
+        $outlet= outlet::where('user_id',$user_id)->first();
+        $raport_outlet = raport_outlet::where('outlet_id',$outlet->id)->get();
+          return view('outlet.penilaian_outlet',compact('raport_outlet'));
+      }
+
+      public function penilaian_karyawan_index(){
+        $user_id=Auth::user()->id;
+        $outlet= outlet::where('user_id',$user_id)->first();
+        $raport_outlet = raport_outlet::where('outlet_id',$outlet->id)->get();
+          return view('outlet.penilaian_karyawan');
+      }
+      
+         //penilaianOutlet
+         public function penilaian_karyawan_tambah(){
+            $user_id=Auth::user()->id;
+            $outlet= outlet::where('user_id',$user_id)->first();
+            $karyawan = karyawan::where('outlet_id',$outlet->id)->get();
+            $object_penilaian =object_penilaian::where('status',2)->get();
+            return view('outlet.penilaian_karyawan_tambah',compact('object_penilaian','karyawan'));
+        }
 }
+    

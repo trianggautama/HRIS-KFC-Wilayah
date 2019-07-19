@@ -1,15 +1,17 @@
-@extends('layouts.admin')
+@extends('layouts.outlet')
 @section('content')
 <div class="container-fluid">
     <div class="row">
         <div class="main-header">
+
         </div>
     </div>
     <div class="card">
         <div class="card-header ">
             <h4>Data Raport Outlet</h4>
             <div class="text-right">
-                <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>Cetak Data</a>
+                <a class="btn btn-inverse-success" href=""><i class="icon-printer"></i> cetak data</a>
+                <a class="btn btn-inverse-success" href="{{Route('penilaian_outlet_filter_periode')}}"><i class="icon-printer"></i> cetak filter periode</a>
             </div>
         </div>
         <div class="card-block">
@@ -20,28 +22,29 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Outlet</th>
-                                <th>Kode Karyawan</th>
-                                <th>Nama Karyawan</th>
+                                <th>Nama Outlet</th>
                                 <th>Nilai</th>
                                 <th>Periode</th>
-                                <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no = 1 ?>
+                            @foreach($raport_outlet as $d)
                             <tr>
-                                <td>1</td>
-                                <td>KFC BOX GIANT</td>
-                                <td>A12Q21</td>
-                                <td>Muhammad Zaini</td>
-                                <td><span class="label label-success">Baik</span></td>
-                                <td>Maret 2019</td>
-                                <td class="text-center">
-                                    <a href="" class="btn btn-inverse-primary"> edit</a>
-                                    <a href="" class="btn btn-inverse-danger"> hapus</a>
+                                <td>{{$no++}}</td>
+                                <td>{{$d->outlet->user->name}}</td>
+                                <td>
+                                @if($d->nilai < 30 )
+                                <span class="label label-danger">Kurang Baik</span>
+                                @elseif($d->nilai < 60)
+                                <span class="label label-warning">Baik</span>
+                                @else
+                                <span class="label label-primary"> Sangat Baik</span>
+                                @endif
                                 </td>
+                                <td>{{$d->created_at}}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -49,4 +52,5 @@
         </div>
     </div>
 </div>
+
 @endsection
