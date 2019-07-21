@@ -9,6 +9,7 @@ use App\kecamatan;
 use App\Kelurahan;
 use App\kabupatenkota;
 use App\object_penilaian;
+use App\raport_outlet;
 use Hash;
 use IDCrypt;
 
@@ -33,9 +34,10 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $Outlet = Outlet::findOrFail($id);
         $Karyawan = Karyawan::where('outlet_id',$id)->get();
+        $raport_outlet= raport_outlet::where('outlet_id',$id)->get();
         $kelurahan = kelurahan::find($Outlet->kelurahan_id)->first();
         // dd($kelurahan);
-        return view('admin.outlet_detail',compact('Outlet','Karyawan','kelurahan'));
+        return view('admin.outlet_detail',compact('Outlet','Karyawan','kelurahan','raport_outlet'));
     }
 
     public function outlet_update(Request $request, $id){
@@ -350,8 +352,8 @@ class adminController extends Controller
 
         public function karyawan_detail($id){
             $id = IDCrypt::Decrypt($id);
-            $karyawan = Karyawan::findOrFail($id);
-            return view('admin.karyawan_detail',compact('karyawan'));
+            $Karyawan = Karyawan::findOrFail($id);
+            return view('admin.karyawan_detail',compact('Karyawan'));
         }
 
       //object Penilaian
@@ -362,10 +364,12 @@ class adminController extends Controller
 
       public function object_penilaian_tambah(Request $request){
         $this->validate(request(),[
-            'object'=>'required'
+            'object'=>'required',
+            'status'=>'required'
           ]);
           $object_penilaian = new object_penilaian;
           $object_penilaian->object= $request->object;
+          $object_penilaian->status= $request->status;
           $object_penilaian->save();       
           return redirect(route('object_penilaian_index'))->with('success', 'Data  Berhasil di simpan');
         }
@@ -379,10 +383,13 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $object_penilaian = object_penilaian::findOrFail($id);
         $this->validate(request(),[
-            'object'=>'required'
-          ]);
-          $object_penilaian->object= $request->object;
-          $object_penilaian->update();   
+          'object'=>'required',
+          'status'=>'required'
+        ]);
+        $object_penilaian = new object_penilaian;
+        $object_penilaian->object= $request->object;
+        $object_penilaian->status= $request->status;
+        $object_penilaian->update();   
           return redirect(route('object_penilaian_index'))->with('success', 'Data  Berhasil di ubah');
      }//fungsi jabatan update
 
@@ -394,24 +401,30 @@ class adminController extends Controller
     }
       //penilaianOutlet
       public function penilaian_outlet_index(){
-
-          return view('admin.penilaian_outlet_data');
+        $raport_outlet = raport_outlet::all();
+          return view('admin.penilaian_outlet_data',compact('raport_outlet'));
       }
 
       public function penilaian_outlet_tambah(){
         $outlet = Outlet::all();
-        $object_penilaian =object_penilaian::all();
-        return view('admin.penilaian_outlet_tambah',compact('object_penilaian','Outlet'));
+        $object_penilaian =object_penilaian::where('status',1)->get();
+        return view('admin.penilaian_outlet_tambah',compact('object_penilaian','outlet'));
     }
     public function penilaian_outlet_store(Request $request){
       $collection = collect($request);
       $pembagi = $collection->count();
-      $pembagi = $pembagi - 2;
+      $pembagi = $pembagi - 3;
       $average = collect($request)->sum();
       $nilai  = $average/$pembagi;
-
-      return view('admin.penilaian_outlet_tambah',compact('nilai'));
-  }
+      $this->validate(request(),[
+        'outlet_id'=>'required'
+      ]);
+      $raport_outlet = new raport_outlet;
+      $raport_outlet->nilai= $nilai;
+      $raport_outlet->outlet_id= $request->outlet_id;
+      $raport_outlet->save();   
+      return redirect(route('penilaian_outlet_index'))->with('success', 'Data  Berhasil di tambah');
+    }
 
     public function penilaian_outlet_filter_periode(){
 
@@ -422,6 +435,13 @@ class adminController extends Controller
 
     return view('admin.penilaian_outlet_outlet');
 }
+  
+    public function penilaian_outlet_hapus($id){
+      $id = IDCrypt::Decrypt($id);
+      $raport_outlet = raport_outlet::findOrFail($id);
+      $raport_outlet->delete();
+      return redirect(route('penilaian_outlet_index'))->with('success', 'Data  Berhasil di hapus');
+       }
 
     //penilaian karyawan
     public function penilaian_karyawan_index(){

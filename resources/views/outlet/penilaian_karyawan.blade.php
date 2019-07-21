@@ -7,8 +7,9 @@
     </div>
     <div class="card">
         <div class="card-header ">
-            <h4>Data Raport Outlet</h4>
+            <h4>Data Raport Karyawan</h4>
             <div class="text-right">
+            <a class="btn btn-inverse-primary" href="{{Route('outlet_penilaian_karyawan_tambah')}}"><i class="icon-arrow-add"></i>+ Tambah Data</a>
                 <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>Cetak Data</a>
             </div>
         </div>

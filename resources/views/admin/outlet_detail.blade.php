@@ -91,7 +91,6 @@
                                                                     <th scope="row">Alamat</th>
                                                                     <td>{{ $Outlet->alamat }} Kelurahan {{ $kelurahan->kelurahan }} </td>
                                                                 </tr>
-
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -106,7 +105,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">Jumlah Karyawan</th>
-                                                                <td><a href="#!">12 Orang</a></td>
+                                                                <td><a href="#!">{{$Karyawan->count()}} Orang</a></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -237,19 +236,14 @@
                                             @foreach($Karyawan as $k)
                                                 <tr>
                                                     <td>
-                                                        <img src="/images/karyawan/{{$k->foto}}" class="img-circle"
-                                                          >
+                                                        <img src="/images/karyawan/{{$k->foto}}" class="img-circle">
                                                     </td>
                                                     <td>{{$k->kode_karyawan}}</td>
                                                     <td>{{$k->nama}}</td>
                                                     <td>{{$k->jenis_kelamin}}</td>
                                                     <td class="text-center">{{$k->jabatan->jabatan}}</td>
                                                     <td class="faq-table-btn">
-                                                        <button type="button"
-                                                            class="btn btn-inverse-success waves-effect waves-light"
-                                                            data-toggle="tooltip" data-placement="top" title="View">
-                                                            <i class="icofont icofont-eye-alt"></i>
-                                                        </button>
+                                                    <a href="{{route('karyawan_detail',['id' => IDCrypt::Encrypt( $k->id)])}}"class="btn btn-inverse-primary"><i class="icon-eye" style="padding:0px;"></i></a>
                                                         <button type="button"
                                                             class="btn btn-inverse-danger waves-effect waves-light"
                                                             data-toggle="tooltip" data-placement="top" title="Delete">
@@ -281,16 +275,18 @@
                         <div class="col-lg-12">
                             <div class="card-questioning">
                                 <div class="accordion-box" id="question-open">
+                                @foreach($raport_outlet as $d)
                                     <div class="faq-accordion">
-                                        <a class="accordion-msg active"> 8 Desember 2018 : B</a>
+                                        <a class="accordion-msg active"> {{$d->created_at}} :      @if($d->nilai < 30 )
+                                <span class="label label-danger">Kurang Baik</span>
+                                @elseif($d->nilai < 60)
+                                <span class="label label-warning">Baik</span>
+                                @else
+                                <span class="label label-primary"> Sangat Baik</span>
+                                @endif</a>
+                                   
                                     </div>
-                                    <div class="faq-accordion">
-                                        <a class="accordion-msg">6 Juni 2018 : A</a>
-                                    </div>
-
-                                    <div class="faq-accordion">
-                                        <a class="accordion-msg">14 Desember 2017 : B</a>
-                                    </div>
+                                    @endforeach
                                 </div>
                                 <!-- end of accrodion box class -->
                             </div>

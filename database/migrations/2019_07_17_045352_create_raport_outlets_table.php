@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateObjectPenilaiansTable extends Migration
+class CreateRaportOutletsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateObjectPenilaiansTable extends Migration
      */
     public function up()
     {
-        Schema::create('object_penilaians', function (Blueprint $table) {
+        Schema::create('raport_outlets', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('object')->length(35);
-            $table->integer('status')->length(2);
+            $table->unsignedbigInteger('outlet_id');
+            $table->integer('nilai')->length(5);
+            $table->foreign('outlet_id')->references('id')->on('outlets')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateObjectPenilaiansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('object_penilaians');
+        Schema::dropIfExists('raport_outlets');
     }
 }

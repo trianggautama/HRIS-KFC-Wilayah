@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.outlet')
 @section('content')
 <br>
 <div class="container-fluid">
@@ -9,7 +9,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-header-text">Objek Penilaian</h5>
+                    <h5 class="card-header-text">Penilaian Karyawan</h5>
                     <div class="f-right">
                         <a href="" data-toggle="modal" data-target="#input-size-Modal"><i
                                 class="icofont icofont-code-alt"></i></a>
@@ -23,9 +23,9 @@
                             <div class="col-md-2"><label for="InputNormal" class="form-control-label">Outlet</label></div>
                             <div class="col-md-10">
                             <select class="form-control" name="outlet_id">
-                            <option value="" >-Pilih Outlet-</option>
-                            @foreach($outlet as $d)
-                            <option value="{{$d->id}}">{{$d->user->name}}</option>
+                            <option value="" >-Pilih Karyawan-</option>
+                            @foreach($karyawan as $d)
+                            <option value="{{$d->id}}">{{$d->nama}}</option>
                             @endforeach
                         </select>
                             </div>
