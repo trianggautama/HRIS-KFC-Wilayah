@@ -127,7 +127,7 @@ Route::get('/karyawan_outlet_data','outletController@karyawan_data')
 ->name('karyawan_outlet_data');
 Route::post('/karyawan_outlet_data','outletController@karyawan_store')
 ->name('karyawan_outlet_store');
-Route::get('/karyawan_outlet_detail','outletController@karyawan_detail')
+Route::get('/karyawan_outlet_detail/{id}','outletController@karyawan_detail')
 ->name('karyawan_outlet_detail');
 
 Auth::routes();

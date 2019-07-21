@@ -36,7 +36,7 @@ class outletController extends Controller
         }
             $outlet_datas = outlet::where('user_id',Auth::user()->id)->first();
             // dd($outlet_datas);
-            return view('outlet.profil_edit',compact('outlet_datas','kelurahan'));
+            return view('outlet.outlet_edit',compact('outlet_datas','kelurahan'));
     }
 
     public function outlet_tambah_store(Request $request){
