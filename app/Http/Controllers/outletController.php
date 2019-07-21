@@ -9,6 +9,7 @@ use App\Karyawan;
 use App\Kelurahan;
 use App\object_penilaian;
 use App\raport_outlet;
+use App\raport_karyawan;
 use Hash;
 use IDCrypt;
 use Illuminate\Http\Request;
@@ -143,13 +144,19 @@ class outletController extends Controller
 
           return redirect(route('karyawan_outlet_data'))->with('success', 'Data karyawan '.$karyawan->nama.' Berhasil di Tambahkan');
       }//fungsi menambahkan data outlet
-
+ 
       public function karyawan_detail($id){
         $id = IDCrypt::Decrypt($id);
         $Karyawan = Karyawan::findOrFail($id);
-        return view('admin.karyawan_detail',compact('Karyawan'));
+        return view('outlet.karyawan_detail',compact('Karyawan'));
     }
 
+    public function karyawan_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $karyawan=Karyawan::findOrFail($id);
+        $karyawan->delete();
+        return redirect(route('karyawan_outlet_data'));
+    }
      //penilaianOutlet
      public function penilaian_outlet_index(){
         $user_id=Auth::user()->id;
@@ -161,8 +168,8 @@ class outletController extends Controller
       public function penilaian_karyawan_index(){
         $user_id=Auth::user()->id;
         $outlet= outlet::where('user_id',$user_id)->first();
-        $raport_outlet = raport_outlet::where('outlet_id',$outlet->id)->get();
-          return view('outlet.penilaian_karyawan');
+        $raport_karyawan = raport_karyawan::where('outlet_id',$outlet->id)->get();
+          return view('outlet.penilaian_karyawan',compact('raport_karyawan'));
       }
       
          //penilaianOutlet
@@ -172,6 +179,31 @@ class outletController extends Controller
             $karyawan = karyawan::where('outlet_id',$outlet->id)->get();
             $object_penilaian =object_penilaian::where('status',2)->get();
             return view('outlet.penilaian_karyawan_tambah',compact('object_penilaian','karyawan'));
+        }
+        public function penilaian_karyawan_store(Request $request){
+            $user_id=Auth::user()->id;
+            $outlet= outlet::where('user_id',$user_id)->first();
+            $collection = collect($request);
+            $pembagi = $collection->count();
+            $pembagi = $pembagi - 3;
+            $average = collect($request)->sum();
+            $nilai  = $average/$pembagi;
+            $this->validate(request(),[
+              'karyawan_id'=>'required'
+            ]);
+            $raport_karyawan = new raport_karyawan;
+            $raport_karyawan->nilai= $nilai;
+            $raport_karyawan->karyawan_id= $request->karyawan_id;
+            $raport_karyawan->outlet_id = $outlet->id;
+            $raport_karyawan->save();   
+            return redirect(route('outlet_penilaian_karyawan_index'))->with('success', 'Data  Berhasil di tambah');
+          }
+
+          public function penilaian_karyawan_hapus($id){
+            $id = IDCrypt::Decrypt($id);
+            $raport_karyawan=raport_karyawan::findOrFail($id);
+            $raport_karyawan->delete();
+            return redirect(route('outlet_penilaian_karyawan_index'))->with('success', 'Data  Berhasil di hpus');
         }
 }
     

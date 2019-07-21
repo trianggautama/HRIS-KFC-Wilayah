@@ -22,7 +22,7 @@
                      <div class="form-group row">
                             <div class="col-md-2"><label for="InputNormal" class="form-control-label">Outlet</label></div>
                             <div class="col-md-10">
-                            <select class="form-control" name="outlet_id">
+                            <select class="form-control" name="karyawan_id">
                             <option value="" >-Pilih Karyawan-</option>
                             @foreach($karyawan as $d)
                             <option value="{{$d->id}}">{{$d->nama}}</option>
