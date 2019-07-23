@@ -43,7 +43,7 @@
                                     <td>{{$d->jabatan->jabatan}}</td>
                                     <td class="text-center">
                                     <a href="{{route('karyawan_outlet_detail',['id' => IDCrypt::Encrypt( $d->id)])}}"class="btn btn-inverse-primary"><i class="icon-eye" style="padding:0px;"></i></a>
-                                    <a href="{{Route('karyawan_outlet_hapus',['id' => IDCrypt::Encrypt( $d->id)])}}"
+                                    <a href="{{route('karyawan_outlet_hapus',['id' => IDCrypt::Encrypt( $d->id)])}}"
                                         class="btn btn-inverse-danger"><i class="icon-trash"></i></a>
                                     </td>
                                 </tr>

@@ -18,4 +18,7 @@ class Karyawan extends Model
     public function jabatan(){
         return $this->belongsTo('App\Jabatan');
     }
+    public function raport_karyawan(){
+        return $this->hasMany('App\raport_karyawan');
+    }
 }
