@@ -131,6 +131,8 @@ Route::post('/karyawan_outlet_data','outletController@karyawan_store')
 ->name('karyawan_outlet_store');
 Route::get('/karyawan/detail/{id}','outletController@karyawan_detail')
 ->name('karyawan_outlet_detail');
+Route::get('/karyawan/hapus/{id}','outletController@karyawan_hapus')
+->name('karyawan_outlet_hapus');
 
 Route::get('outlet/penilaian_outlet','outletController@penilaian_outlet_index')
 ->name('outlet_penilaian_outlet_index');

@@ -150,6 +150,13 @@ class outletController extends Controller
         return view('admin.karyawan_detail',compact('Karyawan'));
     }
 
+    public function karyawan_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $Karyawan = Karyawan::findOrFail($id);
+        $Karyawan->delete();
+        return redirect(route('karyawan_outlet_data'))->with('success', 'Data karyawan Berhasil di Hapus');
+    }
+
      //penilaianOutlet
      public function penilaian_outlet_index(){
         $user_id=Auth::user()->id;

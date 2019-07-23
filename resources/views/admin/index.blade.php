@@ -31,9 +31,9 @@
         </div>
         <div class="col-lg-3 col-sm-6">
             <div class="col-sm-12 card dashboard-product">
-                <span>Admin</span>
-                <h2 class="dashboard-total-products"><span class="counter">12</span></h2>
-                <span class="label label-success">Admin</span>pada seluruh Outlet
+                <span>Penilaian Outlet</span>
+                <h2 class="dashboard-total-products"><span class="counter">56</span></h2>
+                <span class="label label-success">Data</span>Penilaian
                 <div class="side-box bg-success">
                     <i class="icon-bubbles"></i>
                 </div>
@@ -42,9 +42,9 @@
 
         <div class="col-lg-3 col-sm-6">
             <div class="col-sm-12 card dashboard-product">
-                <span>Admin</span>
-                <h2 class="dashboard-total-products"><span class="counter">4</span></h2>
-                <span class="label label-danger">Admin</span>Kantor Wilayah
+                <span>Penilaian Karyawan</span>
+                <h2 class="dashboard-total-products"><span class="counter">125</span></h2>
+                <span class="label label-danger">Data</span>Penilaian
                 <div class="side-box bg-danger">
                     <i class="icon-bubbles"></i>
                 </div>

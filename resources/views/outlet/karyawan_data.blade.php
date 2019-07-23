@@ -1,6 +1,5 @@
 @extends('layouts.outlet')
 @section('content')
-
 <div class="container-fluid">
     <div class="row">
         <div class="main-header">
@@ -19,6 +18,7 @@
         <div class="card-block">
             <div class="row">
                 <div class="col-sm-12 table-responsive">
+                @include('layouts.alert')
                     <table class="table table-hover" id="myTable">
                         <thead>
                             <tr>
@@ -43,8 +43,8 @@
                                     <td>{{$d->jabatan->jabatan}}</td>
                                     <td class="text-center">
                                     <a href="{{route('karyawan_outlet_detail',['id' => IDCrypt::Encrypt( $d->id)])}}"class="btn btn-inverse-primary"><i class="icon-eye" style="padding:0px;"></i></a>
-                                    <a href=""
-                                        class="btn btn-inverse-success"><i class="icon-pencil"></i></a>
+                                    <a href="{{Route('karyawan_outlet_hapus',['id' => IDCrypt::Encrypt( $d->id)])}}"
+                                        class="btn btn-inverse-danger"><i class="icon-trash"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
