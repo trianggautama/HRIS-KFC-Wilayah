@@ -11,7 +11,7 @@
         <div class="card-header ">
             <h4>Data Karyawan</h4>
             <div class="text-right">
-                <a class="btn btn-inverse-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
+                <a class="btn btn-success" href=""><i class="icofont icofont-printer"></i> cetak data</a>
             </div>
         </div>
         <div class="card-block">
@@ -41,9 +41,9 @@
                             <td>{{$d->jenis_kelamin}}</td>
                             <td>{{$d->jabatan->jabatan}}</td>
                             <td class="text-center">
-                            <a href="{{route('karyawan_detail',['id' => IDCrypt::Encrypt( $d->id)])}}"class="btn btn-inverse-primary"><i class="icon-eye" style="padding:0px;"></i></a>
-                            <a href=""class="btn btn-inverse-warning"><i class="icon-pencil"></i></a>
-                            <a href=""class="btn btn-inverse-danger"><i class="icon-trash"></i></a>
+                            <a href="{{route('karyawan_admin_detail',['id' => IDCrypt::Encrypt( $d->id)])}}"class="btn btn-primary"><i class="icon-eye" style="padding:0px;"></i></a>
+                            <a href=""class="btn btn-warning"><i class="icon-pencil"></i></a>
+                            <a href=""class="btn btn-danger"><i class="icon-trash"></i></a>
                             </td>
                         </tr>
                         @endforeach

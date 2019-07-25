@@ -78,8 +78,8 @@ Route::get('/jabatan/hapus/{id}','adminController@jabatan_hapus')
 //karyawan
 Route::get('/karyawan','adminController@karyawan_index')
 ->name('karyawan_index');
-Route::get('/karyawan/detail/{id}','adminController@karyawan_detail')
-->name('karyawan_detail');
+Route::get('/karyawan/admin/detail/{id}','adminController@karyawan_detail')
+->name('karyawan_admin_detail');
 
 //Object Penilaian
 Route::get('/object_penilaian','adminController@object_penilaian_index')

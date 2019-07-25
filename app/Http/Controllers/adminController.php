@@ -303,6 +303,7 @@ class adminController extends Controller
           $jabatan->kode_jabatan= $request->kode_jabatan;
           $jabatan->jabatan= $request->jabatan;
           $jabatan->tugas= $request->tugas;
+          $jabatan->gajih= $request->gajih;
           $jabatan->save();
             return redirect(route('jabatan_index'))->with('success', 'Data jabatan '.$request->jabatan.' Berhasil di Simpan');
     }//fungsi jabatan tambah

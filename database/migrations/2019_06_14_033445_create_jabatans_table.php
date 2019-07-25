@@ -18,6 +18,7 @@ class CreateJabatansTable extends Migration
             $table->string('kode_jabatan')->length(20);
             $table->string('jabatan')->length(191);
             $table->string('tugas')->length(191);
+            $table->string('gajih')->length(191);
             $table->timestamps();
         });
     }
