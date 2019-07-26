@@ -19,6 +19,8 @@ Route::get('/outlet/hapus/{id}','adminController@outlet_hapus')
 ->name('outlet_hapus');
 Route::get('outlet/keseluruhan/cetak','adminController@cetak_outlet_keseluruhan')
 ->name('cetak_outlet_keseluruhan');
+Route::get('outlet/profil/cetak/{id}','adminController@outlet_profil_cetak')
+->name('outlet_profil_cetak');
 
 //kabupaten / kota
 Route::get('/kabupatenkota','adminController@kabupatenkota_index')

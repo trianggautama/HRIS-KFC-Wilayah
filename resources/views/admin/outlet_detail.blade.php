@@ -1,7 +1,4 @@
 @extends('layouts.admin')
-
-@section('title', __('outlet.list'))
-
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -30,6 +27,8 @@
                 </div>
                 <div class="card-block text-center">
                     <h4 class="f-18 f-normal m-b-10 txt-primary">{{ $Outlet->user->name }}</h4>
+                    <a href="{{ route('outlet_profil_cetak', ['id' => IDCrypt::Encrypt( $Outlet->id)])}}"
+                                        class="btn btn-block btn-primary"><i class="icon-printer"> Cetak Profil Outlet</i></a>
 
                 </div>
             </div>

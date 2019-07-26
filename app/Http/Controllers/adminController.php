@@ -10,8 +10,12 @@ use App\Kelurahan;
 use App\kabupatenkota;
 use App\object_penilaian;
 use App\raport_outlet;
+
+use Carbon\Carbon;
 use Hash;
 use IDCrypt;
+use PDF;
+
 
 use Illuminate\Http\Request;
 
@@ -457,6 +461,16 @@ class adminController extends Controller
    public function cetak_outlet_keseluruhan(){
 
     return view('laporan.outlet_keseluruhan');
+}
+
+  public function outlet_profil_cetak($id){
+    $id = IDCrypt::Decrypt($id);
+    $outlet = Outlet::findOrFail($id);
+    $karyawan = Karyawan::where('outlet_id', $id)->get();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.profil_outlet', ['outlet' => $outlet,'karyawan'=>$karyawan,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Profil Outlet.pdf');
 }
 
 }
