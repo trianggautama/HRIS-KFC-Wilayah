@@ -459,7 +459,17 @@ class adminController extends Controller
     public function penilaian_karyawan_index(){
       $raport_karyawan = raport_karyawan::all();
       return view('admin.penilaian_karyawan_data',compact('raport_karyawan'));
-  }
+    }
+
+    public function penilaian_karyawan_filter_outlet(){
+      $outlet = Outlet::all();
+      return view('admin.penilaian_karyawan_filter_outlet',compact('outlet'));
+    }
+
+    public function penilaian_karyawan_filter_periode(){
+      return view('admin.penilaian_karyawan_filter_periode');
+    }
+
 
 
   //Fungsi Laporan
@@ -545,5 +555,32 @@ class adminController extends Controller
     $pdf->setPaper('a4', 'potrait');
     return $pdf->stream('Laporan Penilaian Outlet Filter Periode.pdf');
   }
+
+  public function penilaian_karyawan_cetak(){
+    $raport_karyawan = raport_karyawan::all();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.penilaian_karyawan_keseluruhan', ['raport_karyawan' => $raport_karyawan,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Penilaian Karyawan Keseluruhan.pdf');
+  }
+
+  public function cetak_penilaian_karyawan_filter_outlet(Request $request){
+    $outlet = Outlet::findOrFail($request->outlet_id);
+    $raport_karyawan = raport_karyawan::where('outlet_id',$request->outlet_id)->get();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.penilaian_karyawan_outlet_keseluruhan', ['outlet' => $outlet,'raport_karyawan' => $raport_karyawan,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Penilaian Karyawan Per Outlet.pdf');
+  }
+
+  public function cetak_penilaian_karyawan_filter_periode(Request $request){
+    $raport_karyawan = raport_karyawan::whereBetween('created_at', [$request->tanggal_awal, $request->tanggal_akhir])->get();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.penilaian_karyawan_periode', ['raport_karyawan' => $raport_karyawan,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Penilaian Karyawan per Periode.pdf');
+  }
+
+
 
 }

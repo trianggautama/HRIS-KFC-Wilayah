@@ -9,7 +9,9 @@
         <div class="card-header ">
             <h4>Data Raport karyawan</h4>
             <div class="text-right">
-                <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>Cetak Data</a>
+                <a class="btn btn-success" href="{{Route('penilaian_karyawan_cetak')}}"><i class="icon-arrow-add"></i>Cetak Data</a>
+                <a class="btn btn-success" href="{{Route('penilaian_karyawan_filter_outlet')}}"><i class="icon-arrow-add"></i>Cetak Data Filter Outlet</a>
+                <a class="btn btn-success" href="{{Route('penilaian_karyawan_filter_periode')}}"><i class="icon-arrow-add"></i>Cetak Data Filter Periode</a>
             </div>
         </div>
         <div class="card-block">
@@ -21,7 +23,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Outlet</th>
-                                <th>Kode Karyawan</th>
+                                <th class="text-center">Kode Karyawan</th>
                                 <th>Nama Karyawan</th>
                                 <th>Nilai</th>
                                 <th>Periode</th>
@@ -34,7 +36,7 @@
                             <tr>
                                 <td>1</td>
                                 <td>{{$d->outlet->user->name}}</td>
-                                <td>{{$d->karyawan->kode_karyawan}}</td>
+                                <td class="text-center">{{$d->karyawan->kode_karyawan}}</td>
                                 <td>{{$d->karyawan->nama}}</td>
                                 <td>
                                 @if($d->nilai < 50 )

@@ -126,6 +126,16 @@ Route::post('/penilaian_outlet/filter/periode','adminController@cetak_penilaian_
 //penilaian karyawan
 Route::get('/penilaian_karyawan','adminController@penilaian_karyawan_index')
 ->name('penilaian_karyawan_index');
+Route::get('/penilaian_karyawan/cetak','adminController@penilaian_karyawan_cetak')
+->name('penilaian_karyawan_cetak');
+Route::get('/penilaian_karyawan/filter/outlet','adminController@penilaian_karyawan_filter_outlet')
+->name('penilaian_karyawan_filter_outlet');
+Route::post('/penilaian_karyawan/filter/outlet','adminController@cetak_penilaian_karyawan_filter_outlet')
+->name('cetak_penilaian_karyawan_filter_outlet');
+Route::get('/penilaian_karyawan/filter/periode','adminController@penilaian_karyawan_filter_periode')
+->name('penilaian_karyawan_filter_periode');
+Route::post('/penilaian_karyawan/filter/periode','adminController@cetak_penilaian_karyawan_filter_periode')
+->name('cetak_penilaian_karyawan_filter_periode');
 
 //MIDLEWARE ADMIN
 });
