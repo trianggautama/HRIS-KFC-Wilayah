@@ -10,6 +10,9 @@ use App\Kelurahan;
 use App\object_penilaian;
 use App\raport_outlet;
 use App\raport_karyawan;
+
+use PDF;
+use Carbon\Carbon;
 use Hash;
 use IDCrypt;
 use Illuminate\Http\Request;
@@ -243,5 +246,17 @@ class outletController extends Controller
             $raport_karyawan->delete();
             return redirect(route('outlet_penilaian_karyawan_index'))->with('success', 'Data  Berhasil di hpus');
         }
+
+        public function karyawan_outlet_cetak(){
+          $user_id=Auth::user()->id;
+          $outlet= outlet::where('user_id',$user_id)->first();
+          $karyawan= karyawan::where('outlet_id',$outlet->id)->get();
+          $tgl= Carbon::now()->format('d F Y');
+          $pdf =PDF::loadView('laporan.karyawan_outlet', ['outlet' => $outlet,'karyawan'=>$karyawan,'tgl'=>$tgl]);
+          $pdf->setPaper('a4', 'potrait');
+          return $pdf->stream('Karyawan Pada outlet.pdf');
+        }
+
+
 }
     

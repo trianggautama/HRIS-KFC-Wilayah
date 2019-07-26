@@ -141,6 +141,8 @@ Route::put('/karyawan/outlet/detail/{id}','outletController@karyawan_update')
 ->name('karyawan_update');
 Route::get('/karyawan/hapus/{id}','outletController@karyawan_hapus')
 ->name('karyawan_outlet_hapus');
+Route::get('/karyawan/outlet/cetak','outletController@karyawan_outlet_cetak')
+->name('karyawan_outlet_cetak');
 
 Route::get('outlet/penilaian_outlet','outletController@penilaian_outlet_index')
 ->name('outlet_penilaian_outlet_index');
