@@ -22,8 +22,9 @@
                             <div class="col-md-2"><label for="exampleSelect1" class="form-control-label">Nama Outlet</label></div>
                             <div class="col-md-10"> <select class="form-control" id="exampleSelect1"
                                     name="outlet_id">
-                                    <option value="">KFC BANJARBARU</option>
-                                    <option value="">KFC KANTOR POS BANJARMASIN</option>
+                                    @foreach($outlet as $d)
+                                    <option value="{{$d->id}}">{{$d->user->name}}</option>
+                                    @endforeach
                                 </select></div>
                         </div>
                         <div class="card-footer text-right">

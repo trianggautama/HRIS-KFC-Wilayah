@@ -10,9 +10,9 @@
         <div class="card-header ">
             <h4>Data Raport Outlet</h4>
             <div class="text-right">
-            <a class="btn btn-inverse-primary right" href="" data-toggle="modal"
+            <a class="btn btn-primary right" href="" data-toggle="modal"
                     data-target="#exampleModalCenter"><i class="icofont icofont-ui-add"></i> tambah data</a>
-                <a class="btn btn-inverse-success" href=""><i class="icon-printer"></i> cetak data</a>
+                <a class="btn btn-success" href="{{Route('cetak_objek_penilaian')}}"><i class="icon-printer"></i> cetak data</a>
             </div>
         </div>
         <div class="card-block">
@@ -41,8 +41,8 @@
                                 @endif
                                 </td>
                                 <td class="text-center">
-                                    <a href="{{route('object_penilaian_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary"> edit</a>
-                                    <a href="{{route('object_penilaian_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger"> hapus</a>
+                                    <a href="{{route('object_penilaian_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-primary" > edit</a>
+                                    <a href="{{route('object_penilaian_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-danger"> hapus</a>
                                 </td>
                             </tr>
                             @endforeach

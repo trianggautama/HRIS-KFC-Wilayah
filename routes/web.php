@@ -78,6 +78,8 @@ Route::get('/jabatan/hapus/{id}','adminController@jabatan_hapus')
 ->name('jabatan_hapus');
 Route::get('/jabatan_keseluruhan/cetak','adminController@cetak_jabatan_keseluruhan')
 ->name('cetak_jabatan_keseluruhan');
+Route::get('/jabatan_detail/cetak/{id}','adminController@cetak_jabatan_detail')
+->name('cetak_jabatan_detail');
 
 //karyawan
 Route::get('/karyawan','adminController@karyawan_index')
@@ -98,6 +100,8 @@ Route::put('/object_penilaian/edit/{id}','adminController@object_penilaian_updat
 ->name('object_penilaian_update');
 Route::get('/object_penilaian/hapus/{id}','adminController@object_penilaian_hapus')
 ->name('object_penilaian_hapus');
+Route::get('/cetak_objek_penilaian','adminController@cetak_objek_penilaian')
+->name('cetak_objek_penilaian');
 
 //penilaian Outlet
 Route::get('/penilaian_outlet','adminController@penilaian_outlet_index')
@@ -110,8 +114,14 @@ Route::get('/penilaian_outlet/filter/periode','adminController@penilaian_outlet_
 ->name('penilaian_outlet_filter_periode');
 Route::get('/penilaian_outlet/filter/outlet','adminController@penilaian_outlet_filter_outlet')
 ->name('penilaian_outlet_filter_outlet');
+Route::post('/penilaian_outlet/filter/outlet','adminController@cetak_penilaian_outlet_filter_outlet')
+->name('cetak_penilaian_outlet_filter_outlet');
 Route::get('/penilaian_outlet/hapus/{id}','adminController@penilaian_outlet_hapus')
 ->name('penilaian_outlet_hapus');
+Route::get('/penilaian_outlet_keseluruhan/cetak','adminController@cetak_penilaian_outlet_keseluruhan')
+->name('cetak_penilaian_outlet_keseluruhan');
+Route::post('/penilaian_outlet/filter/periode','adminController@cetak_penilaian_outlet_filter_periode')
+->name('cetak_penilaian_outlet_filter_periode');
 
 //penilaian karyawan
 Route::get('/penilaian_karyawan','adminController@penilaian_karyawan_index')

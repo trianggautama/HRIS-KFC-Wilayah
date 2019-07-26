@@ -19,10 +19,17 @@
                 <div class="card-block">
                     <form method="post" action="">
                         <div class="form-group row">
-                            <div class="col-md-2"><label for="InputNormal" class="form-control-label">Periode
+                            <div class="col-md-2"><label for="InputNormal" class="form-control-label">Dari
                                     </label></div>
-                            <div class="col-md-10"><input type="date" name="periode" class="form-control"
-                                    id="InputNormal" placeholder="Nama Kecamatan">
+                            <div class="col-md-10"><input type="date" name="tanggal_awal" class="form-control"
+                                    id="InputNormal" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-2"><label for="InputNormal" class="form-control-label">Sampai
+                                    </label></div>
+                            <div class="col-md-10"><input type="date" name="tanggal_akhir" class="form-control"
+                                    id="InputNormal" placeholder="">
                             </div>
                         </div>
                 </div>

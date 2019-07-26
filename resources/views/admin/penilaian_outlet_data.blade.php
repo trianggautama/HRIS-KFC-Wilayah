@@ -10,11 +10,11 @@
         <div class="card-header ">
             <h4>Data Raport Outlet</h4>
             <div class="text-right">
-                <a class="btn btn-inverse-primary right" href="{{Route('penilaian_outlet_tambah')}}"><i
+                <a class="btn btn-primary right" href="{{Route('penilaian_outlet_tambah')}}"><i
                         class="icofont icofont-ui-add"></i> tambah data</a>
-                <a class="btn btn-inverse-success" href=""><i class="icon-printer"></i> cetak data</a>
-                <a class="btn btn-inverse-success" href="{{Route('penilaian_outlet_filter_periode')}}"><i class="icon-printer"></i> cetak filter periode</a>
-                <a class="btn btn-inverse-success" href="{{Route('penilaian_outlet_filter_outlet')}}"><i class="icon-printer"></i> cetak filter outlet</a>
+                <a class="btn btn-success" href="{{Route('cetak_penilaian_outlet_keseluruhan')}}"><i class="icon-printer"></i> cetak data</a>
+                <a class="btn btn-success" href="{{Route('penilaian_outlet_filter_periode')}}"><i class="icon-printer"></i> cetak filter periode</a>
+                <a class="btn btn-success" href="{{Route('penilaian_outlet_filter_outlet')}}"><i class="icon-printer"></i> cetak filter outlet</a>
             </div>
         </div>
         <div class="card-block">
@@ -48,7 +48,7 @@
                                 </td>
                                 <td>{{$d->created_at->format('F Y')}}</td>
                                 <td class="text-center">
-                                    <a href="{{route('penilaian_outlet_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger"> hapus</a>
+                                    <a href="{{route('penilaian_outlet_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-danger"> hapus</a>
                                 </td>
                             </tr>
                             @endforeach

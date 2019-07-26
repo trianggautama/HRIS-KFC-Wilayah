@@ -23,8 +23,11 @@ class adminController extends Controller
 {
 
     public function index(){
-
-        return view('admin.index');
+        $outlet = Outlet::all();
+        $karyawan = Karyawan::all();
+        $raport_outlet = Raport_outlet::all();
+        $raport_karyawan = Raport_karyawan::all();
+        return view('admin.index',compact('outlet','karyawan','raport_karyawan','raport_outlet'));
     }
 
     //Outlet
@@ -314,8 +317,9 @@ class adminController extends Controller
 
     public function jabatan_detail($id){
         $id = IDCrypt::Decrypt($id);
+        $jabatan= Jabatan::findOrFail($id);
         $Karyawan = Karyawan::where('jabatan_id',$id)->get();
-        return view('admin.jabatan_detail',compact('Karyawan'));
+        return view('admin.jabatan_detail',compact('Karyawan','jabatan'));
     }//fungsi jabatan edit
 
     public function jabatan_edit($id){
@@ -360,7 +364,8 @@ class adminController extends Controller
         public function karyawan_detail($id){
             $id = IDCrypt::Decrypt($id);
             $Karyawan = Karyawan::findOrFail($id);
-            return view('admin.karyawan_detail',compact('Karyawan'));
+            $jabatan= Jabatan::all();
+            return view('admin.karyawan_detail',compact('Karyawan','jabatan'));
         }
 
       //object Penilaian
@@ -439,8 +444,8 @@ class adminController extends Controller
   }
 
   public function penilaian_outlet_filter_outlet(){
-
-    return view('admin.penilaian_outlet_outlet');
+    $outlet = Outlet::all();
+    return view('admin.penilaian_outlet_outlet',compact('outlet'));
 }
   
     public function penilaian_outlet_hapus($id){
@@ -494,6 +499,51 @@ class adminController extends Controller
     $pdf =PDF::loadView('laporan.jabatan_keseluruhan', ['jabatan' => $jabatan,'tgl'=>$tgl]);
     $pdf->setPaper('a4', 'potrait');
     return $pdf->stream('Laporan Jabatan Keseluruhan.pdf');
+  }
+
+  public function cetak_jabatan_detail($id){
+    $id = IDCrypt::Decrypt($id);
+    $jabatan = Jabatan::findOrFail($id);
+    $karyawan = Karyawan::where('jabatan_id',$id)->get();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.jabatan_detail', ['karyawan' => $karyawan,'jabatan'=>$jabatan,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Jabatan Detail.pdf');
+  }
+
+  public function cetak_objek_penilaian(){
+    $object_penilaian = Object_penilaian::all();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.objek_penilaian', ['object_penilaian' => $object_penilaian,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Objek penilaian.pdf');
+  }
+
+  public function cetak_penilaian_outlet_keseluruhan(){
+    $raport_outlet = Raport_outlet::all();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.penilaian_outlet_keseluruhan', ['raport_outlet' => $raport_outlet,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Penilaian Outlet Keseluruhan.pdf');
+  }
+  
+
+  public function cetak_penilaian_outlet_filter_outlet( Request $request){
+    $raport_outlet = Raport_outlet::where('outlet_id',$request->outlet_id)->get();
+    $outlet = Outlet::findOrFail($request->outlet_id);
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.penilaian_outlet_filter_outlet', ['raport_outlet' => $raport_outlet,'outlet'=>$outlet,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Penilaian Outlet Filter Outlet.pdf');
+  }
+
+  public function cetak_penilaian_outlet_filter_periode( Request $request){
+    $raport_outlet = Raport_outlet::whereBetween('created_at', [$request->tanggal_awal, $request->tanggal_akhir])->get();
+    $tgl= Carbon::now()->format('d F Y');
+    $bulan = $request->tanggal_awal;
+    $pdf =PDF::loadView('laporan.penilaian_outlet_filter_periode', ['bulan' => $bulan, 'raport_outlet' => $raport_outlet,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Penilaian Outlet Filter Periode.pdf');
   }
 
 }
