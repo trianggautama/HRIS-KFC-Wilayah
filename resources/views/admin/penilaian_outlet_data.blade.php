@@ -38,15 +38,15 @@
                                 <td>{{$no++}}</td>
                                 <td>{{$d->outlet->user->name}}</td>
                                 <td>
-                                @if($d->nilai < 30 )
+                                @if($d->nilai < 50 )
                                 <span class="label label-danger">Kurang Baik</span>
-                                @elseif($d->nilai < 60)
+                                @elseif($d->nilai < 80)
                                 <span class="label label-warning">Baik</span>
                                 @else
                                 <span class="label label-primary"> Sangat Baik</span>
                                 @endif
                                 </td>
-                                <td>{{$d->created_at}}</td>
+                                <td>{{$d->created_at->format('F Y')}}</td>
                                 <td class="text-center">
                                     <a href="{{route('penilaian_outlet_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger"> hapus</a>
                                 </td>

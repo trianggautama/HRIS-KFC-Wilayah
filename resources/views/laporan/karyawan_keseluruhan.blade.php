@@ -14,10 +14,10 @@
         width:100%;
       }
          table, th, td{
-        border: 1px solid #708090;
+        border: 1px solid black;
       }
       th{
-        background-color: #708090;
+        background-color: #e6501e;
         text-align: center;
         color: white;
       }
@@ -68,7 +68,7 @@
 <body>
     <div class="header">
             <div class="logo">
-                    <img  class="pemko" src="{{asset('images/kfc_logo.png')}}"  >
+                    <img  class="pemko" src="images/kfc_logo.png"  >
             </div>
             <div class="headtext">
                 <h3 style="margin:0px;">KFC WILAYAH </h3>
@@ -86,27 +86,29 @@
                         <thead>
                         <tr>
                             <th>No</th>
+                                <th>Nama Outlet</th>
                                 <th>Kode Karyawan</th>
                                 <th>Nama Karyawan</th>
-                                <th>Outlet</th>
                                 <th>Jabatan</th>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $no = 0 ?>
+                        <?php $no = 1 ?>
+                        @foreach($karyawan as $d)
                             <tr>
-                                <td>1</td>
-                                <td>RT1234H</td>
-                                <td>Bejo Wahyuni</td>
-                                <td>KFC QMALL BANJARBARU</td>
-                                <td>Waiter</td>
+                                <td>{{$no++}}</td>
+                                <td>{{$d->outlet->user->name}}</td>
+                                <td>{{$d->kode_karyawan}}</td>
+                                <td>{{$d->nama}}</td>
+                                <td>{{$d->jabatan->jabatan}}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                       <br>
                       <br>
                       <div class="ttd">
-                        <h5> <p>Banjarbaru, tanggal bulan 2019</p></h5>
+                        <h5> <p>{{$tgl}}</p></h5>
                       <h5>pimpinan</h5>
                       <br>
                       <br>

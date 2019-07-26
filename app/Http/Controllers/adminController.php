@@ -10,8 +10,12 @@ use App\Kelurahan;
 use App\kabupatenkota;
 use App\object_penilaian;
 use App\raport_outlet;
+use App\raport_karyawan;
+
 use Hash;
 use IDCrypt;
+use PDF;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 
@@ -420,7 +424,7 @@ class adminController extends Controller
         'outlet_id'=>'required'
       ]);
       $raport_outlet = new raport_outlet;
-      $raport_outlet->nilai= $nilai;
+      $raport_outlet->nilai= $nilai-5;
       $raport_outlet->outlet_id= $request->outlet_id;
       $raport_outlet->save();   
       return redirect(route('penilaian_outlet_index'))->with('success', 'Data  Berhasil di tambah');
@@ -445,17 +449,30 @@ class adminController extends Controller
 
     //penilaian karyawan
     public function penilaian_karyawan_index(){
-
-      return view('admin.penilaian_karyawan_data');
+      $raport_karyawan = raport_karyawan::all();
+      return view('admin.penilaian_karyawan_data',compact('raport_karyawan'));
   }
 
 
   //Fungsi Laporan
 
    //penilaian karyawan
-   public function cetak_outlet_keseluruhan(){
 
-    return view('laporan.outlet_keseluruhan');
-}
+
+  public function cetak_outlet_keseluruhan(){
+    $outlet = Outlet::all();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.outlet_keseluruhan', ['outlet' => $outlet,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Outlet Keseluruhan.pdf');
+  }
+
+  public function cetak_karyawan_keseluruhan(){
+    $karyawan = Karyawan::all();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.karyawan_keseluruhan', ['karyawan' => $karyawan,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Outlet Keseluruhan.pdf');
+  }
 
 }

@@ -80,6 +80,8 @@ Route::get('/karyawan','adminController@karyawan_index')
 ->name('karyawan_index');
 Route::get('/karyawan/detail/{id}','adminController@karyawan_detail')
 ->name('karyawan_detail');
+Route::get('karyawan/keseluruhan/cetak','adminController@cetak_karyawan_keseluruhan')
+->name('cetak_karyawan_keseluruhan');
 
 //Object Penilaian
 Route::get('/object_penilaian','adminController@object_penilaian_index')
@@ -129,7 +131,7 @@ Route::get('/karyawan_outlet_data','outletController@karyawan_data')
 ->name('karyawan_outlet_data');
 Route::post('/karyawan_outlet_data','outletController@karyawan_store')
 ->name('karyawan_outlet_store');
-Route::get('/karyawan/detail/{id}','outletController@karyawan_detail')
+Route::get('/karyawan/outlet/detail/{id}','outletController@karyawan_detail')
 ->name('karyawan_outlet_detail');
 Route::get('/karyawan/hapus/{id}','outletController@karyawan_hapus')
 ->name('karyawan_outlet_hapus');

@@ -7,7 +7,7 @@
     </div>
     <div class="card">
         <div class="card-header ">
-            <h4>Data Raport Outlet</h4>
+            <h4>Data Raport karyawan</h4>
             <div class="text-right">
                 <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>Cetak Data</a>
             </div>
@@ -29,19 +29,30 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $no = 1 ?>
+                        <?php $no = 1 ?>
+                            @foreach($raport_karyawan as $d)
                             <tr>
                                 <td>1</td>
-                                <td>KFC BOX GIANT</td>
-                                <td>A12Q21</td>
-                                <td>Muhammad Zaini</td>
-                                <td><span class="label label-success">Baik</span></td>
-                                <td>Maret 2019</td>
-                                <td class="text-center">
-                                    <a href="" class="btn btn-inverse-primary"> edit</a>
-                                    <a href="" class="btn btn-inverse-danger"> hapus</a>
+                                <td>{{$d->outlet->user->name}}</td>
+                                <td>{{$d->karyawan->kode_karyawan}}</td>
+                                <td>{{$d->karyawan->nama}}</td>
+                                <td>
+                                @if($d->nilai < 50 )
+                                <span class="label label-danger">Kurang Baik</span>
+                                @elseif($d->nilai < 85)
+                                <span class="label label-warning">Baik</span>
+                                @else
+                                <span class="label label-primary"> Sangat Baik</span>
+                                @endif
                                 </td>
+                                <td>{{$d->created_at->format('F Y')}}</td>
+                                <td class="text-center">
+                                <a href="#"
+                                        class="btn btn-inverse-primary"><i class="icon-pencil"></i></a>     
+                                    <a href="{{route('penilaian_karyawan_outlet_hapus',['id' => IDCrypt::Encrypt( $d->id)])}}"
+                                        class="btn btn-inverse-danger"><i class="icon-trash"></i></a>                                </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
