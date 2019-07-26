@@ -10,8 +10,8 @@
         <div class="card-header ">
             <h4>Data Raport Outlet</h4>
             <div class="text-right">
-                <a class="btn btn-inverse-success" href=""><i class="icon-printer"></i> cetak data</a>
-                <a class="btn btn-inverse-success" href="{{Route('penilaian_outlet_filter_periode')}}"><i class="icon-printer"></i> cetak filter periode</a>
+                <a class="btn btn-success" href="{{Route('outlet_penilaian_outlet_cetak')}}"><i class="icon-printer"></i> cetak data</a>
+                <a class="btn btn-success" href="{{Route('outlet_penilaian_outlet_filter_periode')}}"><i class="icon-printer"></i> cetak filter periode</a>
             </div>
         </div>
         <div class="card-block">
@@ -42,7 +42,7 @@
                                 <span class="label label-primary"> Sangat Baik</span>
                                 @endif
                                 </td>
-                                <td>{{$d->created_at}}</td>
+                                <td>{{$d->created_at->format(' F Y')}}</td>
                             </tr>
                             @endforeach
                         </tbody>

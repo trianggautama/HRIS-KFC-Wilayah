@@ -156,6 +156,12 @@ Route::get('/karyawan/outlet/cetak','outletController@karyawan_outlet_cetak')
 
 Route::get('outlet/penilaian_outlet','outletController@penilaian_outlet_index')
 ->name('outlet_penilaian_outlet_index');
+Route::get('outlet/penilaian_outlet/cetak','outletController@penilaian_outlet_cetak')
+->name('outlet_penilaian_outlet_cetak');
+Route::get('outlet/penilaian_outlet/filter_periode','outletController@penilaian_outlet_filter_periode')
+->name('outlet_penilaian_outlet_filter_periode');
+Route::post('outlet/penilaian_outlet/filter_periode','outletController@cetak_penilaian_outlet_filter_periode')
+->name('cetak_outlet_penilaian_outlet_filter_periode');
 
 Route::get('outlet/penilaian_karyawan','outletController@penilaian_karyawan_index')
 ->name('outlet_penilaian_karyawan_index');
@@ -165,6 +171,7 @@ Route::post('outlet/penilaian_karyawan/tambah','outletController@penilaian_karya
 ->name('outlet_penilaian_karyawan_store');
 Route::get('/penilaian_karyawan/outlet/hapus/{id}','outletController@penilaian_karyawan_hapus')
 ->name('penilaian_karyawan_outlet_hapus');
+
 
 Auth::routes();
 

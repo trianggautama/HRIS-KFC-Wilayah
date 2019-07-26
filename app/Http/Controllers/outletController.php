@@ -24,9 +24,10 @@ class outletController extends Controller
     public function index(){
         $id = auth::id();
         // dd($id);
-        $Outlet  = Outlet::where('user_id', $id)->get();
-
-        return view('outlet.index',compact('Outlet','id'));
+        $Outlet  = Outlet::where('user_id', $id)->first();
+        $karyawan = Karyawan::where('outlet_id',$Outlet->id)->get();
+        $raport_karyawan = raport_karyawan::where('outlet_id',$Outlet->id)->get();
+        return view('outlet.index',compact('Outlet','id','karyawan','raport_karyawan'));
     }
 
     public function outlet_tambah(){
@@ -206,6 +207,11 @@ class outletController extends Controller
           return view('outlet.penilaian_outlet',compact('raport_outlet'));
       }
 
+      public function penilaian_outlet_filter_periode(){
+
+        return view('outlet.penilaian_outlet_filter_periode');
+      }
+
       public function penilaian_karyawan_index(){
         $user_id=Auth::user()->id;
         $outlet= outlet::where('user_id',$user_id)->first();
@@ -255,6 +261,27 @@ class outletController extends Controller
           $pdf =PDF::loadView('laporan.karyawan_outlet', ['outlet' => $outlet,'karyawan'=>$karyawan,'tgl'=>$tgl]);
           $pdf->setPaper('a4', 'potrait');
           return $pdf->stream('Karyawan Pada outlet.pdf');
+        }
+
+        public function penilaian_outlet_cetak(){
+          $user_id=Auth::user()->id;
+          $outlet= outlet::where('user_id',$user_id)->first();
+          $raport_outlet= raport_outlet::where('outlet_id',$outlet->id)->get();
+          $tgl= Carbon::now()->format('d F Y');
+          $pdf =PDF::loadView('laporan.penilaian_outlet_outlet', ['outlet' => $outlet,'raport_outlet'=>$raport_outlet,'tgl'=>$tgl]);
+          $pdf->setPaper('a4', 'potrait');
+          return $pdf->stream('Penilaian outlet .pdf');
+        }
+
+        public function cetak_penilaian_outlet_filter_periode( Request $request){
+          $user_id=Auth::user()->id;
+          $outlet= outlet::where('user_id',$user_id)->first();
+          $raport_outlet = Raport_outlet::whereBetween('created_at', [$request->tanggal_awal, $request->tanggal_akhir])->where('outlet_id',$outlet->id)->get();
+          $tgl= Carbon::now()->format('d F Y');
+          $bulan = $request->tanggal_awal;
+          $pdf =PDF::loadView('laporan.penilaian_outlet_filter_periode', ['bulan' => $bulan, 'raport_outlet' => $raport_outlet,'tgl'=>$tgl]);
+          $pdf->setPaper('a4', 'potrait');
+          return $pdf->stream('Laporan Penilaian Outlet Filter Periode.pdf');
         }
 
 
