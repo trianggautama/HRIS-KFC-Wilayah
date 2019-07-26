@@ -19,15 +19,15 @@
         <div class="col-xl-3 col-lg-4">
             <div class="card faq-left">
                 <div class="social-profile">
-                    <img class="img-fluid" src="{{asset('assets/images/social/profile.jpg')}}" alt="">
+                    <img class="img-fluid" src="{{asset('/images/karyawan/'.$Karyawan->foto)}}" alt="">
                     <div class="profile-hvr m-t-15">
                         <i class="icofont icofont-ui-edit p-r-10 c-pointer"></i>
                         <i class="icofont icofont-ui-delete c-pointer"></i>
                     </div>
                 </div>
                 <div class="card-block text-center">
-                    <h4 class="f-18 f-normal m-b-10 txt-primary">Tri Angga Tegar Utama</h4>
-                    <h5 class="f-14">Supervisor</h5>
+                    <h4 class="f-18 f-normal m-b-10 txt-primary">{{$Karyawan->nama}}</h4>
+                    <h5 class="f-14">{{$Karyawan->jabatan->jabatan}}</h5>
                 </div>
             </div>
             <!-- end of card-block -->
@@ -80,19 +80,15 @@
                                                         <tbody>
                                                             <tr>
                                                                 <th scope="row">Nama Lengkap</th>
-                                                                <td>Tri Angga Tegar Utama</td>
+                                                                <td>{{$Karyawan->nama}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">Jenis Kelamin</th>
-                                                                <td>Laki-laki</td>
+                                                                <td>{{$Karyawan->jenis_kelamin}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">Tanggal Lahir</th>
-                                                                <td>4 Maret 1997</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">Status</th>
-                                                                <td>Belum Menikah</td>
+                                                                <td>{{$Karyawan->tanggal_lahir}}</td>
                                                             </tr>
 
                                                         </tbody>
@@ -104,16 +100,20 @@
                                                     <table class="table">
                                                         <tbody>
                                                             <tr>
-                                                                <th scope="row">Alamat</th>
-                                                                <td>Jalan Ayani km.31 Komplek Chandra Utama No.39 </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">Email</th>
-                                                                <td><a href="#!">trianggategarutama@gmail.com</a></td>
+                                                                <th scope="row">Kode Karyawan</th>
+                                                                <td>{{$Karyawan->kode_karyawan}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">No Tlp</th>
-                                                                <td>(0123) - 4567891</td>
+                                                                <td>{{$Karyawan->telepon}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">Status</th>
+                                                                @if($Karyawan->status_kawin == 1)
+                                                                <td><label class="label bg-success">Sudah Menikah</label></td>
+                                                                @else
+                                                                <td><label class="label bg-primary">Belum Menikah</label></td>
+                                                                @endif
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -141,19 +141,21 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-header-text">Input Sizes</h5>
+                                    <h5 class="card-header-text">Ubah Data</h5>
                                     <div class="f-right">
                                         <a href="" data-toggle="modal" data-target="#input-size-Modal"><i
                                                 class="icofont icofont-code-alt"></i></a>
                                     </div>
                                 </div>
-
+                                <form  method="post" action="" enctype="multipart/form-data">
+                                {{method_field('PUT') }}
+                                {{ csrf_field() }}
                                 <div class="card-block">
                                     <div class="form-group row">
                                         <div class="col-md-2"><label for="InputNormal" class="form-control-label">Nama
                                                 Pegawai</label></div>
                                         <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"
-                                                placeholder="Nama"></div>
+                                                placeholder="Nama" name="nama" value="{{$Karyawan->nama}}"></div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-md-2"><label for="InputNormal" class="form-control-label">Jenis
@@ -161,15 +163,15 @@
                                         <div class="col-md-10">
                                             <div class="form-check">
                                                 <label for="optionsRadios1" class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="optionsRadios"
-                                                        id="optionsRadios1" valu6="option1" checked>
+                                                    <input type="radio" class="form-check-input" name="jenis_kelamin"
+                                                        id="optionsRadios1" value="Laki-Laki" {{ ($Karyawan->jenis_kelamin == "Laki-Laki")? "checked" : "" }} >
                                                     Laki-laki
                                                 </label>
                                             </div>
                                             <div class="form-check">
                                                 <label for="optionsRadios2" class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="optionsRadios"
-                                                        id="optionsRadios2" value="option2">
+                                                    <input type="radio" class="form-check-input" name="jenis_kelamin"
+                                                        id="optionsRadios2" value="Perempuan" {{ ($Karyawan->jenis_kelamin == "Perempuan")? "checked" : "" }} >
                                                     Perempuan
                                                 </label>
                                             </div>
@@ -178,8 +180,8 @@
                                     <div class="form-group row">
                                         <div class="col-md-2"><label for="InputNormal"
                                                 class="form-control-label">Tanggal Lahir</label></div>
-                                        <div class="col-md-10"><input type="date" class="form-control" id="InputNormal"
-                                                placeholder="Alamat"></div>
+                                        <div class="col-md-10"><input type="date" class="form-control" id="InputNormal" name="tanggal_lahir"
+                                                value="{{$Karyawan->tanggal_lahir}}"></div>
                                     </div>
 
                                     <div class="form-group row">
@@ -188,44 +190,32 @@
                                         <div class="col-md-10">
                                             <div class="form-check">
                                                 <label for="optionsRadios1" class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="optionsRadios2"
-                                                        id="optionsRadios3" valu6="option1" checked>
+                                                    <input type="radio" class="form-check-input" name="status_kawin"
+                                                        id="optionsRadios3" value="1" {{ ($Karyawan->status_kawin == "2")? "checked" : "" }}>
                                                     Belum Menikah
                                                 </label>
                                             </div>
                                             <div class="form-check">
                                                 <label for="optionsRadios2" class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="optionsRadios2"
-                                                        id="optionsRadios4" value="option2">
+                                                    <input type="radio" class="form-check-input" name="status_kawin"
+                                                        id="optionsRadios4" value="2" {{ ($Karyawan->status_kawin == "1")? "checked" : "" }}>
                                                     Sudah Menikah
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-md-2"><label for="InputNormal"
-                                                class="form-control-label">Alamat</label></div>
-                                        <div class="col-md-10"><textarea name="" id="" class="form-control"
-                                                id="InputNormal"></textarea></div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-md-2"><label for="InputNormal"
-                                                class="form-control-label">Email</label></div>
-                                        <div class="col-md-10"><input type="email" class="form-control" id="InputNormal"
-                                                placeholder="No.Tlp"></div>
-                                    </div>
-                                    <div class="form-group row">
                                         <div class="col-md-2"><label for="InputNormal" class="form-control-label">No
-                                                Tlp</label></div>
+                                                Telepon</label></div>
                                         <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"
-                                                placeholder="No.Tlp"></div>
+                                                placeholder="No.Tlp" name="telepon" value={{$Karyawan->telepon}}></div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="file" class="col-md-2 col-form-label form-control-label">Foto
                                             Pegawai</label>
                                         <div class="col-md-9">
                                             <label for="file" class="custom-file">
-                                                <input type="file" id="file" class="custom-file-input">
+                                                <input type="file" id="file" class="custom-file-input" name="foto">
                                                 <span class="custom-file-control"></span>
                                             </label>
                                         </div>
@@ -234,28 +224,50 @@
                                         <div class="col-md-2"><label for="exampleSelect1"
                                                 class="form-control-label">Jabatan</label></div>
                                         <div class="col-md-10">
-                                            <select class="form-control" id="exampleSelect1">
-                                                <option>Staff</option>
-                                                <option>Wakil Supervisor</option>
-                                                <option>Supervisor</option>
+                                            <select class="form-control" id="exampleSelect1" name="jabatan_id">
+                                            @foreach($jabatan as $d)
+                                                <option value="{{$d->id}}" {{ $Karyawan->jabatan_id  == $d->id ? 'selected' : ''}}>{{$d->jabatan}}</option>
+                                            @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-md-2"><label for="exampleSelect1"
-                                                class="form-control-label">Outlet</label></div>
+                                        <div class="col-md-2"><label for="InputNormal" class="form-control-label">Status
+                                                Kepegawaian</label></div>
                                         <div class="col-md-10">
-                                            <select class="form-control" id="exampleSelect1">
-                                                <option>KFC QMALL</option>
-                                                <option>KFC BANJARBARU</option>
-                                                <option>KFC GIANT EXPRESS</option>
-                                            </select>
+                                            <div class="form-check">
+                                                <label for="optionsRadios1" class="form-check-label">
+                                                    <input type="radio" class="form-check-input" name="status_pkwt"
+                                                        id="optionsRadios3" value="2" {{ ($Karyawan->status_pkwt == "2")? "checked" : "" }}>
+                                                    Belum pegawai Tetap
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <label for="optionsRadios2" class="form-check-label">
+                                                    <input type="radio" class="form-check-input" name="status_pkwt"
+                                                        id="optionsRadios4" value="1" {{ ($Karyawan->status_pkwt == "1")? "checked" : "" }}>
+                                                    Pegawai Tetap
+                                                </label>
+                                            </div>
                                         </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-2"><label for="InputNormal" class="form-control-label">BPJS Kerja
+                                                </label></div>
+                                        <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"
+                                                placeholder="No.Tlp" name="bpjs_kerja" value={{$Karyawan->bpjs_kerja}}></div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-2"><label for="InputNormal" class="form-control-label">BPJS Kesehatan
+                                                </label></div>
+                                        <div class="col-md-10"><input type="text" class="form-control" id="InputNormal"
+                                                placeholder="No.Tlp" name="bpjs_kesehatan" value={{$Karyawan->bpjs_kesehatan}}></div>
                                     </div>
                                 </div>
                                 <div class="card-footer text-right">
-                                    <a href="" class="btn btn-inverse-primary">Ubah Data</a>
+                                    <input type="submit" class="btn btn-inverse-primary" value="ubah data">
                                 </div>
+                                </form>
                             </div>
                         </div>
                         <!--input sizes ends-->
@@ -263,11 +275,6 @@
                     </div>
                     <!-- end of card-main -->
                 </div>
-                <!-- end of project pane -->
-                <!-- end of project pane -->
-
-                <!-- start a question pane  -->
-                <!-- start a question pane  -->
                 <div class="tab-pane" id="infokerja" role="tabpanel">
                     <div class="card">
                         <div class="card-header">
@@ -288,16 +295,15 @@
                                                         <tbody>
                                                             <tr>
                                                                 <th scope="row">Outlet</th>
-                                                                <td>KFC Banjarbaru</td>
+                                                                <td>{{$Karyawan->outlet->user->name}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">Alamat Outlet</th>
-                                                                <td>Jl.Pangeran Hidayatullah kelurahan Mentaos
-                                                                    Banjarbaru Utara Banjarbaru,</td>
+                                                                <td>{{$Karyawan->outlet->alamat}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">Jabatan</th>
-                                                                <td>Supervisor</td>
+                                                                <td>{{$Karyawan->jabatan->jabatan}}</td>
                                                             </tr>
 
                                                         </tbody>
@@ -309,16 +315,20 @@
                                                     <table class="table">
                                                         <tbody>
                                                             <tr>
+                                                                <th scope="row">Status Kepegawaian</th>
+                                                                @if($Karyawan->status_pkwt == 1)
+                                                                <td><label class="label bg-success">Pegawai Tetap</label></td>
+                                                                @else
+                                                                <td><label class="label bg-primary">Pegawai Belum Tetap</label></td>
+                                                                @endif
+                                                            </tr>
+                                                            <tr>
                                                                 <th scope="row">Gaji Pokok</th>
-                                                                <td>Rp.5.000.000</td>
+                                                                <td>Rp.{{$Karyawan->jabatan->gajih}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">Keterangan Tugas</th>
-                                                                <td>Lorem ipsum dolor sit amet consectetur adipisicing
-                                                                    elit. Quis, sequi. Vero iste numquam molestiae non
-                                                                    quibusdam aliquid necessitatibus, fugit cum ratione
-                                                                    illo esse enim voluptates maxime cupiditate, totam,
-                                                                    deserunt neque.</td>
+                                                                <td>{{$Karyawan->jabatan->tugas}}</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>

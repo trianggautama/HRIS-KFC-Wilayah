@@ -76,6 +76,8 @@ Route::put('/jabatan/edit/{id}','adminController@jabatan_update')
 ->name('jabatan_update');
 Route::get('/jabatan/hapus/{id}','adminController@jabatan_hapus')
 ->name('jabatan_hapus');
+Route::get('/jabatan_keseluruhan/cetak','adminController@cetak_jabatan_keseluruhan')
+->name('cetak_jabatan_keseluruhan');
 
 //karyawan
 Route::get('/karyawan','adminController@karyawan_index')
@@ -135,6 +137,8 @@ Route::post('/karyawan_outlet_data','outletController@karyawan_store')
 ->name('karyawan_outlet_store');
 Route::get('/karyawan/outlet/detail/{id}','outletController@karyawan_detail')
 ->name('karyawan_outlet_detail');
+Route::put('/karyawan/outlet/detail/{id}','outletController@karyawan_update')
+->name('karyawan_update');
 Route::get('/karyawan/hapus/{id}','outletController@karyawan_hapus')
 ->name('karyawan_outlet_hapus');
 

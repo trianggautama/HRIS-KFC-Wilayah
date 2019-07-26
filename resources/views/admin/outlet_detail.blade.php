@@ -19,7 +19,7 @@
         <div class="col-xl-3 col-lg-4">
             <div class="card faq-left">
                 <div class="social-profile">
-                    <img class="img-fluid" src="{{asset('/images/outlet/'.$Outlet->foto)  }}" alt="">
+                    <img class="img-fluid" src="{{asset('/images/outlet/'.$Outlet->foto)}}" alt="">
                     <div class="profile-hvr m-t-15">
                         <i class="icofont icofont-ui-edit p-r-10 c-pointer"></i>
                         <i class="icofont icofont-ui-delete c-pointer"></i>

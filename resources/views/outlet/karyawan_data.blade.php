@@ -108,14 +108,14 @@
                         <select class="md-form-control" name="status_pkwt">
                             <option>Status Pegawai</option>
                             <option value="1">pegawai tetap</option>
-                            <option value="1">pegawai tidak tetap</option>
+                            <option value="2">pegawai tidak tetap</option>
                         </select>
                     </div>
                     <div class="md-input-wrapper">
                         <select class="md-form-control" name="status_kawin">
                             <option>Status Kawin</option>
                             <option value="1">Menikah</option>
-                            <option value="1">Belum Menikah</option>
+                            <option value="2">Belum Menikah</option>
                         </select>
                     </div>
                     <div class="md-input-wrapper">

@@ -32,13 +32,17 @@
                             <div class="col-md-10"><input type="text" name="jabatan" class="form-control"
                                     id="InputNormal" value="{{ $Jabatan->jabatan }}" placeholder="jabatan"></div>
                         </div>
-                        <label for="textArea1" class="form-control-label">Tugas Pokok</label>
-                        <div class="md-input-wrapper">
-                            <textarea name="tugas" id=""
-                                class="md-form-control md-static">{{ $Jabatan->tugas }}</textarea>
-                            {{-- <label>Tugas Pokok</label> --}}
+                        <div class="form-group row">
+                            <div class="col-md-2"><label for="InputNormal" class="form-control-label">Tugas
+                                    </label></div>
+                            <div class="col-md-10"><textarea name="tugas" id="" class="form-control">{{$Jabatan->tugas}}</textarea></div>
                         </div>
-
+                        <div class="form-group row">
+                            <div class="col-md-2"><label for="InputNormal" class="form-control-label">Gajih Pokok
+                                    </label></div>
+                            <div class="col-md-10"><input type="text" name="gajih" class="form-control"
+                                    id="InputNormal" value="{{ $Jabatan->gajih }}" placeholder="jabatan"></div>
+                        </div>
                         <div class="card-footer text-right">
                             {{csrf_field() }}
                             <input class="btn btn-primary mr-2" type="submit" name="submit" value="Ubah">

@@ -275,7 +275,7 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $Kelurahan=Kelurahan::findOrFail($id);
         $Kelurahan->delete();
-        return redirect(route('kelurahan_index'));
+        return redirect(route('kelurahan_index'))->with('success', 'Data  Berhasil di Hapus');
     }
 
      //jabatan
@@ -331,11 +331,13 @@ class adminController extends Controller
        $this->validate(request(),[
         'kode_jabatan'=>'required',
         'jabatan'=>'required',
-        'tugas'=>'required'
+        'tugas'=>'required',
+        'gajih'=>'required'
       ]);
            $Jabatan->kode_jabatan= $request->kode_jabatan;
            $Jabatan->jabatan= $request->jabatan;
            $Jabatan->tugas= $request->tugas;
+           $Jabatan->gajih= $request->gajih;
            $Jabatan->update();
              return redirect(route('jabatan_index'))->with('success', 'Data  Berhasil di Ubah');
      }//fungsi jabatan update
@@ -484,6 +486,14 @@ class adminController extends Controller
     $pdf =PDF::loadView('laporan.profil_outlet', ['outlet' => $outlet,'karyawan'=>$karyawan,'tgl'=>$tgl]);
     $pdf->setPaper('a4', 'potrait');
     return $pdf->stream('Profil Outlet.pdf');
-}
+  }
+
+  public function cetak_jabatan_keseluruhan(){
+    $jabatan = Jabatan::all();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.jabatan_keseluruhan', ['jabatan' => $jabatan,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Jabatan Keseluruhan.pdf');
+  }
 
 }

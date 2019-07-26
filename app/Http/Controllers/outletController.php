@@ -152,7 +152,40 @@ class outletController extends Controller
       public function karyawan_detail($id){
         $id = IDCrypt::Decrypt($id);
         $Karyawan = Karyawan::findOrFail($id);
-        return view('outlet.karyawan_detail',compact('Karyawan'));
+        $jabatan = Jabatan::all();
+        return view('outlet.karyawan_detail',compact('Karyawan','jabatan'));
+    }
+    public function karyawan_update(Request $request, $id){
+        //dd($request);
+        $id = IDCrypt::Decrypt($id);
+        $karyawan = Karyawan::findOrFail($id);
+ 
+        $karyawan->jabatan_id            = $request->jabatan_id;
+        $karyawan->kode_karyawan         = $karyawan->kode_karyawan;
+        $karyawan->nama                  = $request->nama;
+        $karyawan->jenis_kelamin         = $request->jenis_kelamin;
+        $karyawan->tanggal_lahir         = $request->tanggal_lahir;
+        $karyawan->telepon               = $request->telepon;
+        $karyawan->tanggal_masuk         = $karyawan->tanggal_masuk;
+        $karyawan->status_pkwt           = $request->status_pkwt;
+        $karyawan->status_kawin          = $request->status_kawin;
+        $karyawan->bpjs_kerja            = $request->bpjs_kerja;
+        $karyawan->bpjs_kesehatan        = $request->bpjs_kesehatan;
+
+        if ($request->foto) {
+            $FotoExt    = $request->foto->getClientOriginalExtension();
+            $FotoName   = 'karyawan-'.$request->nama;
+            $gambar     = $FotoName.'.'.$FotoExt;
+            $request->foto->move('images/karyawan', $gambar);
+            $karyawan->foto= $gambar;
+            }else {
+            $karyawan->foto = 'default.jpg';
+          }
+
+        $karyawan->update();
+
+          return redirect(route('karyawan_outlet_data'))->with('success', 'Data karyawan '.$karyawan->nama.' Berhasil di Ubah');
+    
     }
 
     public function karyawan_hapus($id){

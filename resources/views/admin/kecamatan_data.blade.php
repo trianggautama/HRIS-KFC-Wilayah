@@ -9,7 +9,7 @@
         <div class="card-header ">
             <h4>Data Kecamatan</h4>
             <div class="text-right">
-                <a class="btn btn-inverse-primary right" href="" data-toggle="modal"
+                <a class="btn btn-primary right" href="" data-toggle="modal"
                     data-target="#exampleModalCenter"><i class="icofont icofont-ui-add"></i> tambah data</a>
             </div>
         </div>
@@ -37,11 +37,11 @@
                                 <td>{{$kec->kabupatenkota->kabupatenkota}}</td>
                                 <td class="text-center">
                                 <a href="{{route('kecamatan_detail')}}"
-                                        class="btn btn-inverse-success"><i class="icon-eye"></i></a>
+                                        class="btn btn-success"><i class="icon-eye"></i></a>
                                     <a href="{{route('kecamatan_edit', ['id' => IDCrypt::Encrypt( $kec->id)])}}"
-                                        class="btn btn-inverse-primary"><i class="icon-pencil"></i></a>
+                                        class="btn btn-primary"><i class="icon-pencil"></i></a>
                                     <a href="{{route('kecamatan_hapus', ['id' => IDCrypt::Encrypt( $kec->id)])}}"
-                                        class="btn btn-inverse-danger"><i class="icon-trash"></i> </a>
+                                        class="btn btn-danger"><i class="icon-trash"></i> </a>
                                 </td>
                             </tr>
                             @endforeach
@@ -76,7 +76,7 @@
                     </div>
                     <div class="md-input-wrapper">
                         <select class="md-form-control" name="kabupatenkota_id">
-                            <option>kabupaten/kota</option>
+                            <option value="">kabupaten/kota</option>
                             @foreach( $kabupatenkota as $kab )
                             <option value="{{$kab->id}}">{{$kab->kabupatenkota}} </option>
                             @endforeach
