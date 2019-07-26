@@ -1,6 +1,5 @@
 @extends('layouts.outlet')
 @section('content')
-
 <div class="container-fluid">
     <div class="row">
         <div class="main-header">
@@ -19,6 +18,7 @@
         <div class="card-block">
             <div class="row">
                 <div class="col-sm-12 table-responsive">
+                @include('layouts.alert')
                     <table class="table table-hover" id="myTable">
                         <thead>
                             <tr>
@@ -84,10 +84,10 @@
                             <option value="Perempuan">Perempuan</option>
                         </select>
                     </div>
+                    <label >Tanggal Lahir</label>
                     <div class="md-input-wrapper">
-                            <input type="text" class="md-form-control md-static" name="alamat" />
-                            <label>Alamat</label>
-                        </div>
+                        <input class="form-control" type="date" value="" id="example-date-input" name="tanggal_lahir">
+                    </div>
                     <div class="md-input-wrapper">
                             <input type="text" class="md-form-control md-static" name="telepon" />
                             <label>No Telepon</label>
@@ -100,6 +100,32 @@
                             @endforeach
                         </select>
                     </div>
+                    <label >Tanggal Masuk</label>
+                    <div class="md-input-wrapper">
+                        <input class="form-control" type="date" name="tanggal_masuk" id="example-date-input">
+                    </div>
+                        <div class="md-input-wrapper">
+                        <select class="md-form-control" name="status_pkwt">
+                            <option>Status Pegawai</option>
+                            <option value="1">pegawai tetap</option>
+                            <option value="1">pegawai tidak tetap</option>
+                        </select>
+                    </div>
+                    <div class="md-input-wrapper">
+                        <select class="md-form-control" name="status_kawin">
+                            <option>Status Kawin</option>
+                            <option value="1">Menikah</option>
+                            <option value="1">Belum Menikah</option>
+                        </select>
+                    </div>
+                    <div class="md-input-wrapper">
+                            <input type="text" class="md-form-control md-static" name="bpjs_kerja" />
+                            <label>No BPJS Kerja</label>
+                        </div>
+                        <div class="md-input-wrapper">
+                            <input type="text" class="md-form-control md-static" name="bpjs_kesehatan" />
+                            <label>No BPJS Kesehatan</label>
+                        </div>
                     <div class="form-group row">
                             <label for="file" class="col-md-2 col-form-label form-control-label">Gambar/Logo</label>
                             <div class="col-md-9">

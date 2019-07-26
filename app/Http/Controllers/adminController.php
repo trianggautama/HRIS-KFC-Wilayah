@@ -307,6 +307,7 @@ class adminController extends Controller
           $jabatan->kode_jabatan= $request->kode_jabatan;
           $jabatan->jabatan= $request->jabatan;
           $jabatan->tugas= $request->tugas;
+          $jabatan->gajih= $request->gajih;
           $jabatan->save();
             return redirect(route('jabatan_index'))->with('success', 'Data jabatan '.$request->jabatan.' Berhasil di Simpan');
     }//fungsi jabatan tambah
@@ -474,5 +475,15 @@ class adminController extends Controller
     $pdf->setPaper('a4', 'potrait');
     return $pdf->stream('Laporan Outlet Keseluruhan.pdf');
   }
+
+  public function outlet_profil_cetak($id){
+    $id = IDCrypt::Decrypt($id);
+    $outlet = Outlet::findOrFail($id);
+    $karyawan = Karyawan::where('outlet_id', $id)->get();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.profil_outlet', ['outlet' => $outlet,'karyawan'=>$karyawan,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Profil Outlet.pdf');
+}
 
 }

@@ -131,14 +131,18 @@ class outletController extends Controller
           }
 
         // dd($outlet_id);
-        $karyawan->outlet_id       = $outlet->id;
-        $karyawan->jabatan_id      = $request->jabatan_id;
-        $karyawan->kode_karyawan      = $request->kode_karyawan;
-        $karyawan->nama      = $request->nama;
-        $karyawan->jenis_kelamin      = $request->jenis_kelamin;
-        $karyawan->alamat      = $request->alamat;
-        $karyawan->telepon      = $request->telepon;
-
+        $karyawan->outlet_id             = $outlet->id;
+        $karyawan->jabatan_id            = $request->jabatan_id;
+        $karyawan->kode_karyawan         = $request->kode_karyawan;
+        $karyawan->nama                  = $request->nama;
+        $karyawan->jenis_kelamin         = $request->jenis_kelamin;
+        $karyawan->tanggal_lahir         = $request->tanggal_lahir;
+        $karyawan->telepon               = $request->telepon;
+        $karyawan->tanggal_masuk         = $request->tanggal_masuk;
+        $karyawan->status_pkwt           = $request->status_pkwt;
+        $karyawan->status_kawin          = $request->status_kawin;
+        $karyawan->bpjs_kerja            = $request->bpjs_kerja;
+        $karyawan->bpjs_kesehatan        = $request->bpjs_kesehatan;
 
         $karyawan->save();
 
@@ -153,10 +157,11 @@ class outletController extends Controller
 
     public function karyawan_hapus($id){
         $id = IDCrypt::Decrypt($id);
-        $karyawan=Karyawan::findOrFail($id);
-        $karyawan->delete();
-        return redirect(route('karyawan_outlet_data'));
+        $Karyawan = Karyawan::findOrFail($id);
+        $Karyawan->delete();
+        return redirect(route('karyawan_outlet_data'))->with('success', 'Data karyawan Berhasil di Hapus');
     }
+
      //penilaianOutlet
      public function penilaian_outlet_index(){
         $user_id=Auth::user()->id;

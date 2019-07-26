@@ -10,9 +10,9 @@
         <div class="card-header ">
             <h4>Data Jabatan</h4>
             <div class="text-right">
-                <a class="btn btn-inverse-primary right" href="" data-toggle="modal"
+                <a class="btn btn-primary right" href="" data-toggle="modal"
                     data-target="#exampleModalCenter"><i class="icofont icofont-ui-add"></i> tambah data</a>
-                <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
+                <a class="btn btn-success" href=""><i class="icon-arrow-add"></i>cetak data</a>
             </div>
         </div>
         <div class="card-block">
@@ -76,6 +76,10 @@
                     <div class="md-input-wrapper">
                         <textarea name="tugas" id="" class="md-form-control md-static"></textarea>
                         <label>Tugas Pokok</label>
+                    </div>
+                    <div class="md-input-wrapper">
+                        <input type="text" name="gajih" class="md-form-control md-static" />
+                        <label>Gajih Pokok (Rp.)</label>
                     </div>
 
             </div>
