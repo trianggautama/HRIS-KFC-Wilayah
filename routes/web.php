@@ -171,6 +171,12 @@ Route::post('outlet/penilaian_karyawan/tambah','outletController@penilaian_karya
 ->name('outlet_penilaian_karyawan_store');
 Route::get('/penilaian_karyawan/outlet/hapus/{id}','outletController@penilaian_karyawan_hapus')
 ->name('penilaian_karyawan_outlet_hapus');
+Route::get('outlet/penilaian_karyawan/cetak','outletController@penilaian_karyawan_cetak')
+->name('outlet_penilaian_karyawan_cetak');
+Route::get('outlet/penilaian_karyawan/filter','outletController@penilaian_karyawan_filter')
+->name('outlet_penilaian_karyawan_filter');
+Route::post('outlet/penilaian_karyawan/filter','outletController@cetak_penilaian_karyawan_filter')
+->name('cetak_outlet_penilaian_karyawan_filter');
 
 
 Auth::routes();

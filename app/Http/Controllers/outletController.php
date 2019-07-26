@@ -253,6 +253,10 @@ class outletController extends Controller
             return redirect(route('outlet_penilaian_karyawan_index'))->with('success', 'Data  Berhasil di hpus');
         }
 
+        public function penilaian_karyawan_filter(){
+          return view('outlet.penilaian_karyawan_filter');
+        }
+
         public function karyawan_outlet_cetak(){
           $user_id=Auth::user()->id;
           $outlet= outlet::where('user_id',$user_id)->first();
@@ -282,6 +286,27 @@ class outletController extends Controller
           $pdf =PDF::loadView('laporan.penilaian_outlet_filter_periode', ['bulan' => $bulan, 'raport_outlet' => $raport_outlet,'tgl'=>$tgl]);
           $pdf->setPaper('a4', 'potrait');
           return $pdf->stream('Laporan Penilaian Outlet Filter Periode.pdf');
+        }
+
+        public function penilaian_karyawan_cetak(){
+          $user_id=Auth::user()->id;
+          $outlet= outlet::where('user_id',$user_id)->first();
+          $raport_karyawan= raport_karyawan::where('outlet_id',$outlet->id)->get();
+          $tgl= Carbon::now()->format('d F Y');
+          $pdf =PDF::loadView('laporan.penilaian_karyawan_outlet_keseluruhan', ['outlet' => $outlet,'raport_karyawan'=>$raport_karyawan,'tgl'=>$tgl]);
+          $pdf->setPaper('a4', 'potrait');
+          return $pdf->stream('Penilaian karyawan pada satu outlet .pdf');
+        }
+
+        public function cetak_penilaian_karyawan_filter( Request $request){
+          $user_id=Auth::user()->id;
+          $outlet= outlet::where('user_id',$user_id)->first();
+          $raport_karyawan = raport_karyawan::whereBetween('created_at', [$request->tanggal_awal, $request->tanggal_akhir])->where('outlet_id',$outlet->id)->get();
+          $tgl= Carbon::now()->format('d F Y');
+          $bulan = $request->tanggal_awal;
+          $pdf =PDF::loadView('laporan.penilaian_karyawan_outlet_filter_periode', ['outlet'=>$outlet,'bulan' => $bulan, 'raport_karyawan' => $raport_karyawan,'tgl'=>$tgl]);
+          $pdf->setPaper('a4', 'potrait');
+          return $pdf->stream('Laporan Penilaian Karyawan Filter Periode.pdf');
         }
 
 

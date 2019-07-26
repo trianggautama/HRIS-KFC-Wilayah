@@ -9,8 +9,9 @@
         <div class="card-header ">
             <h4>Data Raport Karyawan</h4>
             <div class="text-right">
-            <a class="btn btn-inverse-primary" href="{{Route('outlet_penilaian_karyawan_tambah')}}"><i class="icon-arrow-add"></i>+ Tambah Data</a>
-                <a class="btn btn-inverse-success" href=""><i class="icon-arrow-add"></i>Cetak Data</a>
+            <a class="btn btn-primary" href="{{Route('outlet_penilaian_karyawan_tambah')}}"><i class="icon-arrow-add"></i>+ Tambah Data</a>
+            <a class="btn btn-success" href="{{Route('outlet_penilaian_karyawan_cetak')}}"><i class="icon-arrow-add"></i>Cetak Data</a>
+            <a class="btn btn-success" href="{{Route('outlet_penilaian_karyawan_filter')}}"><i class="icon-arrow-add"></i>Cetak Data Filter</a>
             </div>
         </div>
         <div class="card-block">
@@ -32,7 +33,7 @@
                             <?php $no = 1 ?>
                             @foreach($raport_karyawan as $d)
                             <tr>
-                                <td>1</td>
+                                <td>{{$no++}}</td>
                                 <td>{{$d->karyawan->kode_karyawan}}</td>
                                 <td>{{$d->karyawan->nama}}</td>
                                 <td>
