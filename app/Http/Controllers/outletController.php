@@ -154,8 +154,9 @@ class outletController extends Controller
       public function karyawan_detail($id){
         $id = IDCrypt::Decrypt($id);
         $Karyawan = Karyawan::findOrFail($id);
+        $raport_karyawan = raport_karyawan::where('karyawan_id',$id)->get();
         $jabatan = Jabatan::all();
-        return view('outlet.karyawan_detail',compact('Karyawan','jabatan'));
+        return view('outlet.karyawan_detail',compact('Karyawan','jabatan','raport_karyawan'));
     }
     public function karyawan_update(Request $request, $id){
         //dd($request);
