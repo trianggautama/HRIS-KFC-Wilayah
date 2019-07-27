@@ -80,37 +80,43 @@
     </div>
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center; margin:5px;">PROFIL OUTLET </h2>
+            <h2 style="text-align:center; margin:5px;">PROFIL KARYAWAN </h2>
             <br>
             <table style="margin-bottom:20px;">
                 <tr>
                     <td style="width:320px;  text-align: center;">
-                        <img style="width:100%; height:auto margin:auto;" src="images/outlet/{{$outlet->foto}}">
+                        <img style="width:100%; height:auto margin:auto;" src="images/karyawan/{{$Karyawan->foto}}">
                     </td>
-                    <td style="padding-left:20px !mportant; width:35%;">
-                        <h5>Nama Outlet</h5>
-                        <h5>Nomor Telepon </h5>
-                        <h5>Alamat </h5>
-                        <h5>Jumlah karyawan  </h5>
+                    <td style="padding-left:30px !mportant; width:40%;">
+                        <h4>Data Pribadi</h4>
+                        <h5>Kode Karyawan</h5>
+                        <h5>Nama Karyawan </h5>
+                        <h5>Jenis Kelamin </h5>
+                        <h5>Tanggal Lahir  </h5>
+                        <h5>Nomor Telepon  </h5>
+                        <h4>Data Kepegawaian</h4>
+                        <h5>Status  Kepegawaian</h5>
+                        <h5>Jabatan</h5>
+                        <h5>Tanggal Masuk</h5>
                     </td>
                     <td>
-                    <h5> : {{$outlet->user->name}}</h5>
-                    <h5> :{{$outlet->telepon}}</h5>
-                    <h5> :{{$outlet->alamat}}</h5>
-                    <h5> :{{$karyawan->count()}} Orang</h5>
+                    <h4>-</h4>
+                    <h5> : {{$Karyawan->kode_karyawan}}</h5>
+                    <h5> : {{$Karyawan->nama}}</h5>
+                    <h5> : {{$Karyawan->jenis_kelamin}}</h5>
+                    <h5> : {{$Karyawan->tanggal_lahir}}</h5>
+                    <h5> : {{$Karyawan->telepon}}</h5>
+                    <h4>-</h4>
+                    @if($Karyawan->status_pkwt == 1)
+                        <h5><label class="label bg-success">: Pegawai Tetap</label></h5>
+                        @else
+                        <h5><label class="label bg-primary">: Pegawai Tidak Tetap</label></h5>
+                    @endif
+                    <h5> : {{$Karyawan->jabatan->jabatan}}</h5>
+                    <h5> : {{$Karyawan->tanggal_masuk}}</h5>
                     </td>
                 </tr>
             </table>
-            <div class="ttd">
-                <h5 style="margin:1px; !important">
-                    Banjarbaru, {{$tgl}}
-                </h5>
-                <h5>Restaurant Outlet Manager</h5>
-                <br>
-                <br>
-                <h5 style="text-decoration:underline;">Muhammad zaini </h5>
-                <h5>NIK. 122113412</h5>
-            </div>
         </div>
 
     </div>

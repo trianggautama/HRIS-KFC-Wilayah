@@ -11,7 +11,8 @@
         <div class="card-header ">
             <h4>Data Karyawan</h4>
             <div class="text-right">
-                <a class="btn btn-inverse-success" href="{{Route('cetak_karyawan_keseluruhan')}}"><i class="icofont icofont-printer"></i> cetak data</a>
+                <a class="btn btn-success" href="{{Route('cetak_karyawan_keseluruhan')}}"><i class="icofont icofont-printer"></i> cetak data</a>
+                <a class="btn btn-success" href="{{Route('karyawan_filter')}}"><i class="icofont icofont-printer"></i> cetak filter</a>
             </div>
         </div>
         <div class="card-block">
@@ -42,8 +43,7 @@
                             <td>{{$d->jabatan->jabatan}}</td>
                             <td class="text-center">
                             <a href="{{route('karyawan_admin_detail',['id' => IDCrypt::Encrypt( $d->id)])}}"class="btn btn-primary"><i class="icon-eye" style="padding:0px;"></i></a>
-                            <a href=""class="btn btn-warning"><i class="icon-pencil"></i></a>
-                            <a href=""class="btn btn-danger"><i class="icon-trash"></i></a>
+                            <a href="{{route('karyawan_admin_hapus',['id' => IDCrypt::Encrypt( $d->id)])}}"class="btn btn-danger"><i class="icon-trash" style="padding:0px;"></i></a>
                             </td>
                         </tr>
                         @endforeach

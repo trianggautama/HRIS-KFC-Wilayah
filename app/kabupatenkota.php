@@ -12,8 +12,8 @@ class kabupatenkota extends Model
         'kode_kabupaten','kabupatenkota',
     ];
     
-    // public function kecamatan(){
-    //     return $this->hasMany('App\kecamatan');
-    //   }
+    public function kecamatan(){
+    return $this->hasMany('App\kecamatan');
+     }
 
 }

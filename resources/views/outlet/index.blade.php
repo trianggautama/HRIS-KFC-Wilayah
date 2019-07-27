@@ -11,7 +11,9 @@
         <div class="col-lg-6 col-sm-12">
             <div class="col-sm-12 card dashboard-product">
                 <span>Karyawan</span>
-                <h2 class="dashboard-total-products counter">{{$karyawan->count()}}</h2>
+                @if( $Outlet != null )
+                <h2 class="dashboard-total-products counter">{{$Outlet->karyawan->count()}}</h2>
+                @endif
                 <span class="label label-warning">Karyawan</span>
                 <div class="side-box bg-warning">
                     <i class="icon-social-soundcloud"></i>
@@ -21,7 +23,9 @@
         <div class="col-lg-6 col-sm-12">
             <div class="col-sm-12 card dashboard-product">
                 <span>Penilaian Karyawan</span>
-                <h2 class="dashboard-total-products counter">{{$raport_karyawan->count()}}</h2>
+                @if( $Outlet != null )
+                <h2 class="dashboard-total-products counter">{{$Outlet->raport_karyawan->count()}}</h2>
+                @endif
                 <span class="label label-primary">Penilaian</span> Karyawan
                 <div class="side-box bg-primary">
                     <i class="icon-social-soundcloud"></i>

@@ -63,6 +63,9 @@
          text-align: center;
          text-transform: uppercase;
      }
+     .text-center{
+        text-align: center;
+     }
     </style>
 </head>
 <body>
@@ -85,22 +88,22 @@
             <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
-                            <th>No</th>
+                            <th class="text-center">No</th>
                                 <th>Nama Outlet</th>
-                                <th>Kode Karyawan</th>
+                                <th class="text-center">Kode Karyawan</th>
                                 <th>Nama Karyawan</th>
-                                <th>Jabatan</th>
+                                <th class="text-center">Jabatan</th>
                             </tr>
                         </thead>
                         <tbody>
                         <?php $no = 1 ?>
                         @foreach($karyawan as $d)
                             <tr>
-                                <td>{{$no++}}</td>
+                                <td class="text-center">{{$no++}}</td>
                                 <td>{{$d->outlet->user->name}}</td>
-                                <td>{{$d->kode_karyawan}}</td>
+                                <td class="text-center">{{$d->kode_karyawan}}</td>
                                 <td>{{$d->nama}}</td>
-                                <td>{{$d->jabatan->jabatan}}</td>
+                                <td class="text-center">{{$d->jabatan->jabatan}}</td>
                             </tr>
                             @endforeach
                         </tbody>

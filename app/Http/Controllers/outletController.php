@@ -25,9 +25,7 @@ class outletController extends Controller
         $id = auth::id();
         // dd($id);
         $Outlet  = Outlet::where('user_id', $id)->first();
-        $karyawan = Karyawan::where('outlet_id',$Outlet->id)->get();
-        $raport_karyawan = raport_karyawan::where('outlet_id',$Outlet->id)->get();
-        return view('outlet.index',compact('Outlet','id','karyawan','raport_karyawan'));
+        return view('outlet.index',compact('Outlet'));
     }
 
     public function outlet_tambah(){

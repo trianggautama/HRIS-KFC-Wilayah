@@ -21,6 +21,10 @@ Route::get('outlet/keseluruhan/cetak','adminController@cetak_outlet_keseluruhan'
 ->name('cetak_outlet_keseluruhan');
 Route::get('outlet/profil/cetak/{id}','adminController@outlet_profil_cetak')
 ->name('outlet_profil_cetak');
+Route::get('outlet/filter','adminController@outlet_filter')
+->name('outlet_filter');
+Route::post('outlet/filter','adminController@cetak_outlet_filter')
+->name('cetak_outlet_filter');
 
 //kabupaten / kota
 Route::get('/kabupatenkota','adminController@kabupatenkota_index')
@@ -85,9 +89,19 @@ Route::get('/jabatan_detail/cetak/{id}','adminController@cetak_jabatan_detail')
 Route::get('/karyawan','adminController@karyawan_index')
 ->name('karyawan_index');
 Route::get('/karyawan/detail/{id}','adminController@karyawan_detail')
-->name('karyawan_detail');
+->name('karyawan_admin_detail');
 Route::get('karyawan/keseluruhan/cetak','adminController@cetak_karyawan_keseluruhan')
 ->name('cetak_karyawan_keseluruhan');
+Route::get('karyawan/filter/cetak','adminController@karyawan_filter')
+->name('karyawan_filter');
+Route::post('karyawan/filter/cetak','adminController@cetak_karyawan_filter')
+->name('cetak_karyawan_filter');
+Route::get('karyawan/admin/hapus/{id}','adminController@karyawan_hapus')
+->name('karyawan_admin_hapus');
+Route::get('karyawan/cetak/profil/{id}','adminController@cetak_profil_karyawan')
+->name('cetak_profil_karyawan');
+
+
 
 //Object Penilaian
 Route::get('/object_penilaian','adminController@object_penilaian_index')

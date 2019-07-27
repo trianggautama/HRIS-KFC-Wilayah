@@ -28,6 +28,7 @@
                 <div class="card-block text-center">
                     <h4 class="f-18 f-normal m-b-10 txt-primary">{{$Karyawan->nama}}</h4>
                     <h5 class="f-14">{{$Karyawan->jabatan->jabatan}}</h5>
+                    <a href="{{route('cetak_profil_karyawan',['id' => IDCrypt::Encrypt( $Karyawan->id)])}}" class="btn btn-block btn-primary">Cetak Profil</a>
                 </div>
             </div>
             <!-- end of card-block -->
@@ -319,7 +320,7 @@
                                                                 @if($Karyawan->status_pkwt == 1)
                                                                 <td><label class="label bg-success">Pegawai Tetap</label></td>
                                                                 @else
-                                                                <td><label class="label bg-primary">Pegawai Belum Tetap</label></td>
+                                                                <td><label class="label bg-primary">Pegawai Tidak Tetap</label></td>
                                                                 @endif
                                                             </tr>
                                                             <tr>
@@ -359,21 +360,17 @@
 
                             <div class="card-member">
                                 <div class="accordion-box" id="member-open">
+                                @foreach($raport_karyawan as $d)
                                     <div class="faq-accordion">
-                                        <a class="accordion-msg">28 Februari 2018 : B</a>
-                                    </div>
-                                    <div class="faq-accordion">
-                                        <a class="accordion-msg">15 April 2018 : A</a>
-                                    </div>
-                                    <div class="faq-accordion">
-                                        <a class="accordion-msg">12 Juni 2018 : B</a>
-                                    </div>
-                                    <div class="faq-accordion">
-                                        <a class="accordion-msg">20 Agustus 2018 : C</a>
-                                    </div>
-                                    <div class="faq-accordion">
-                                        <a class="accordion-msg">10 Oktober 2018 : B</a>
-                                    </div>
+                                        <a class="accordion-msg">{{$d->created_at->format('F Y')}} :   @if($d->nilai < 50 )
+                                        <span class="label label-danger">Kurang Baik</span>
+                                        @elseif($d->nilai < 85)
+                                        <span class="label label-warning">Baik</span>
+                                        @else
+                                        <span class="label label-primary"> Sangat Baik</span>
+                                        @endif</a>
+                                    </div>        
+                                 @endforeach
                                 </div>
                                 <!-- end of accrodion box class -->
                             </div>

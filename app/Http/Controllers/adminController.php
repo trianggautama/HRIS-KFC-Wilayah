@@ -42,7 +42,7 @@ class adminController extends Controller
         $Outlet = Outlet::findOrFail($id);
         $Karyawan = Karyawan::where('outlet_id',$id)->get();
         $raport_outlet= raport_outlet::where('outlet_id',$id)->get();
-        $kelurahan = kelurahan::find($Outlet->kelurahan_id)->first();
+        $kelurahan = Kelurahan::all();
         // dd($kelurahan);
         return view('admin.outlet_detail',compact('Outlet','Karyawan','kelurahan','raport_outlet'));
     }
@@ -50,7 +50,7 @@ class adminController extends Controller
     public function outlet_update(Request $request, $id){
         $id = IDCrypt::Decrypt($id);
         $Outlet = Outlet::findOrFail($id);
-        $User = User::find($Outlet->id_user);
+        $User = User::find($Outlet->user_id);
 
         //  $this->validate(request(),[
         //     'kode_rambu'=>'required',
@@ -59,19 +59,19 @@ class adminController extends Controller
         // ]);
         $User->name     = $request->name;
         $User->email    = $request->email;
+        if($request->password != null){
         $Password       = Hash::make($request->password);
         $User->password = $Password;
-
-        if($request->gambar != null){
-        $FotoExt  = $request->gambar->getClientOriginalExtension();
+        }
+        if($request->foto != null){
+        $FotoExt  = $request->foto->getClientOriginalExtension();
         $FotoName = $request->id_user.' - '.$request->name;
         $gambar   = $FotoName.'.'.$FotoExt;
-        $request->gambar->move('images/outlet', $gambar);
-        $Outlet->gambar       = $gambar;
+        $request->foto->move('images/outlet', $gambar);
+        $Outlet->foto       = $gambar;
         }
 
-        $kecamatan = 1;
-        $Outlet->id_kecamatan = $kecamatan;
+        $Outlet->kelurahan_id = $request->kelurahan_id;
         $Outlet->alamat       = $request->alamat;
         $Outlet->telepon      = $request->telepon;
 
@@ -87,6 +87,11 @@ class adminController extends Controller
         $Outlet->delete();
 
         return redirect(route('outlet_index'))->with('success', 'Data outlet berhasil di hapus');
+    }//fungsi menghapus data outlet
+
+    public function outlet_filter(){
+    $kabupatenkota=kabupatenkota::all();
+    return view('admin.outlet_filter',compact('kabupatenkota')); 
     }//fungsi menghapus data outlet
 
       //kabupatenkota
@@ -364,9 +369,23 @@ class adminController extends Controller
         public function karyawan_detail($id){
             $id = IDCrypt::Decrypt($id);
             $Karyawan = Karyawan::findOrFail($id);
+            $raport_karyawan = raport_karyawan::where('karyawan_id',$id)->get();
             $jabatan= Jabatan::all();
-            return view('admin.karyawan_detail',compact('Karyawan','jabatan'));
+            return view('admin.karyawan_detail',compact('Karyawan','jabatan','raport_karyawan'));
         }
+
+        
+        public function karyawan_filter(){
+          $outlet= Outlet::all();
+          return view('admin.karyawan_filter',compact('outlet'));
+      }
+
+      public function karyawan_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $Karyawan = Karyawan::findOrFail($id);
+        $Karyawan->delete();
+        return redirect(route('karyawan_index'))->with('success', 'Data  Berhasil di Hapus');
+      }
 
       //object Penilaian
       public function object_penilaian_index(){
@@ -499,7 +518,7 @@ class adminController extends Controller
     $karyawan = Karyawan::where('outlet_id', $id)->get();
     $tgl= Carbon::now()->format('d F Y');
     $pdf =PDF::loadView('laporan.profil_outlet', ['outlet' => $outlet,'karyawan'=>$karyawan,'tgl'=>$tgl]);
-    $pdf->setPaper('a4', 'potrait');
+    $pdf->setPaper('a4', 'landscape');
     return $pdf->stream('Profil Outlet.pdf');
   }
 
@@ -581,6 +600,30 @@ class adminController extends Controller
     return $pdf->stream('Laporan Penilaian Karyawan per Periode.pdf');
   }
 
+  public function cetak_karyawan_filter(Request $request){
+    $karyawan = Karyawan::where('outlet_id',$request->outlet_id)->get();
+    $outlet = outlet::findOrFail($request->outlet_id);
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.karyawan_outlet', ['outlet'=>$outlet,'karyawan' => $karyawan,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Karyawan Filter.pdf');
+  }
 
+  public function cetak_outlet_filter(Request $request){
+    $kabupatenkota = kabupatenkota::findOrFail($request->kabupatenkota_id);
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.outlet_filter', ['kabupatenkota'=>$kabupatenkota,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Outlet Filter.pdf');
+  }
+
+  public function cetak_profil_karyawan($id){
+    $id = IDCrypt::Decrypt($id);
+    $Karyawan = Karyawan::findOrFail($id);
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.profil_karyawan', ['Karyawan'=>$Karyawan,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'landscape');
+    return $pdf->stream('Profil Karyawan.pdf');
+  }
 
 }
