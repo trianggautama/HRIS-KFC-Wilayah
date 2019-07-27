@@ -131,7 +131,7 @@
                             <i class="icon-speedometer"></i><span> Dashboard</span>
                         </a>
                     </li>
-                    @if( Auth::user()->outlet != null)
+                    @if(auth::user()->status == 1)
                     <li class="nav-level"> Data</li>
                     <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i
                                 class="icon-briefcase"></i><span> Master Data</span><i class="icon-arrow-down"></i></a>
@@ -151,9 +151,9 @@
                         </ul>
                     </li>
                     @else
-                    <li class="active treeview">
+                    <li class=" treeview">
                         <a class="waves-effect waves-dark" href="#">
-                            <i class="icon-speedometer"></i><span> Silahkan isi data outlet anda terlebih dahulu</span>
+                            <i class="icon-speedometer"></i><span> data outlet belum ada</span>
                         </a>
                     </li>
                     @endif

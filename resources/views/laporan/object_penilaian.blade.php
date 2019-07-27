@@ -71,7 +71,7 @@
 <body>
     <div class="header">
             <div class="logo">
-                    <img  class="pemko" src="images/kfc_logo.png"  >
+                <img  class="pemko" src="images/kfc_logo.png"  >
             </div>
             <div class="headtext">
                 <h3 style="margin:0px;">KFC WILAYAH </h3>
@@ -81,7 +81,6 @@
             <br>
             <hr>
     </div>
-
     <div class="container">
         <div class="isi">
             <h2 style="text-align:center;">DATA OBJECT PENILAIAN</h2>
@@ -112,7 +111,7 @@
                       <br>
                       <br>
                       <div class="ttd">
-                        <h5> <p>{{$tgl}}</p></h5>
+                        <h5><p>{{$tgl}}</p></h5>
                       <h5>pimpinan</h5>
                       <br>
                       <br>

@@ -41,12 +41,14 @@ class outletController extends Controller
         }
             $outlet_datas = outlet::where('user_id',Auth::user()->id)->first();
             // dd($outlet_datas);
-            return view('outlet.outlet_edit',compact('outlet_datas','kelurahan'));
+        return view('outlet.outlet_edit',compact('outlet_datas','kelurahan'));
+          
     }
 
     public function outlet_tambah_store(Request $request){
         $user_id = Auth::user()->id;
         $outlet = new outlet;
+        $user = User::findOrFail(Auth::user()->id);
 
         if ($request->foto) {
             $FotoExt  = $request->foto->getClientOriginalExtension();
@@ -59,15 +61,14 @@ class outletController extends Controller
           }
 
 
-        $outlet->kelurahan_id       = $request->kelurahan_id;
-        // $outlet->nama_cabang      = $request->nama_cabang;
-        $outlet->alamat      = $request->alamat;
-        $outlet->telepon      = $request->telepon;
-        $outlet->user_id      = $user_id;
-
+        $outlet->kelurahan_id     = $request->kelurahan_id;
+        $outlet->alamat           = $request->alamat;
+        $outlet->telepon          = $request->telepon;
+        $outlet->user_id          = $user_id;
+        $user->status             = 1;
 
         $outlet->save();
-
+        $user->save();
           return redirect(route('admin_outlet_index'))->with('success', 'Data outlet '.$outlet->user->name.' Berhasil di Tambahkan');
       }//fungsi menambahkan data outlet
 
