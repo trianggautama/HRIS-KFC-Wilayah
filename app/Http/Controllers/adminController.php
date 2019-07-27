@@ -543,7 +543,7 @@ class adminController extends Controller
   public function cetak_objek_penilaian(){
     $object_penilaian = Object_penilaian::all();
     $tgl= Carbon::now()->format('d F Y');
-    $pdf =PDF::loadView('laporan.objek_penilaian', ['object_penilaian' => $object_penilaian,'tgl'=>$tgl]);
+    $pdf =PDF::loadView('laporan.object_penilaian', ['object_penilaian' => $object_penilaian,'tgl'=>$tgl]);
     $pdf->setPaper('a4', 'potrait');
     return $pdf->stream('Laporan Objek penilaian.pdf');
   }

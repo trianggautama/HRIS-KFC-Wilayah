@@ -120,6 +120,16 @@ class outletController extends Controller
         $user_id = Auth::user()->id;
         $outlet= outlet::where('user_id',$user_id)->first();
         // dd($outlet->id);
+        $this->validate(request(),[
+          'nama'=>'required',
+          'jabatan'=>'required',
+          'jenis_kelamin'=>'required',
+          'tanggal_lahir'=>'required',
+          'telepon'=>'required',
+          'tanggal_masuk'=>'required',
+          'status_pkwt'=>'required',
+          'status_kawin'=>'required'
+        ]);
         $karyawan = new karyawan;
 
         if ($request->foto) {
