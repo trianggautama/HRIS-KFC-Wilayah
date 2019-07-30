@@ -26,7 +26,9 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Outlet</th>
-                                <th>Nilai</th>
+                                <th>Local Standard</th>
+                                <th>Brand Standard</th>
+                                <th>Food Safety</th>
                                 <th>Periode</th>
                                 <th class="text-center">Action</th>
                             </tr>
@@ -38,17 +40,36 @@
                                 <td>{{$no++}}</td>
                                 <td>{{$d->outlet->user->name}}</td>
                                 <td>
-                                @if($d->nilai < 50 )
-                                <span class="label label-danger">Kurang Baik</span>
-                                @elseif($d->nilai < 80)
-                                <span class="label label-warning">Baik</span>
+                                @if($d->local_standard == 1 )
+                                <span class="label label-danger">Underperform</span>
+                                @elseif($d->local_standard == 2)
+                                <span class="label label-warning">Marginal</span>
                                 @else
-                                <span class="label label-primary"> Sangat Baik</span>
+                                <span class="label label-primary"> at Standard</span>
+                                @endif
+                                </td>
+                                <td>
+                                @if($d->brand_standard == 1 )
+                                <span class="label label-danger">Underperform</span>
+                                @elseif($d->brand_standard == 2)
+                                <span class="label label-warning">Marginal</span>
+                                @else
+                                <span class="label label-primary"> at Standard</span>
+                                @endif
+                                </td>
+                                <td>
+                                @if($d->food_safety == 1 )
+                                <span class="label label-danger">Underperform</span>
+                                @elseif($d->food_safety == 2)
+                                <span class="label label-warning">Marginal</span>
+                                @else
+                                <span class="label label-primary"> at Standard</span>
                                 @endif
                                 </td>
                                 <td>{{$d->created_at->format('F Y')}}</td>
                                 <td class="text-center">
                                     <a href="{{route('penilaian_outlet_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-danger"> hapus</a>
+                                    <a href="{{route('penilaian_outlet_detail', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-primary"> Detail</a>
                                 </td>
                             </tr>
                             @endforeach

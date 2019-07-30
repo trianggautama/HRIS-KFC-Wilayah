@@ -87,31 +87,49 @@
             <h2 style="text-align:center;">DATA PENILAIAN OUTLET KESELURUHAN</h2>
             <table class="table table-hover" id="myTable">
                         <thead>
-                        <tr>
-                            <th class="text-center">No</th>
+                            <tr>
+                                <th>No</th>
                                 <th>Nama Outlet</th>
-                                <th class="text-center">Nilai</th>
-                                <th class="text-center">Predikat</th>
-                                <th class="text-center">Periode</th>
+                                <th>Local Standard</th>
+                                <th>Brand Standard</th>
+                                <th>Food Safety</th>
+                                <th>Periode</th>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $no = 1 ?>
-                        @foreach($raport_outlet as $d)
+                            <?php $no = 1 ?>
+                            @foreach($raport_outlet as $d)
                             <tr>
-                                <td class="text-center">{{$no++}}</td>
+                                <td>{{$no++}}</td>
                                 <td>{{$d->outlet->user->name}}</td>
-                                <td class="text-center">{{$d->nilai}}</td>
-                                <td class="text-center">
-                                @if($d->nilai < 50 )
-                                <span class="label label-danger">Kurang Baik</span>
-                                @elseif($d->nilai < 80)
-                                <span class="label label-warning">Baik</span>
+                                <td>
+                                @if($d->local_standard == 1 )
+                                <span class="label label-danger">Underperform</span>
+                                @elseif($d->local_standard == 2)
+                                <span class="label label-warning">Marginal</span>
                                 @else
-                                <span class="label label-primary"> Sangat Baik</span>
+                                <span class="label label-primary"> at Standard</span>
                                 @endif
-                                </td>                               
-                                <td class="text-center">{{$d->created_at->format('F Y')}}</td>
+                                </td>
+                                <td>
+                                @if($d->brand_standard == 1 )
+                                <span class="label label-danger">Underperform</span>
+                                @elseif($d->brand_standard == 2)
+                                <span class="label label-warning">Marginal</span>
+                                @else
+                                <span class="label label-primary"> at Standard</span>
+                                @endif
+                                </td>
+                                <td>
+                                @if($d->food_safety == 1 )
+                                <span class="label label-danger">Underperform</span>
+                                @elseif($d->food_safety == 2)
+                                <span class="label label-warning">Marginal</span>
+                                @else
+                                <span class="label label-primary"> at Standard</span>
+                                @endif
+                                </td>
+                                <td>{{$d->created_at->format('F Y')}}</td>
                             </tr>
                             @endforeach
                         </tbody>

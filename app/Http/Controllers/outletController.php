@@ -234,7 +234,7 @@ class outletController extends Controller
             $user_id=Auth::user()->id;
             $outlet= outlet::where('user_id',$user_id)->first();
             $karyawan = karyawan::where('outlet_id',$outlet->id)->get();
-            $object_penilaian =object_penilaian::where('status',2)->get();
+            $object_penilaian =object_penilaian::all();
             return view('outlet.penilaian_karyawan_tambah',compact('object_penilaian','karyawan'));
         }
         public function penilaian_karyawan_store(Request $request){
@@ -276,6 +276,13 @@ class outletController extends Controller
           $pdf->setPaper('a4', 'potrait');
           return $pdf->stream('Karyawan Pada outlet.pdf');
         }
+
+        public function penilaian_outlet_detail($id){
+          $id = IDCrypt::Decrypt($id);
+          $raport_outlet = raport_outlet::findOrFail($id);
+          //dd($raport_outlet);
+          return view('outlet.penilaian_outlet_detail',compact('raport_outlet'));
+          }
 
         public function penilaian_outlet_cetak(){
           $user_id=Auth::user()->id;

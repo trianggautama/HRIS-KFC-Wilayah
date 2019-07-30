@@ -30,15 +30,44 @@
                         </select>
                             </div>
                         </div>
-                        @foreach( $object_penilaian as $d)
                         <div class="form-group row">
-                            <div class="col-md-2"><label for="InputNormal" class="form-control-label">{{$d->object}}</label></div>
-                            <div class="col-md-10"><input type="text"
-                                    name="{{$d->object}}" class="form-control"
-                                    id="InputNormal" value="" placeholder="0-100">
+                            <div class="col-md-2"><label for="InputNormal" class="form-control-label">local Standard</label></div>
+                            <div class="col-md-10">
+                                <input type="number" class="form-control" name="lokal_standard_1" placeholder="jumlah temuan lv 1">
+                                <br>
+                                <input type="number" class="form-control" name="lokal_standard_2" placeholder="jumlah temuan lv 2">
+                                <br>
+                                <input type="number" class="form-control" name="lokal_standard_3" placeholder="jumlah temuan lv 3">
+                                <br>
+                                <textarea name="keterangan_lokal_standard" id="" class="form-control" placeholder="keterangan temuan"></textarea>
                             </div>
                         </div>
-                        @endforeach
+                        <br>
+                        <div class="form-group row">
+                            <div class="col-md-2"><label for="InputNormal" class="form-control-label">Brand Standard</label></div>
+                            <div class="col-md-10">
+                                <input type="number" class="form-control" name="brand_standard_1" placeholder="jumlah temuan lv 1">
+                                <br>
+                                <input type="number" class="form-control" name="brand_standard_2" placeholder="jumlah temuan lv 2">
+                                <br>
+                                <input type="number" class="form-control" name="brand_standard_3" placeholder="jumlah temuan lv 3">
+                                <br>
+                                <textarea name="keterangan_brand_standard" id="" class="form-control" placeholder="keterangan temuan"></textarea>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <div class="col-md-2"><label for="InputNormal" class="form-control-label">Food Safety</label></div>
+                            <div class="col-md-10">
+                                <input type="number" class="form-control" name="food_safety_1" placeholder="jumlah temuan lv 1">
+                                <br>
+                                <input type="number" class="form-control" name="food_safety_2" placeholder="jumlah temuan lv 2">
+                                <br>
+                                <input type="number" class="form-control" name="food_safety_3" placeholder="jumlah temuan lv 3">
+                                <br>
+                                <textarea name="keterangan_food_safety" id="" class="form-control" placeholder="keterangan temuan"></textarea>
+                            </div>
+                        </div>
                         <div class="card-footer text-right">
                             {{csrf_field() }}
                             <input class="btn btn-primary mr-2" type="submit" name="submit" value="Simpan Penilaian">

@@ -130,6 +130,8 @@ Route::get('/penilaian_outlet/filter/outlet','adminController@penilaian_outlet_f
 ->name('penilaian_outlet_filter_outlet');
 Route::post('/penilaian_outlet/filter/outlet','adminController@cetak_penilaian_outlet_filter_outlet')
 ->name('cetak_penilaian_outlet_filter_outlet');
+Route::get('/penilaian_outlet/detail/{id}','adminController@penilaian_outlet_detail')
+->name('penilaian_outlet_detail');
 Route::get('/penilaian_outlet/hapus/{id}','adminController@penilaian_outlet_hapus')
 ->name('penilaian_outlet_hapus');
 Route::get('/penilaian_outlet_keseluruhan/cetak','adminController@cetak_penilaian_outlet_keseluruhan')
@@ -180,6 +182,8 @@ Route::get('/karyawan/outlet/cetak','outletController@karyawan_outlet_cetak')
 
 Route::get('outlet/penilaian_outlet','outletController@penilaian_outlet_index')
 ->name('outlet_penilaian_outlet_index');
+Route::get('outlet/penilaian_outlet/detail/{id}','outletController@penilaian_outlet_detail')
+->name('outlet_penilaian_outlet_detail');
 Route::get('outlet/penilaian_outlet/cetak','outletController@penilaian_outlet_cetak')
 ->name('outlet_penilaian_outlet_cetak');
 Route::get('outlet/penilaian_outlet/filter_periode','outletController@penilaian_outlet_filter_periode')

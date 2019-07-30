@@ -396,11 +396,9 @@ class adminController extends Controller
       public function object_penilaian_tambah(Request $request){
         $this->validate(request(),[
             'object'=>'required',
-            'status'=>'required'
           ]);
           $object_penilaian = new object_penilaian;
           $object_penilaian->object= $request->object;
-          $object_penilaian->status= $request->status;
           $object_penilaian->save();       
           return redirect(route('object_penilaian_index'))->with('success', 'Data  Berhasil di simpan');
         }
@@ -438,20 +436,49 @@ class adminController extends Controller
 
       public function penilaian_outlet_tambah(){
         $outlet = Outlet::all();
-        $object_penilaian =object_penilaian::where('status',1)->get();
-        return view('admin.penilaian_outlet_tambah',compact('object_penilaian','outlet'));
+        return view('admin.penilaian_outlet_tambah',compact('outlet'));
     }
     public function penilaian_outlet_store(Request $request){
-      $collection = collect($request);
-      $pembagi = $collection->count();
-      $pembagi = $pembagi - 3;
-      $average = collect($request)->sum();
-      $nilai  = $average/$pembagi;
+     // dd($request->lokal_standard_1);
+      if ($request->lokal_standard_3 >= 1 || $request->lokal_standard_2 >= 3){
+        $lokal_standard = 1 ; //underperform
+      }elseif( $request->lokal_standard_2 >=1 || $request->lokal_standard_1>= 5){
+        $lokal_standard = 2 ; //underperform
+      }elseif($request->lokal_standard_1 <= 5){
+        $lokal_standard = 3 ; //underperform
+      }else{
+        $lokal_standard = 3 ; //underperform
+      }
+
+      if ($request->brand_standard_3 >= 1 || $request->brand_standard_2 >= 4 || $request->brand_standard_1 >= 15){
+        $brand_standard = 1 ; //underperform
+      }elseif($request->brand_standard_2 >=2 && $request->brand_standard_2 <= 3||$request->brand_standard_1 >= 10 && $request->brand_standard_1 <= 14){
+        $brand_standard = 2 ; //
+      }elseif($request->brand_standard_2 <= 1 || $request->brand_standard_1 < 10){
+        $brand_standard = 3 ; //underperform
+      }else{
+        $brand_standard = 3 ; //underperform
+      }
+
+      if ($request->food_safety_3 >= 1 || $request->food_safety_1 >= 10){
+        $food_safety = 1 ; //underperform
+      }elseif($request->food_safety_3 <= 0 || $request->food_safety_1 < 10){
+        $food_safety = 3 ; //underperform
+      }else{
+        $food_safety = 3 ; //underperform
+      }
+
+      //  dd([$lokal_standard,$brand_standard,$food_safety]);
       $this->validate(request(),[
         'outlet_id'=>'required'
       ]);
       $raport_outlet = new raport_outlet;
-      $raport_outlet->nilai= $nilai-5;
+      $raport_outlet->local_standard= $lokal_standard;
+      $raport_outlet->brand_standard= $brand_standard;
+      $raport_outlet->food_safety= $food_safety;
+      $raport_outlet->keterangan_lokal_standard= $request->keterangan_lokal_standard;
+      $raport_outlet->keterangan_brand_standard= $request->keterangan_brand_standard;
+      $raport_outlet->keterangan_food_safety= $request->keterangan_food_safety;
       $raport_outlet->outlet_id= $request->outlet_id;
       $raport_outlet->save();   
       return redirect(route('penilaian_outlet_index'))->with('success', 'Data  Berhasil di tambah');
@@ -466,6 +493,12 @@ class adminController extends Controller
     $outlet = Outlet::all();
     return view('admin.penilaian_outlet_outlet',compact('outlet'));
 }
+    public function penilaian_outlet_detail($id){
+      $id = IDCrypt::Decrypt($id);
+      $raport_outlet = raport_outlet::findOrFail($id);
+      //dd($raport_outlet);
+      return view('admin.penilaian_outlet_detail',compact('raport_outlet'));
+      }
   
     public function penilaian_outlet_hapus($id){
       $id = IDCrypt::Decrypt($id);
