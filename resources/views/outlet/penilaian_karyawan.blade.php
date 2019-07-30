@@ -46,9 +46,7 @@
                                 @endif
                                 </td>
                                 <td>{{$d->created_at->format('F Y')}}</td>
-                                <td class="text-center">
-                                <a href="#"
-                                        class="btn btn-inverse-primary"><i class="icon-pencil"></i></a>     
+                                <td class="text-center">   
                                     <a href="{{route('penilaian_karyawan_outlet_hapus',['id' => IDCrypt::Encrypt( $d->id)])}}"
                                         class="btn btn-inverse-danger"><i class="icon-trash"></i></a>                                </td>
                             </tr>

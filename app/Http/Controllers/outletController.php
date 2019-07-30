@@ -123,7 +123,7 @@ class outletController extends Controller
         // dd($outlet->id);
         $this->validate(request(),[
           'nama'=>'required',
-          'jabatan'=>'required',
+          'jabatan_id'=>'required',
           'jenis_kelamin'=>'required',
           'tanggal_lahir'=>'required',
           'telepon'=>'required',
