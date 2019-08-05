@@ -240,20 +240,41 @@ class outletController extends Controller
         public function penilaian_karyawan_store(Request $request){
             $user_id=Auth::user()->id;
             $outlet= outlet::where('user_id',$user_id)->first();
-            $collection = collect($request);
-            $pembagi = $collection->count();
-            $pembagi = $pembagi - 3;
-            $average = collect($request)->sum();
-            $nilai  = $average/$pembagi;
+
+            $kedisiplinan = ($request->q1 + $request->q2)/2;
+            $tanggung_jawab = ($request->q3 + $request->q4)/2;
+            $komunikasi = ($request->q5 + $request->q6 + $request->q7)/3;
+            $pelayanan = ($request->q8 + $request->q9 + $request->q10)/3;
+            $efisiensi = ($request->q11 + $request->q12)/2;
+            $ketetapan = ($request->q13 + $request->q14)/2;
+            $pengaturan_waktu = $request->q15;
+            $kepribadian = ($kedisiplinan * 50/100) + ($tanggung_jawab * 30/100) +($komunikasi* 20/100);
+            $prestasi= ($pelayanan *45/100)+($efisiensi*30/100)+($ketetapan*15/100) +($pengaturan_waktu*10/100);
+           // dd($efisiensi); 
             $this->validate(request(),[
               'karyawan_id'=>'required'
             ]);
             $raport_karyawan = new raport_karyawan;
-            $raport_karyawan->nilai= $nilai;
             $raport_karyawan->karyawan_id= $request->karyawan_id;
             $raport_karyawan->outlet_id = $outlet->id;
+            $raport_karyawan->kedisiplinan= $kedisiplinan;
+            $raport_karyawan->tanggung_jawab= $tanggung_jawab;
+            $raport_karyawan->komunikasi= $komunikasi;
+            $raport_karyawan->pelayanan= $pelayanan;
+            $raport_karyawan->efisiensi= $efisiensi;
+            $raport_karyawan->ketetapan= $ketetapan;
+            $raport_karyawan->pengaturan_waktu= $pengaturan_waktu;
+            $raport_karyawan->kepribadian= $kepribadian;
+            $raport_karyawan->prestasi= $prestasi;
+
             $raport_karyawan->save();   
             return redirect(route('outlet_penilaian_karyawan_index'))->with('success', 'Data  Berhasil di tambah');
+          }
+
+          public function penilaian_karyawan_detail($id){
+            $id = IDCrypt::Decrypt($id);
+            $raport_karyawan=raport_karyawan::findOrFail($id);
+            return view('outlet.penilaian_karyawan_detail',compact('raport_karyawan'));
           }
 
           public function penilaian_karyawan_hapus($id){

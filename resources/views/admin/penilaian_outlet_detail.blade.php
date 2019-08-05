@@ -18,7 +18,7 @@
                 <div class="card-block">
                 <div class="form-group row">
                         <div class="col-md-2"><label for="InputNormal" class="form-control-label">local Standard</label></div>
-                        <div class="col-md-10"> @if($raport_outlet->local_standard == 1 )
+                        <div class="col-md-10">: @if($raport_outlet->local_standard == 1 )
                                 <span class="label label-danger">Underperform</span>
                                 @elseif($raport_outlet->raport_outlet == 2)
                                 <span class="label label-warning">Marginal</span>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group row">
                         <div class="col-md-2"><label for="InputNormal" class="form-control-label">Brand Standard</label></div>
-                        <div class="col-md-10"> @if($raport_outlet->brand_standard == 1 )
+                        <div class="col-md-10">: @if($raport_outlet->brand_standard == 1 )
                                 <span class="label label-danger">Underperform</span>
                                 @elseif($raport_outlet->brand_standard == 2)
                                 <span class="label label-warning">Marginal</span>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-group row">
                         <div class="col-md-2"><label for="InputNormal" class="form-control-label">Food Safety</label></div>
-                        <div class="col-md-10"> @if($raport_outlet->food_safety == 1 )
+                        <div class="col-md-10">: @if($raport_outlet->food_safety == 1 )
                                 <span class="label label-danger">Underperform</span>
                                 @elseif($raport_outlet->food_safety == 2)
                                 <span class="label label-warning">Marginal</span>

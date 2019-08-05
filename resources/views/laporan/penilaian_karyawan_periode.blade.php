@@ -92,30 +92,22 @@
                                 <th>Outlet</th>
                                 <th class="text-center">Kode Karyawan</th>
                                 <th>Nama Karyawan</th>
-                                <th class="text-center">Nilai</th>
-                                <th class="text-center">Predikat</th>
-                                <th class="text-center">Periode</th>
+                                <th>Kepribadian dan Prilaku</th>
+                                <th>Prestasi Hasil Kerja</th>
+                                <th>Periode</th>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $no = 1 ?>
-                        @foreach($raport_karyawan as $d)
+                            <?php $no = 1 ?>
+                            @foreach($raport_karyawan as $d)
                             <tr>
-                                <td class="text-center">{{$no++}}</td>
+                                <td>{{$no++}}</td>
                                 <td>{{$d->outlet->user->name}}</td>
-                                <td class="text-center">{{$d->karyawan->kode_karyawan}}</td>
+                                <td>{{$d->karyawan->kode_karyawan}}</td>
                                 <td>{{$d->karyawan->nama}}</td>
-                                <td class="text-center">{{$d->nilai}}</td>
-                                <td class="text-center">
-                                @if($d->nilai < 50 )
-                                <span class="label label-danger">Kurang Baik</span>
-                                @elseif($d->nilai < 80)
-                                <span class="label label-warning">Baik</span>
-                                @else
-                                <span class="label label-primary"> Sangat Baik</span>
-                                @endif
-                                </td>                               
-                                <td class="text-center">{{$d->created_at->format('F Y')}}</td>
+                                <td>{{$d->kepribadian}}</td>
+                                <td>{{$d->prestasi}}</td>
+                                <td>{{$d->created_at->format('F Y')}}</td>
                             </tr>
                             @endforeach
                         </tbody>
