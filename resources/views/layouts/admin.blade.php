@@ -203,8 +203,6 @@
                                 class="icon-book-open"></i><span> Data Penilaian</span><i
                                 class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
-                            <li><a class="waves-effect waves-dark" href="{{Route('object_penilaian_index')}}"><i class="icon-arrow-right"></i> Object
-                                    Penilaian </a></li>
                             <li><a class="waves-effect waves-dark" href="{{Route('penilaian_outlet_index')}}"><i class="icon-arrow-right"></i> Data
                                     Penilaian Outlet</a></li>
                             <li><a class="waves-effect waves-dark" href="{{Route('penilaian_karyawan_index')}}"><i class="icon-arrow-right"></i> Data
