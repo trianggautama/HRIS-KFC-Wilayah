@@ -234,8 +234,7 @@ class outletController extends Controller
             $user_id=Auth::user()->id;
             $outlet= outlet::where('user_id',$user_id)->first();
             $karyawan = karyawan::where('outlet_id',$outlet->id)->get();
-            $object_penilaian =object_penilaian::all();
-            return view('outlet.penilaian_karyawan_tambah',compact('object_penilaian','karyawan'));
+            return view('outlet.penilaian_karyawan_tambah',compact('karyawan'));
         }
         public function penilaian_karyawan_store(Request $request){
             $user_id=Auth::user()->id;

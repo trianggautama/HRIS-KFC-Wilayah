@@ -89,6 +89,7 @@
                         <thead>
                         <tr>
                             <th class="text-center">No</th>
+                                <th>Kode Karyawan</th>
                                 <th>Nama Karyawan</th>
                                 <th>Kepribadian dan Prilaku</th>
                                 <th>Prestasi Hasil Kerja</th>
