@@ -355,34 +355,61 @@
                 <!-- start memeber ship tab pane -->
 
                 <div class="tab-pane" id="members" role="tabpanel">
-                    <div class="row">
-                        <div class="col-lg-12">
-
-                            <div class="card-member">
-                                <div class="accordion-box" id="member-open">
-                                @foreach($raport_karyawan as $d)
-                                    <div class="faq-accordion">
-                                        <a class="accordion-msg">{{$d->created_at->format('F Y')}} :   @if($d->nilai < 50 )
-                                        <span class="label label-danger">Kurang Baik</span>
-                                        @elseif($d->nilai < 85)
-                                        <span class="label label-warning">Baik</span>
-                                        @else
-                                        <span class="label label-primary"> Sangat Baik</span>
-                                        @endif</a>
-                                    </div>        
-                                 @endforeach
-                                </div>
-                                <!-- end of accrodion box class -->
-                            </div>
-                            <!-- end of class questing -->
+                <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-header-text">Riwayat Penilaian karyawan</h5>
+                            <button id="edit-btn" type="button"
+                                class="btn btn-primary waves-effect waves-light f-right">
+                                <i class="icofont icofont-edit"></i>
+                            </button>
                         </div>
-                        <!-- end of col-lg-12 -->
+                        <div class="card-block">
+                            <div class="view-info">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="general-info">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-xl-12">
+                                                <table class="table table-hover" id="myTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No</th>
+                                                        <th>Kepribadian dan Prilaku</th>
+                                                        <th>Prestasi Hasil Kerja</th>
+                                                        <th>Periode</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php $no = 1 ?>
+                                                    @foreach($raport_karyawan as $d)
+                                                    <tr>
+                                                        <td>{{$no++}}</td>
+                                                        <td>{{$d->kepribadian}}</td>
+                                                        <td>{{$d->prestasi}}</td>
+                                                        <td>{{$d->created_at->format('F Y')}}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                                </div>
+                                            </div>
+                                            <!-- end of row -->
+                                        </div>
+                                        <!-- end of general info -->
+                                    </div>
+                                    <!-- end of col-lg-12 -->
+                                </div>
+                                <!-- end of row -->
+                            </div>
+                            <!-- end of view-info -->
+                        </div>
+                        <!-- end of card-block -->
                     </div>
                     <!-- end of row -->
                 </div>
                 <!-- end of memebership tab pane -->
 
-            </div>
+            </div> 
             <!-- end of main tab content -->
         </div>
     </div>
