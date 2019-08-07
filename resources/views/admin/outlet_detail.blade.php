@@ -280,22 +280,74 @@
                 <div class="tab-pane" id="raport" role="tabpanel">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="card-questioning">
-                                <div class="accordion-box" id="question-open">
-                                @foreach($raport_outlet as $d)
-                                    <div class="faq-accordion">
-                                        <a class="accordion-msg active"> {{$d->created_at}} :      @if($d->nilai < 30 )
-                                <span class="label label-danger">Kurang Baik</span>
-                                @elseif($d->nilai < 60)
-                                <span class="label label-warning">Baik</span>
-                                @else
-                                <span class="label label-primary"> Sangat Baik</span>
-                                @endif</a>
-                                   
-                                    </div>
-                                    @endforeach
+                        <div class="card">
+                                <div class="card-header"><h5 class="card-header-text">Riwayat Penilaian Outlet</h5>
+                                    <button id="edit-btn" type="button" class="btn btn-primary waves-effect waves-light f-right" >
+                                        <i  class="icofont icofont-edit"></i>
+                                    </button>
                                 </div>
-                                <!-- end of accrodion box class -->
+                                <div class="card-block">
+                                    <div class="view-info">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="general-info">
+                                                    <div class="row">
+                                                    <table class="table table-hover" id="myTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No</th>
+                                                        <th>Local Standard</th>
+                                                        <th>Brand Standard</th>
+                                                        <th>Food Safety</th>
+                                                        <th>Periode</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php $no = 1 ?>
+                                                    @foreach($raport_outlet as $d)
+                                                    <tr>
+                                                        <td>{{$no++}}</td>
+                                                        <td>
+                                                        @if($d->local_standard == 1 )
+                                                        <span class="label label-danger">Underperform</span>
+                                                        @elseif($d->local_standard == 2)
+                                                        <span class="label label-warning">Marginal</span>
+                                                        @else 
+                                                        <span class="label label-primary"> at Standard</span>
+                                                        @endif
+                                                        </td>
+                                                        <td>
+                                                        @if($d->brand_standard == 1 )
+                                                        <span class="label label-danger">Underperform</span>
+                                                        @elseif($d->brand_standard == 2)
+                                                        <span class="label label-warning">Marginal</span>
+                                                        @else
+                                                        <span class="label label-primary"> at Standard</span>
+                                                        @endif
+                                                        </td>
+                                                        <td>
+                                                        @if($d->food_safety == 1 )
+                                                        <span class="label label-danger">Underperform</span>
+                                                        @elseif($d->food_safety == 2)
+                                                        <span class="label label-warning">Marginal</span>
+                                                        @else
+                                                        <span class="label label-primary"> at Standard</span>
+                                                        @endif
+                                                        </td>
+                                                        <td>{{$d->created_at->format('F Y')}}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                                <!-- end of table col-lg-6 -->
+                                            </div>
+                                            <!-- end of row -->
+                                        </div>
+                                        <!-- end of general info -->
+                                    </div>
+                                    <!-- end of col-lg-12 -->
+                                </div>
+                                <!-- end of row -->
                             </div>
                             <!-- end of class questing -->
                         </div>
