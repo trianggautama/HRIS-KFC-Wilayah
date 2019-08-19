@@ -10,9 +10,8 @@
         <div class="card-header ">
             <h4>Data Kelurahan</h4>
             <div class="text-right">
-                <a class="btn btn-inverse-primary right" href="" data-toggle="modal"
+                <a class="btn btn-primary right" href="" data-toggle="modal"
                     data-target="#exampleModalCenter"><i class="icofont icofont-ui-add"></i> tambah data</a>
-                <a class="btn btn-inverse-success" href=""><i class="icon-printer"></i>cetak data</a>
             </div>
         </div>
         <div class="card-block">
@@ -39,11 +38,11 @@
                                 <td>{{$d->Kecamatan->kecamatan}}</td>
                                 <td class="text-center">
                                 <a href="{{route('kelurahan_detail')}}"
-                                        class="btn btn-inverse-success"><i class="icon-eye"></i></a>
+                                        class="btn btn-success"><i class="icon-eye"></i></a>
                                 <a href="{{route('kelurahan_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}"
-                                        class="btn btn-inverse-primary"><i class="icon-pencil"></i></a>
+                                        class="btn btn-primary"><i class="icon-pencil"></i></a>
                                     <a href="{{route('kelurahan_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}"
-                                        class="btn btn-inverse-danger"><i class="icon-trash"></i></a>
+                                        class="btn btn-danger"><i class="icon-trash"></i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -78,7 +77,7 @@
                     </div>
                     <div class="md-input-wrapper">
                         <select class="md-form-control" name="kecamatan_id">
-                            <option>Kecamatan</option>
+                            <option value="">Kecamatan</option>
                             @foreach( $Kecamatan as $d )
                             <option value="{{$d->id}}">{{$d->kecamatan}} </option>
                             @endforeach
@@ -86,8 +85,8 @@
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Close</button>
-                <input class="btn btn-inverse-primary" type="submit" name="submit" value="Save">
+                <button type="button" class="btn btn-inverse-danger" data-dismiss="modal">Batal</button>
+                <input class="btn btn-inverse-primary" type="submit" name="submit" value="Simpan">
                 {{csrf_field() }}
                 </form>
             </div>

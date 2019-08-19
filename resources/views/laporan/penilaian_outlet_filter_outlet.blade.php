@@ -63,7 +63,6 @@
          text-align: center;
          text-transform: uppercase;
      }
-
      .text-center{
          text-align:center;
      }
@@ -85,30 +84,52 @@
 
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA KARYAWAN PADA OUTLET {{$outlet->user->name}}</h2>
+            <h2 style="text-align:center;">DATA PENILAIAN OUTLET PADA OUTLET {{$outlet->user->name}}</h2>
             <table class="table table-hover" id="myTable">
                         <thead>
-                        <tr>
-                            <th>No</th>
-                                <th class="text-center">Kode Karyawan</th>
-                                <th>Nama Karyawan</th>
-                                <th class="text-center">Jabatan</th>
-                                <th class="text-center">Status Pegawai</th>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Outlet</th>
+                                <th>Local Standard</th>
+                                <th>Brand Standard</th>
+                                <th>Food Safety</th>
+                                <th>Periode</th>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $no = 1 ?>
-                        @foreach($karyawan as $d)
+                            <?php $no = 1 ?>
+                            @foreach($raport_outlet as $d)
                             <tr>
-                                <td class="text-center">{{$no++}}</td>
-                                <td class="text-center">{{$d->kode_karyawan}}</td>
-                                <td>{{$d->nama}}</td>
-                                <td>{{$d->jabatan->jabatan}}</td>
-                                @if($d->status_pkwt == 1)
-                                <td class="text-center"> Tetap</td>
+                                <td>{{$no++}}</td>
+                                <td>{{$d->outlet->user->name}}</td>
+                                <td>
+                                @if($d->local_standard == 1 )
+                                <span class="label label-danger">Underperform</span>
+                                @elseif($d->local_standard == 2)
+                                <span class="label label-warning">Marginal</span>
                                 @else
-                                <td class="text-center"> Tidak Tetap</td>
+                                <span class="label label-primary"> at Standard</span>
                                 @endif
+                                </td>
+                                <td>
+                                @if($d->brand_standard == 1 )
+                                <span class="label label-danger">Underperform</span>
+                                @elseif($d->brand_standard == 2)
+                                <span class="label label-warning">Marginal</span>
+                                @else
+                                <span class="label label-primary"> at Standard</span>
+                                @endif
+                                </td>
+                                <td>
+                                @if($d->food_safety == 1 )
+                                <span class="label label-danger">Underperform</span>
+                                @elseif($d->food_safety == 2)
+                                <span class="label label-warning">Marginal</span>
+                                @else
+                                <span class="label label-primary"> at Standard</span>
+                                @endif
+                                </td>
+                                <td>{{$d->created_at->format('F Y')}}</td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -63,7 +63,6 @@
          text-align: center;
          text-transform: uppercase;
      }
-
      .text-center{
          text-align:center;
      }
@@ -72,7 +71,7 @@
 <body>
     <div class="header">
             <div class="logo">
-                    <img  class="pemko" src="images/kfc_logo.png"  >
+                <img  class="pemko" src="images/kfc_logo.png"  >
             </div>
             <div class="headtext">
                 <h3 style="margin:0px;">KFC WILAYAH </h3>
@@ -82,33 +81,29 @@
             <br>
             <hr>
     </div>
-
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA KARYAWAN PADA OUTLET {{$outlet->user->name}}</h2>
+            <h2 style="text-align:center;">DATA OBJECT PENILAIAN</h2>
             <table class="table table-hover" id="myTable">
                         <thead>
-                        <tr>
-                            <th>No</th>
-                                <th class="text-center">Kode Karyawan</th>
-                                <th>Nama Karyawan</th>
-                                <th class="text-center">Jabatan</th>
-                                <th class="text-center">Status Pegawai</th>
+                            <tr>
+                                <th class="text-center">No</th>
+                                <th  class="text-center">Objek</th>
+                                <th  class="text-center">Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $no = 1 ?>
-                        @foreach($karyawan as $d)
+                            <?php $no = 1 ?>
+                            @foreach($object_penilaian as $d)
                             <tr>
                                 <td class="text-center">{{$no++}}</td>
-                                <td class="text-center">{{$d->kode_karyawan}}</td>
-                                <td>{{$d->nama}}</td>
-                                <td>{{$d->jabatan->jabatan}}</td>
-                                @if($d->status_pkwt == 1)
-                                <td class="text-center"> Tetap</td>
+                                <td  class="text-center">{{$d->object}}</td>
+                                <td  class="text-center">@if($d->status == 1)
+                                <label class="label bg-primary">Penilaian Outlet</label>
                                 @else
-                                <td class="text-center"> Tidak Tetap</td>
+                            <label class="label bg-success">Penilaian Karyawan</label>
                                 @endif
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -116,7 +111,7 @@
                       <br>
                       <br>
                       <div class="ttd">
-                        <h5> <p>{{$tgl}}</p></h5>
+                        <h5><p>{{$tgl}}</p></h5>
                       <h5>pimpinan</h5>
                       <br>
                       <br>

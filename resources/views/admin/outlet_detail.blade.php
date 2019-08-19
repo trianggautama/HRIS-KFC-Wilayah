@@ -19,7 +19,7 @@
         <div class="col-xl-3 col-lg-4">
             <div class="card faq-left">
                 <div class="social-profile">
-                    <img class="img-fluid" src="{{asset('/images/outlet/'.$Outlet->foto)  }}" alt="">
+                    <img class="img-fluid" src="{{asset('/images/outlet/'.$Outlet->foto)}}" alt="">
                     <div class="profile-hvr m-t-15">
                         <i class="icofont icofont-ui-edit p-r-10 c-pointer"></i>
                         <i class="icofont icofont-ui-delete c-pointer"></i>
@@ -88,7 +88,7 @@
                                                                 </tr> --}}
                                                                 <tr>
                                                                     <th scope="row">Alamat</th>
-                                                                    <td>{{ $Outlet->alamat }} Kelurahan {{ $kelurahan->kelurahan }} </td>
+                                                                    <td>{{ $Outlet->alamat }}</td>
                                                                 </tr>
                                                         </tbody>
                                                     </table>
@@ -141,7 +141,7 @@
                                                 class="icofont icofont-code-alt"></i></a>
                                     </div>
                                 </div>
-                                <form method="post" action="">
+                                <form method="post" action="" enctype="multipart/form-data">
                                     {{method_field('PUT') }}
                                     {{ csrf_field() }}
                                     <div class="card-block">
@@ -154,13 +154,12 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-md-2"><label for="exampleSelect1"
-                                                    class="form-control-label">Kecamatan</label></div>
+                                                    class="form-control-label">kelurahan</label></div>
                                             <div class="col-md-10">
-                                                <select class="form-control" id="exampleSelect1">
-                                                    <option>Banjarbaru Utara</option>
-                                                    <option>Banjarbaru Selatan</option>
-                                                    <option>Sungai Andai</option>
-                                                    <option>Banjarmasin</option>
+                                                <select class="form-control" id="exampleSelect1" name="kelurahan_id">
+                                                @foreach($kelurahan as $d)
+                                                    <option value="{{$d->id}}" {{ $Outlet->kelurahan_id  == $d->id ? 'selected' : ''}}>{{$d->kelurahan}}</option>
+                                                @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -180,8 +179,8 @@
                                                     placeholder="No.Tlp"></div>
                                         </div>
                                         <div class="form-group row">
-                                            <div class="col-md-2"><label for="InputNormal" class="form-control-label">No
-                                                    Tlp</label></div>
+                                            <div class="col-md-2"><label for="InputNormal" class="form-control-label">Email
+                                                    </label></div>
                                             <div class="col-md-10"><input type="email" class="form-control"
                                                     id="InputNormal" name="email" value="{{ $Outlet->user->email }}"
                                                     placeholder="Email"></div>
@@ -193,6 +192,15 @@
                                                     id="InputNormal" name="password"
                                                     placeholder="Isi Jika ingin mengganti Password"></div>
                                         </div>
+                                        <div class="form-group row">
+                                            <label for="file" class="col-md-2 col-form-label form-control-label">Gambar/Logo</label>
+                                            <div class="col-md-9">
+                                                <label for="file" class="custom-file">
+                                                    <input type="file" name="foto" id="file" class="custom-file-input">
+                                                    <span class="custom-file-control"></span>
+                                                </label>
+                                            </div>
+                                    </div>
                                         {{ csrf_field() }}
                                     </div>
                                     <div class="card-footer text-right">
@@ -272,22 +280,74 @@
                 <div class="tab-pane" id="raport" role="tabpanel">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="card-questioning">
-                                <div class="accordion-box" id="question-open">
-                                @foreach($raport_outlet as $d)
-                                    <div class="faq-accordion">
-                                        <a class="accordion-msg active"> {{$d->created_at}} :      @if($d->nilai < 30 )
-                                <span class="label label-danger">Kurang Baik</span>
-                                @elseif($d->nilai < 60)
-                                <span class="label label-warning">Baik</span>
-                                @else
-                                <span class="label label-primary"> Sangat Baik</span>
-                                @endif</a>
-                                   
-                                    </div>
-                                    @endforeach
+                        <div class="card">
+                                <div class="card-header"><h5 class="card-header-text">Riwayat Penilaian Outlet</h5>
+                                    <button id="edit-btn" type="button" class="btn btn-primary waves-effect waves-light f-right" >
+                                        <i  class="icofont icofont-edit"></i>
+                                    </button>
                                 </div>
-                                <!-- end of accrodion box class -->
+                                <div class="card-block">
+                                    <div class="view-info">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="general-info">
+                                                    <div class="row">
+                                                    <table class="table table-hover" id="myTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No</th>
+                                                        <th>Local Standard</th>
+                                                        <th>Brand Standard</th>
+                                                        <th>Food Safety</th>
+                                                        <th>Periode</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php $no = 1 ?>
+                                                    @foreach($raport_outlet as $d)
+                                                    <tr>
+                                                        <td>{{$no++}}</td>
+                                                        <td>
+                                                        @if($d->local_standard == 1 )
+                                                        <span class="label label-danger">Underperform</span>
+                                                        @elseif($d->local_standard == 2)
+                                                        <span class="label label-warning">Marginal</span>
+                                                        @else 
+                                                        <span class="label label-primary"> at Standard</span>
+                                                        @endif
+                                                        </td>
+                                                        <td>
+                                                        @if($d->brand_standard == 1 )
+                                                        <span class="label label-danger">Underperform</span>
+                                                        @elseif($d->brand_standard == 2)
+                                                        <span class="label label-warning">Marginal</span>
+                                                        @else
+                                                        <span class="label label-primary"> at Standard</span>
+                                                        @endif
+                                                        </td>
+                                                        <td>
+                                                        @if($d->food_safety == 1 )
+                                                        <span class="label label-danger">Underperform</span>
+                                                        @elseif($d->food_safety == 2)
+                                                        <span class="label label-warning">Marginal</span>
+                                                        @else
+                                                        <span class="label label-primary"> at Standard</span>
+                                                        @endif
+                                                        </td>
+                                                        <td>{{$d->created_at->format('F Y')}}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                                <!-- end of table col-lg-6 -->
+                                            </div>
+                                            <!-- end of row -->
+                                        </div>
+                                        <!-- end of general info -->
+                                    </div>
+                                    <!-- end of col-lg-12 -->
+                                </div>
+                                <!-- end of row -->
                             </div>
                             <!-- end of class questing -->
                         </div>

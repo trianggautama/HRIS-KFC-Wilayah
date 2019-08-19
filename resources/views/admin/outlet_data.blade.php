@@ -10,6 +10,7 @@
             <h4>Data Outlet</h4>
             <div class="text-right">
                 <a class="btn btn-inverse-success" href="{{Route('cetak_outlet_keseluruhan')}}"><i class="icon-printer"></i> cetak data</a>
+                <a class="btn btn-inverse-success" href="{{Route('outlet_filter')}}"><i class="icon-printer"></i> cetak filter</a>
             </div>
         </div>
         <div class="card-block">

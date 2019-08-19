@@ -1,6 +1,5 @@
 @extends('layouts.outlet')
 @section('content')
-
 <div class="container-fluid">
     <div class="row">
         <div class="main-header">
@@ -12,7 +11,9 @@
         <div class="col-lg-6 col-sm-12">
             <div class="col-sm-12 card dashboard-product">
                 <span>Karyawan</span>
-                <h2 class="dashboard-total-products counter">12</h2>
+                @if( $Outlet != null )
+                <h2 class="dashboard-total-products counter">{{$Outlet->karyawan->count()}}</h2>
+                @endif
                 <span class="label label-warning">Karyawan</span>
                 <div class="side-box bg-warning">
                     <i class="icon-social-soundcloud"></i>
@@ -21,9 +22,11 @@
         </div>
         <div class="col-lg-6 col-sm-12">
             <div class="col-sm-12 card dashboard-product">
-                <span>Karyawan</span>
-                <h2 class="dashboard-total-products counter">penilaian Karyawan</h2>
-                <span class="label label-primary">Karyawan</span>Seluruh Outlet
+                <span>Penilaian Karyawan</span>
+                @if( $Outlet != null )
+                <h2 class="dashboard-total-products counter">{{$Outlet->raport_karyawan->count()}}</h2>
+                @endif
+                <span class="label label-primary">Penilaian</span> Karyawan
                 <div class="side-box bg-primary">
                     <i class="icon-social-soundcloud"></i>
                 </div>

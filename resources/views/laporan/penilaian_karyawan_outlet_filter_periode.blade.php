@@ -14,9 +14,10 @@
         width:100%;
       }
          table, th, td{
+        border: 1px solid black;
       }
       th{
-        background-color: #708090;
+        background-color: #e6501e;
         text-align: center;
         color: white;
       }
@@ -62,6 +63,9 @@
          text-align: center;
          text-transform: uppercase;
      }
+     .text-center{
+         text-align:center;
+     }
     </style>
 </head>
 <body>
@@ -75,45 +79,47 @@
                 <p style="margin:0px;">Alamat : jl.lambung mangkurat no.19 kertak baru ilir ,kec.Banjarmasin tengah,kota Banjarmasin,kalimantan selatan 70111</p>
             </div>
             <br>
-            <br>
             <hr>
     </div>
+
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center; margin:5px;">PROFIL OUTLET </h2>
-            <br>
-            <table style="margin-bottom:20px;">
-                <tr>
-                    <td style="width:320px;  text-align: center;">
-                        <img style="width:100%; height:auto margin:auto;" src="images/outlet/{{$outlet->foto}}">
-                    </td>
-                    <td style="padding-left:20px !mportant; width:35%;">
-                        <h5>Nama Outlet</h5>
-                        <h5>Nomor Telepon </h5>
-                        <h5>Alamat </h5>
-                        <h5>Jumlah karyawan  </h5>
-                    </td>
-                    <td>
-                    <h5> : {{$outlet->user->name}}</h5>
-                    <h5> :{{$outlet->telepon}}</h5>
-                    <h5> :{{$outlet->alamat}}</h5>
-                    <h5> :{{$karyawan->count()}} Orang</h5>
-                    </td>
-                </tr>
-            </table>
-            <div class="ttd">
-                <h5 style="margin:1px; !important">
-                    Banjarbaru, {{$tgl}}
-                </h5>
-                <h5>Restaurant Outlet Manager</h5>
-                <br>
-                <br>
-                <h5 style="text-decoration:underline;">Muhammad zaini </h5>
-                <h5>NIK. 122113412</h5>
-            </div>
-        </div>
-
-    </div>
-
+            <h2 style="text-align:center;">DATA PENILAIAN KARYAWAN OUTLET {{$outlet->user->name}} FILTER PERIODE</h2>
+            <table class="table table-hover" id="myTable">
+                        <thead>
+                        <tr>
+                            <th class="text-center">No</th>
+                                <th>Kode Karyawan</th>
+                                <th>Nama Karyawan</th>
+                                <th>Kepribadian dan Prilaku</th>
+                                <th>Prestasi Hasil Kerja</th>
+                                <th>Periode</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no = 1 ?>
+                            @foreach($raport_karyawan as $d)
+                            <tr>
+                                <td>{{$no++}}</td>
+                                <td>{{$d->karyawan->kode_karyawan}}</td>
+                                <td>{{$d->karyawan->nama}}</td>
+                                <td>{{$d->kepribadian}}</td>
+                                <td>{{$d->prestasi}}</td>
+                                <td>{{$d->created_at->format('F Y')}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                      <br>
+                      <br>
+                      <div class="ttd">
+                        <h5> <p>{{$tgl}}</p></h5>
+                      <h5>pimpinan</h5>
+                      <br>
+                      <br>
+                      <h5 style="text-decoration:underline;">nama pimpinan</h5>
+                      </div>
+                    </div>
+             </div>
          </body>
 </html>

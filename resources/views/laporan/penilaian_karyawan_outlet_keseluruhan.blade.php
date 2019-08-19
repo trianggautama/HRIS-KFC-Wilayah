@@ -14,10 +14,10 @@
         width:100%;
       }
          table, th, td{
-        border: 1px solid #708090;
+        border: 1px solid black;
       }
       th{
-        background-color: #708090;
+        background-color: #e6501e;
         text-align: center;
         color: white;
       }
@@ -63,12 +63,15 @@
          text-align: center;
          text-transform: uppercase;
      }
+     .text-center{
+         text-align:center;
+     }
     </style>
 </head>
 <body>
     <div class="header">
             <div class="logo">
-                    <img  class="pemko" src="{{asset('images/kfc_logo.png')}}"  >
+                    <img  class="pemko" src="images/kfc_logo.png"  >
             </div>
             <div class="headtext">
                 <h3 style="margin:0px;">KFC WILAYAH </h3>
@@ -81,32 +84,36 @@
 
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA KARYAWAN KFC PADA KECAMATAN (NAMA KECAMATAN)</h2>
+            <h2 style="text-align:center;">DATA PENILAIAN KARYAWAN OUTLET {{$outlet->user->name}}</h2>
             <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
-                            <th>No</th>
+                            <th class="text-center">No</th>
                                 <th>Kode Karyawan</th>
                                 <th>Nama Karyawan</th>
-                                <th>Outlet</th>
-                                <th>Jabatan</th>
+                                <th>Kepribadian dan Prilaku</th>
+                                <th>Prestasi Hasil Kerja</th>
+                                <th>Periode</th>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $no = 0 ?>
+                            <?php $no = 1 ?>
+                            @foreach($raport_karyawan as $d)
                             <tr>
-                                <td>1</td>
-                                <td>RT1234H</td>
-                                <td>Bejo Wahyuni</td>
-                                <td>KFC QMALL BANJARBARU</td>
-                                <td>Waiter</td>
+                                <td>{{$no++}}</td>
+                                <td>{{$d->karyawan->kode_karyawan}}</td>
+                                <td>{{$d->karyawan->nama}}</td>
+                                <td>{{$d->kepribadian}}</td>
+                                <td>{{$d->prestasi}}</td>
+                                <td>{{$d->created_at->format('F Y')}}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                       <br>
                       <br>
                       <div class="ttd">
-                        <h5> <p>Banjarbaru, tanggal bulan 2019</p></h5>
+                        <h5> <p>{{$tgl}}</p></h5>
                       <h5>pimpinan</h5>
                       <br>
                       <br>

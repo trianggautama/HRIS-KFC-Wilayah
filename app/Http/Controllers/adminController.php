@@ -10,12 +10,12 @@ use App\Kelurahan;
 use App\kabupatenkota;
 use App\object_penilaian;
 use App\raport_outlet;
+use App\raport_karyawan;
 
-use Carbon\Carbon;
 use Hash;
 use IDCrypt;
 use PDF;
-
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 
@@ -23,8 +23,11 @@ class adminController extends Controller
 {
 
     public function index(){
-
-        return view('admin.index');
+        $outlet = Outlet::all();
+        $karyawan = Karyawan::all();
+        $raport_outlet = Raport_outlet::all();
+        $raport_karyawan = Raport_karyawan::all();
+        return view('admin.index',compact('outlet','karyawan','raport_karyawan','raport_outlet'));
     }
 
     //Outlet
@@ -39,7 +42,7 @@ class adminController extends Controller
         $Outlet = Outlet::findOrFail($id);
         $Karyawan = Karyawan::where('outlet_id',$id)->get();
         $raport_outlet= raport_outlet::where('outlet_id',$id)->get();
-        $kelurahan = kelurahan::find($Outlet->kelurahan_id)->first();
+        $kelurahan = Kelurahan::all();
         // dd($kelurahan);
         return view('admin.outlet_detail',compact('Outlet','Karyawan','kelurahan','raport_outlet'));
     }
@@ -47,7 +50,7 @@ class adminController extends Controller
     public function outlet_update(Request $request, $id){
         $id = IDCrypt::Decrypt($id);
         $Outlet = Outlet::findOrFail($id);
-        $User = User::find($Outlet->id_user);
+        $User = User::find($Outlet->user_id);
 
         //  $this->validate(request(),[
         //     'kode_rambu'=>'required',
@@ -56,19 +59,19 @@ class adminController extends Controller
         // ]);
         $User->name     = $request->name;
         $User->email    = $request->email;
+        if($request->password != null){
         $Password       = Hash::make($request->password);
         $User->password = $Password;
-
-        if($request->gambar != null){
-        $FotoExt  = $request->gambar->getClientOriginalExtension();
+        }
+        if($request->foto != null){
+        $FotoExt  = $request->foto->getClientOriginalExtension();
         $FotoName = $request->id_user.' - '.$request->name;
         $gambar   = $FotoName.'.'.$FotoExt;
-        $request->gambar->move('images/outlet', $gambar);
-        $Outlet->gambar       = $gambar;
+        $request->foto->move('images/outlet', $gambar);
+        $Outlet->foto       = $gambar;
         }
 
-        $kecamatan = 1;
-        $Outlet->id_kecamatan = $kecamatan;
+        $Outlet->kelurahan_id = $request->kelurahan_id;
         $Outlet->alamat       = $request->alamat;
         $Outlet->telepon      = $request->telepon;
 
@@ -84,6 +87,11 @@ class adminController extends Controller
         $Outlet->delete();
 
         return redirect(route('outlet_index'))->with('success', 'Data outlet berhasil di hapus');
+    }//fungsi menghapus data outlet
+
+    public function outlet_filter(){
+    $kabupatenkota=kabupatenkota::all();
+    return view('admin.outlet_filter',compact('kabupatenkota')); 
     }//fungsi menghapus data outlet
 
       //kabupatenkota
@@ -275,7 +283,7 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $Kelurahan=Kelurahan::findOrFail($id);
         $Kelurahan->delete();
-        return redirect(route('kelurahan_index'));
+        return redirect(route('kelurahan_index'))->with('success', 'Data  Berhasil di Hapus');
     }
 
      //jabatan
@@ -314,8 +322,9 @@ class adminController extends Controller
 
     public function jabatan_detail($id){
         $id = IDCrypt::Decrypt($id);
+        $jabatan= Jabatan::findOrFail($id);
         $Karyawan = Karyawan::where('jabatan_id',$id)->get();
-        return view('admin.jabatan_detail',compact('Karyawan'));
+        return view('admin.jabatan_detail',compact('Karyawan','jabatan'));
     }//fungsi jabatan edit
 
     public function jabatan_edit($id){
@@ -331,11 +340,13 @@ class adminController extends Controller
        $this->validate(request(),[
         'kode_jabatan'=>'required',
         'jabatan'=>'required',
-        'tugas'=>'required'
+        'tugas'=>'required',
+        'gajih'=>'required'
       ]);
            $Jabatan->kode_jabatan= $request->kode_jabatan;
            $Jabatan->jabatan= $request->jabatan;
            $Jabatan->tugas= $request->tugas;
+           $Jabatan->gajih= $request->gajih;
            $Jabatan->update();
              return redirect(route('jabatan_index'))->with('success', 'Data  Berhasil di Ubah');
      }//fungsi jabatan update
@@ -358,8 +369,23 @@ class adminController extends Controller
         public function karyawan_detail($id){
             $id = IDCrypt::Decrypt($id);
             $Karyawan = Karyawan::findOrFail($id);
-            return view('admin.karyawan_detail',compact('Karyawan'));
+            $raport_karyawan = raport_karyawan::where('karyawan_id',$id)->get();
+            $jabatan= Jabatan::all();
+            return view('admin.karyawan_detail',compact('Karyawan','jabatan','raport_karyawan'));
         }
+
+        
+        public function karyawan_filter(){
+          $outlet= Outlet::all();
+          return view('admin.karyawan_filter',compact('outlet'));
+      }
+
+      public function karyawan_hapus($id){
+        $id = IDCrypt::Decrypt($id);
+        $Karyawan = Karyawan::findOrFail($id);
+        $Karyawan->delete();
+        return redirect(route('karyawan_index'))->with('success', 'Data  Berhasil di Hapus');
+      }
 
       //object Penilaian
       public function object_penilaian_index(){
@@ -370,11 +396,9 @@ class adminController extends Controller
       public function object_penilaian_tambah(Request $request){
         $this->validate(request(),[
             'object'=>'required',
-            'status'=>'required'
           ]);
           $object_penilaian = new object_penilaian;
           $object_penilaian->object= $request->object;
-          $object_penilaian->status= $request->status;
           $object_penilaian->save();       
           return redirect(route('object_penilaian_index'))->with('success', 'Data  Berhasil di simpan');
         }
@@ -412,20 +436,49 @@ class adminController extends Controller
 
       public function penilaian_outlet_tambah(){
         $outlet = Outlet::all();
-        $object_penilaian =object_penilaian::where('status',1)->get();
-        return view('admin.penilaian_outlet_tambah',compact('object_penilaian','outlet'));
+        return view('admin.penilaian_outlet_tambah',compact('outlet'));
     }
     public function penilaian_outlet_store(Request $request){
-      $collection = collect($request);
-      $pembagi = $collection->count();
-      $pembagi = $pembagi - 3;
-      $average = collect($request)->sum();
-      $nilai  = $average/$pembagi;
+     // dd($request->lokal_standard_1);
+      if ($request->lokal_standard_3 >= 1 || $request->lokal_standard_2 >= 3){
+        $lokal_standard = 1 ; //underperform
+      }elseif( $request->lokal_standard_2 >=1 || $request->lokal_standard_1>= 5){
+        $lokal_standard = 2 ; //underperform
+      }elseif($request->lokal_standard_1 <= 5){
+        $lokal_standard = 3 ; //underperform
+      }else{
+        $lokal_standard = 3 ; //underperform
+      }
+
+      if ($request->brand_standard_3 >= 1 || $request->brand_standard_2 >= 4 || $request->brand_standard_1 >= 15){
+        $brand_standard = 1 ; //underperform
+      }elseif($request->brand_standard_2 >=2 && $request->brand_standard_2 <= 3||$request->brand_standard_1 >= 10 && $request->brand_standard_1 <= 14){
+        $brand_standard = 2 ; //
+      }elseif($request->brand_standard_2 <= 1 || $request->brand_standard_1 < 10){
+        $brand_standard = 3 ; //underperform
+      }else{
+        $brand_standard = 3 ; //underperform
+      }
+
+      if ($request->food_safety_3 >= 1 || $request->food_safety_1 >= 10){
+        $food_safety = 1 ; //underperform
+      }elseif($request->food_safety_3 <= 0 || $request->food_safety_1 < 10){
+        $food_safety = 3 ; //underperform
+      }else{
+        $food_safety = 3 ; //underperform
+      }
+
+      //  dd([$lokal_standard,$brand_standard,$food_safety]);
       $this->validate(request(),[
         'outlet_id'=>'required'
       ]);
       $raport_outlet = new raport_outlet;
-      $raport_outlet->nilai= $nilai;
+      $raport_outlet->local_standard= $lokal_standard;
+      $raport_outlet->brand_standard= $brand_standard;
+      $raport_outlet->food_safety= $food_safety;
+      $raport_outlet->keterangan_lokal_standard= $request->keterangan_lokal_standard;
+      $raport_outlet->keterangan_brand_standard= $request->keterangan_brand_standard;
+      $raport_outlet->keterangan_food_safety= $request->keterangan_food_safety;
       $raport_outlet->outlet_id= $request->outlet_id;
       $raport_outlet->save();   
       return redirect(route('penilaian_outlet_index'))->with('success', 'Data  Berhasil di tambah');
@@ -437,9 +490,15 @@ class adminController extends Controller
   }
 
   public function penilaian_outlet_filter_outlet(){
-
-    return view('admin.penilaian_outlet_outlet');
+    $outlet = Outlet::all();
+    return view('admin.penilaian_outlet_outlet',compact('outlet'));
 }
+    public function penilaian_outlet_detail($id){
+      $id = IDCrypt::Decrypt($id);
+      $raport_outlet = raport_outlet::findOrFail($id);
+      //dd($raport_outlet);
+      return view('admin.penilaian_outlet_detail',compact('raport_outlet'));
+      }
   
     public function penilaian_outlet_hapus($id){
       $id = IDCrypt::Decrypt($id);
@@ -450,18 +509,41 @@ class adminController extends Controller
 
     //penilaian karyawan
     public function penilaian_karyawan_index(){
+      $raport_karyawan = raport_karyawan::all();
+      return view('admin.penilaian_karyawan_data',compact('raport_karyawan'));
+    }
 
-      return view('admin.penilaian_karyawan_data');
-  }
+    public function penilaian_karyawan_filter_outlet(){
+      $outlet = Outlet::all();
+      return view('admin.penilaian_karyawan_filter_outlet',compact('outlet'));
+    }
+
+    public function penilaian_karyawan_filter_periode(){
+      return view('admin.penilaian_karyawan_filter_periode');
+    }
+
 
 
   //Fungsi Laporan
 
    //penilaian karyawan
-   public function cetak_outlet_keseluruhan(){
 
-    return view('laporan.outlet_keseluruhan');
-}
+
+  public function cetak_outlet_keseluruhan(){
+    $outlet = Outlet::all();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.outlet_keseluruhan', ['outlet' => $outlet,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Outlet Keseluruhan.pdf');
+  }
+
+  public function cetak_karyawan_keseluruhan(){
+    $karyawan = Karyawan::all();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.karyawan_keseluruhan', ['karyawan' => $karyawan,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Outlet Keseluruhan.pdf');
+  }
 
   public function outlet_profil_cetak($id){
     $id = IDCrypt::Decrypt($id);
@@ -469,8 +551,112 @@ class adminController extends Controller
     $karyawan = Karyawan::where('outlet_id', $id)->get();
     $tgl= Carbon::now()->format('d F Y');
     $pdf =PDF::loadView('laporan.profil_outlet', ['outlet' => $outlet,'karyawan'=>$karyawan,'tgl'=>$tgl]);
-    $pdf->setPaper('a4', 'potrait');
+    $pdf->setPaper('a4', 'landscape');
     return $pdf->stream('Profil Outlet.pdf');
-}
+  }
+
+  public function cetak_jabatan_keseluruhan(){
+    $jabatan = Jabatan::all();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.jabatan_keseluruhan', ['jabatan' => $jabatan,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Jabatan Keseluruhan.pdf');
+  }
+
+  public function cetak_jabatan_detail($id){
+    $id = IDCrypt::Decrypt($id);
+    $jabatan = Jabatan::findOrFail($id);
+    $karyawan = Karyawan::where('jabatan_id',$id)->get();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.jabatan_detail', ['karyawan' => $karyawan,'jabatan'=>$jabatan,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Jabatan Detail.pdf');
+  }
+
+  public function cetak_objek_penilaian(){
+    $object_penilaian = Object_penilaian::all();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.object_penilaian', ['object_penilaian' => $object_penilaian,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Objek penilaian.pdf');
+  }
+
+  public function cetak_penilaian_outlet_keseluruhan(){
+    $raport_outlet = Raport_outlet::all();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.penilaian_outlet_keseluruhan', ['raport_outlet' => $raport_outlet,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Penilaian Outlet Keseluruhan.pdf');
+  }
+  
+
+  public function cetak_penilaian_outlet_filter_outlet( Request $request){
+    $raport_outlet = Raport_outlet::where('outlet_id',$request->outlet_id)->get();
+    $outlet = Outlet::findOrFail($request->outlet_id);
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.penilaian_outlet_filter_outlet', ['raport_outlet' => $raport_outlet,'outlet'=>$outlet,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Penilaian Outlet Filter Outlet.pdf');
+  }
+
+  public function cetak_penilaian_outlet_filter_periode( Request $request){
+    $raport_outlet = Raport_outlet::whereBetween('created_at', [$request->tanggal_awal, $request->tanggal_akhir])->get();
+    $tgl= Carbon::now()->format('d F Y');
+    $bulan = $request->tanggal_awal;
+    $pdf =PDF::loadView('laporan.penilaian_outlet_filter_periode', ['bulan' => $bulan, 'raport_outlet' => $raport_outlet,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Penilaian Outlet Filter Periode.pdf');
+  }
+
+  public function penilaian_karyawan_cetak(){
+    $raport_karyawan = raport_karyawan::all();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.penilaian_karyawan_keseluruhan', ['raport_karyawan' => $raport_karyawan,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Penilaian Karyawan Keseluruhan.pdf');
+  }
+
+  public function cetak_penilaian_karyawan_filter_outlet(Request $request){
+    $outlet = Outlet::findOrFail($request->outlet_id);
+    $raport_karyawan = raport_karyawan::where('outlet_id',$request->outlet_id)->get();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.penilaian_karyawan_outlet_keseluruhan', ['outlet' => $outlet,'raport_karyawan' => $raport_karyawan,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Penilaian Karyawan Per Outlet.pdf');
+  }
+
+  public function cetak_penilaian_karyawan_filter_periode(Request $request){
+    $raport_karyawan = raport_karyawan::whereBetween('created_at', [$request->tanggal_awal, $request->tanggal_akhir])->get();
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.penilaian_karyawan_periode', ['raport_karyawan' => $raport_karyawan,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Penilaian Karyawan per Periode.pdf');
+  }
+
+  public function cetak_karyawan_filter(Request $request){
+    $karyawan = Karyawan::where('outlet_id',$request->outlet_id)->get();
+    $outlet = outlet::findOrFail($request->outlet_id);
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.karyawan_outlet', ['outlet'=>$outlet,'karyawan' => $karyawan,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Karyawan Filter.pdf');
+  }
+
+  public function cetak_outlet_filter(Request $request){
+    $kabupatenkota = kabupatenkota::findOrFail($request->kabupatenkota_id);
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.outlet_filter', ['kabupatenkota'=>$kabupatenkota,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+    return $pdf->stream('Laporan Outlet Filter.pdf');
+  }
+
+  public function cetak_profil_karyawan($id){
+    $id = IDCrypt::Decrypt($id);
+    $Karyawan = Karyawan::findOrFail($id);
+    $tgl= Carbon::now()->format('d F Y');
+    $pdf =PDF::loadView('laporan.profil_karyawan', ['Karyawan'=>$Karyawan,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'landscape');
+    return $pdf->stream('Profil Karyawan.pdf');
+  }
 
 }

@@ -63,7 +63,6 @@
          text-align: center;
          text-transform: uppercase;
      }
-
      .text-center{
          text-align:center;
      }
@@ -85,30 +84,30 @@
 
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA KARYAWAN PADA OUTLET {{$outlet->user->name}}</h2>
+            <h2 style="text-align:center;">DATA PENILAIAN KARYAWAN KESELURUHAN  FILTER PERIODE</h2>
             <table class="table table-hover" id="myTable">
                         <thead>
                         <tr>
-                            <th>No</th>
+                                <th class="text-center">No</th>
+                                <th>Outlet</th>
                                 <th class="text-center">Kode Karyawan</th>
                                 <th>Nama Karyawan</th>
-                                <th class="text-center">Jabatan</th>
-                                <th class="text-center">Status Pegawai</th>
+                                <th>Kepribadian dan Prilaku</th>
+                                <th>Prestasi Hasil Kerja</th>
+                                <th>Periode</th>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $no = 1 ?>
-                        @foreach($karyawan as $d)
+                            <?php $no = 1 ?>
+                            @foreach($raport_karyawan as $d)
                             <tr>
-                                <td class="text-center">{{$no++}}</td>
-                                <td class="text-center">{{$d->kode_karyawan}}</td>
-                                <td>{{$d->nama}}</td>
-                                <td>{{$d->jabatan->jabatan}}</td>
-                                @if($d->status_pkwt == 1)
-                                <td class="text-center"> Tetap</td>
-                                @else
-                                <td class="text-center"> Tidak Tetap</td>
-                                @endif
+                                <td>{{$no++}}</td>
+                                <td>{{$d->outlet->user->name}}</td>
+                                <td>{{$d->karyawan->kode_karyawan}}</td>
+                                <td>{{$d->karyawan->nama}}</td>
+                                <td>{{$d->kepribadian}}</td>
+                                <td>{{$d->prestasi}}</td>
+                                <td>{{$d->created_at->format('F Y')}}</td>
                             </tr>
                             @endforeach
                         </tbody>

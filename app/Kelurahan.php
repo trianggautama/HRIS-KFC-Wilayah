@@ -14,4 +14,7 @@ class Kelurahan extends Model
     public function kecamatan(){
         return $this->belongsTo('App\Kecamatan');
     }
+    public function outlet(){
+        return $this->hasMany('App\Outlet');
+    }
 }

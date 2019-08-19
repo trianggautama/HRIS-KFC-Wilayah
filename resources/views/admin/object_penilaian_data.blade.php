@@ -8,11 +8,11 @@
     </div>
     <div class="card">
         <div class="card-header ">
-            <h4>Data Raport Outlet</h4>
+            <h4>Object Penilaian Karyawan</h4>
             <div class="text-right">
-            <a class="btn btn-inverse-primary right" href="" data-toggle="modal"
+            <a class="btn btn-primary right" href="" data-toggle="modal"
                     data-target="#exampleModalCenter"><i class="icofont icofont-ui-add"></i> tambah data</a>
-                <a class="btn btn-inverse-success" href=""><i class="icon-printer"></i> cetak data</a>
+                <a class="btn btn-success" href="{{Route('cetak_objek_penilaian')}}"><i class="icon-printer"></i> cetak data</a>
             </div>
         </div>
         <div class="card-block">
@@ -24,7 +24,6 @@
                             <tr>
                                 <th>No</th>
                                 <th  class="text-center">Objek</th>
-                                <th  class="text-center">Status</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -34,15 +33,9 @@
                             <tr>
                                 <td>{{$no++}}</td>
                                 <td  class="text-center">{{$d->object}}</td>
-                                <td  class="text-center">@if($d->status == 1)
-                                <label class="label bg-primary">Penilaian Outlet</label>
-                                @else
-                            <label class="label bg-success">Penilaian Karyawan</label>
-                                @endif
-                                </td>
                                 <td class="text-center">
-                                    <a href="{{route('object_penilaian_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-primary"> edit</a>
-                                    <a href="{{route('object_penilaian_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-inverse-danger"> hapus</a>
+                                    <a href="{{route('object_penilaian_edit', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-primary" > edit</a>
+                                    <a href="{{route('object_penilaian_hapus', ['id' => IDCrypt::Encrypt( $d->id)])}}" class="btn btn-danger"> hapus</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -68,14 +61,6 @@
             </div>
             <div class="modal-body">
                 <form method="post" action="">
-                <div class="md-input-wrapper">
-                        <select class="md-form-control" name="status">
-                            <option>Pilih penilaian</option>
-                            <option value="1">Penilaian Outlet </option>
-                            <option value="2">Penilaian Karyawan </option>
-
-                        </select>
-                    </div>
                     <div class="md-input-wrapper">
                         <input type="text" class="md-form-control md-static" name="object" />
                         <label>Object Penilaian</label>

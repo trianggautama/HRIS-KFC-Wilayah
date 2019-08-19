@@ -14,10 +14,10 @@
         width:100%;
       }
          table, th, td{
-        border: 1px solid #708090;
+        border: 1px solid black;
       }
       th{
-        background-color: #708090;
+        background-color: #e6501e;
         text-align: center;
         color: white;
       }
@@ -63,12 +63,15 @@
          text-align: center;
          text-transform: uppercase;
      }
+     .text-center{
+         text-align:center;
+     }
     </style>
 </head>
 <body>
     <div class="header">
             <div class="logo">
-                    <img  class="pemko" src="{{asset('images/kfc_logo.png')}}"  >
+                    <img  class="pemko" src="images/kfc_logo.png"  >
             </div>
             <div class="headtext">
                 <h3 style="margin:0px;">KFC WILAYAH </h3>
@@ -78,32 +81,63 @@
             <br>
             <hr>
     </div>
+
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA OUTLET KFC PADA KECAMATAN (NAMA KECAMATAN),(NAMA KABUPATEN KOTA)</h2>
+            <h2 style="text-align:center;">DATA PENILAIAN OUTLET KESELURUHAN</h2>
             <table class="table table-hover" id="myTable">
                         <thead>
-                        <tr>
-                            <th>No</th>
+                            <tr>
+                                <th>No</th>
                                 <th>Nama Outlet</th>
-                                <th>Alamat</th>
-                                <th>No Tlp</th>
+                                <th>Local Standard</th>
+                                <th>Brand Standard</th>
+                                <th>Food Safety</th>
+                                <th>Periode</th>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php $no = 0 ?>
+                            <?php $no = 1 ?>
+                            @foreach($raport_outlet as $d)
                             <tr>
-                                <td>1</td>
-                                <td>KFC Banjarbaru</td>
-                                <td>Jl.Ayani km.36 Kelurahan mentaos, kecamatan banjarbaru utara banjarbaru</td>
-                                <td>0511500123</td>
+                                <td>{{$no++}}</td>
+                                <td>{{$d->outlet->user->name}}</td>
+                                <td>
+                                @if($d->local_standard == 1 )
+                                <span class="label label-danger">Underperform</span>
+                                @elseif($d->local_standard == 2)
+                                <span class="label label-warning">Marginal</span>
+                                @else
+                                <span class="label label-primary"> at Standard</span>
+                                @endif
+                                </td>
+                                <td>
+                                @if($d->brand_standard == 1 )
+                                <span class="label label-danger">Underperform</span>
+                                @elseif($d->brand_standard == 2)
+                                <span class="label label-warning">Marginal</span>
+                                @else
+                                <span class="label label-primary"> at Standard</span>
+                                @endif
+                                </td>
+                                <td>
+                                @if($d->food_safety == 1 )
+                                <span class="label label-danger">Underperform</span>
+                                @elseif($d->food_safety == 2)
+                                <span class="label label-warning">Marginal</span>
+                                @else
+                                <span class="label label-primary"> at Standard</span>
+                                @endif
+                                </td>
+                                <td>{{$d->created_at->format('F Y')}}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                       <br>
                       <br>
                       <div class="ttd">
-                        <h5> <p>Banjarbaru, tanggal bulan 2019</p></h5>
+                        <h5> <p>{{$tgl}}</p></h5>
                       <h5>pimpinan</h5>
                       <br>
                       <br>
