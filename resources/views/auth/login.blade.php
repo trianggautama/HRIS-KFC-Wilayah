@@ -20,9 +20,7 @@
                             class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}  md-form-control md-static"
                             name="email" value="{{ old('email') }}" required autofocus>
                         @if ($errors->has('email'))
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
+                            <p class="text-danger">{{ $errors->first('email') }}</p>
                         @endif
                         <label>Email</label>
                     </div>
@@ -32,9 +30,7 @@
                             name="password" required>
 
                         @if ($errors->has('password'))
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
+                            <p class="text-danger">{{ $errors->first('password') }}</p>
                         @endif
                         <label>Password</label>
                     </div>

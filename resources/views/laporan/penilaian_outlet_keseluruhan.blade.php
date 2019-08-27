@@ -90,10 +90,10 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Outlet</th>
-                                <th>Local Standard</th>
-                                <th>Brand Standard</th>
-                                <th>Food Safety</th>
-                                <th>Periode</th>
+                                <th class="text-center">Local Standard</th>
+                                <th class="text-center">Brand Standard</th>
+                                <th class="text-center">Food Safety</th>
+                                <th class="text-center">Periode</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -102,7 +102,7 @@
                             <tr>
                                 <td>{{$no++}}</td>
                                 <td>{{$d->outlet->user->name}}</td>
-                                <td>
+                                <td class="text-center">
                                 @if($d->local_standard == 1 )
                                 <span class="label label-danger">Underperform</span>
                                 @elseif($d->local_standard == 2)
@@ -111,7 +111,7 @@
                                 <span class="label label-primary"> at Standard</span>
                                 @endif
                                 </td>
-                                <td>
+                                <td class="text-center">
                                 @if($d->brand_standard == 1 )
                                 <span class="label label-danger">Underperform</span>
                                 @elseif($d->brand_standard == 2)
@@ -120,7 +120,7 @@
                                 <span class="label label-primary"> at Standard</span>
                                 @endif
                                 </td>
-                                <td>
+                                <td class="text-center">
                                 @if($d->food_safety == 1 )
                                 <span class="label label-danger">Underperform</span>
                                 @elseif($d->food_safety == 2)
@@ -129,7 +129,7 @@
                                 <span class="label label-primary"> at Standard</span>
                                 @endif
                                 </td>
-                                <td>{{$d->created_at->format('F Y')}}</td>
+                                <td class="text-center">{{$d->created_at->format('F Y')}}</td>
                             </tr>
                             @endforeach
                         </tbody>

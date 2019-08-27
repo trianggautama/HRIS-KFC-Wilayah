@@ -69,7 +69,7 @@ class outletController extends Controller
 
         $outlet->save();
         $user->save();
-          return redirect(route('admin_outlet_index'))->with('success', 'Data outlet '.$outlet->user->name.' Berhasil di Tambahkan');
+        return redirect(route('admin_outlet_tambah'))->with('success', 'Data outlet '.$outlet->user->name.' Berhasil di Tambahkan');
       }//fungsi menambahkan data outlet
 
       public function outlet_update(Request $request, $id){

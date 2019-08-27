@@ -16,7 +16,13 @@ class CreateRaportOutletsTable extends Migration
         Schema::create('raport_outlets', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedbigInteger('outlet_id');
-            $table->integer('nilai')->length(5);
+            $table->integer('brand_standard')->length(11);
+            $table->integer('food_safety')->length(11);
+            $table->integer('local_standard')->length(11);
+            $table->text('keterangan_lokal_standard');
+            $table->text('keterangan_brand_standard');
+            $table->text('keterangan_food_safety');
+
             $table->foreign('outlet_id')->references('id')->on('outlets')->onDelete('cascade');
             $table->timestamps();
         });

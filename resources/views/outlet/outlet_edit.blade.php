@@ -19,6 +19,7 @@
                         {{method_field('PUT') }}
                             {{ csrf_field() }}
                 <div class="card-block">
+                @include('layouts.alert')
                 <div class="form-group row">
                         <div class="col-md-2"><label for="InputNormal" class="form-control-label">Alamat</label></div>
                         <div class="col-md-10"><textarea name="alamat" id="" class="form-control">{{ $outlet_datas->alamat }}</textarea></div>

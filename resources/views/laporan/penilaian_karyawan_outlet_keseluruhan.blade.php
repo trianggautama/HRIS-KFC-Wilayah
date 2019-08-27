@@ -89,23 +89,23 @@
                         <thead>
                         <tr>
                             <th class="text-center">No</th>
-                                <th>Kode Karyawan</th>
+                                <th class="text-center">Kode Karyawan</th>
                                 <th>Nama Karyawan</th>
-                                <th>Kepribadian dan Prilaku</th>
-                                <th>Prestasi Hasil Kerja</th>
-                                <th>Periode</th>
+                                <th class="text-center">Kepribadian dan Prilaku</th>
+                                <th class="text-center">Prestasi Hasil Kerja</th>
+                                <th class="text-center">Periode</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no = 1 ?>
                             @foreach($raport_karyawan as $d)
                             <tr>
-                                <td>{{$no++}}</td>
-                                <td>{{$d->karyawan->kode_karyawan}}</td>
+                                <td class="text-center">{{$no++}}</td>
+                                <td class="text-center">{{$d->karyawan->kode_karyawan}}</td>
                                 <td>{{$d->karyawan->nama}}</td>
-                                <td>{{$d->kepribadian}}</td>
-                                <td>{{$d->prestasi}}</td>
-                                <td>{{$d->created_at->format('F Y')}}</td>
+                                <td class="text-center">{{$d->kepribadian}}</td>
+                                <td class="text-center">{{$d->prestasi}}</td>
+                                <td class="text-center">{{$d->created_at->format('F Y')}}</td>
                             </tr>
                             @endforeach
                         </tbody>
