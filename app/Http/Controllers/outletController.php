@@ -173,7 +173,7 @@ class outletController extends Controller
         //dd($request);
         $id = IDCrypt::Decrypt($id);
         $karyawan = Karyawan::findOrFail($id);
- 
+        //dd($request->status_kawin);
         $karyawan->jabatan_id            = $request->jabatan_id;
         $karyawan->kode_karyawan         = $karyawan->kode_karyawan;
         $karyawan->nama                  = $request->nama;

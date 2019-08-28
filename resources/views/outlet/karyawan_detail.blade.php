@@ -28,7 +28,7 @@
                 <div class="card-block text-center">
                     <h4 class="f-18 f-normal m-b-10 txt-primary">{{$Karyawan->nama}}</h4>
                     <h5 class="f-14">{{$Karyawan->jabatan->jabatan}}</h5>
-                    <a href="{{route('cetak_profil_karyawan',['id' => IDCrypt::Encrypt( $Karyawan->id)])}}" class="btn btn-block btn-primary">Cetak Profil</a>
+                    <a href="{{route('cetak_profil_karyawan_outlet',['id' => IDCrypt::Encrypt( $Karyawan->id)])}}" class="btn btn-block btn-primary">Cetak Profil</a>
                 </div>
             </div>
             <!-- end of card-block -->
@@ -192,14 +192,14 @@
                                             <div class="form-check">
                                                 <label for="optionsRadios1" class="form-check-label">
                                                     <input type="radio" class="form-check-input" name="status_kawin"
-                                                        id="optionsRadios3" value="1" {{ ($Karyawan->status_kawin == "2")? "checked" : "" }}>
+                                                        id="optionsRadios3" value="2" {{ ($Karyawan->status_kawin == "2")? "checked" : "" }}>
                                                     Belum Menikah
                                                 </label>
                                             </div>
                                             <div class="form-check">
                                                 <label for="optionsRadios2" class="form-check-label">
                                                     <input type="radio" class="form-check-input" name="status_kawin"
-                                                        id="optionsRadios4" value="2" {{ ($Karyawan->status_kawin == "1")? "checked" : "" }}>
+                                                        id="optionsRadios4" value="1" {{ ($Karyawan->status_kawin == "1")? "checked" : "" }}>
                                                     Sudah Menikah
                                                 </label>
                                             </div>

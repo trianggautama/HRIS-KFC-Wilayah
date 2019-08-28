@@ -179,6 +179,8 @@ Route::get('/karyawan/hapus/{id}','outletController@karyawan_hapus')
 ->name('karyawan_outlet_hapus');
 Route::get('/karyawan/outlet/cetak','outletController@karyawan_outlet_cetak')
 ->name('karyawan_outlet_cetak');
+Route::get('karyawan/cetak/profil/outlet/{id}','adminController@cetak_profil_karyawan')
+->name('cetak_profil_karyawan_outlet');
 
 Route::get('outlet/penilaian_outlet','outletController@penilaian_outlet_index')
 ->name('outlet_penilaian_outlet_index');
